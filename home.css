@@ -1,0 +1,111 @@
+/* Style all font awesome icons */
+.fa {
+    font-size: 30px;
+    width: 40px;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+.footer-top {
+    color: #ffffff;
+    background-color: #29877E; 
+}
+.footer-bottom {
+    color: #ffffff;
+    background-color: #46C2B6; 
+}
+
+.footer__privacy-policy {
+    font-size: .8rem;
+    color: #000000;
+}
+
+.footer__copyright {
+    font-size: .7rem;
+}
+
+.hero-image {
+    width: 100%;
+    height: 150px;
+    background-color: #F0EBEB;
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/volunteers-serving-healthy-hot-meal-at-soup-kitchen-royalty-free-image-1599593367.jpg"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-text {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    color: #ffffff;
+  }
+
+
+.home-intro__title {
+    color: #46C2B6;   
+    font-size: 1.6rem;
+}
+
+.navbar__current-page {
+    color: #46C2B6;   
+    font-weight: 700;
+}
+
+.navbar__login-button {
+    background-color: #46C2B6; 
+    color: #ffffff;
+    width: 120px;
+}
+
+.navbar__search {
+    background-color: #F0EBEB;
+}
+
+.section--grey {
+    background-color: #F0EBEB;
+}
+
+.section__header {
+    font-size: 1.3rem;
+}
+
+.stats__circle {
+    justify-content: center; 
+    display: flex; 
+}
+
+.testimonial {
+    font-size: 0.8rem;
+}
+
+.testimonial__name {
+    font-style: italic;
+    float: right;
+}
+
+.volunteer-requests__button {
+    background-color: #46C2B6; 
+    color: #ffffff;
+}
+
+.volunteer-requests__item {
+    background-color:  #F0EBEB;
+}
+
+.volunteer-requests__location {
+    font-weight: 400;
+}
+
+.volunteer-requests__task {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
+
+.volunteer-requests__title {
+    color: #46C2B6;
+    font-weight: 500;
+    font-size: 1.5rem;
+}

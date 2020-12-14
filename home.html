@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <!-- Needs fixing to set colour for home page link -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img class="navbar__logo" src="images/logorecordadaback.png" alt="" width="50px" height="50px">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar__nav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar__nav">
+                <ul class="navbar-nav mr-auto mb-lg-0">
+                    <li class="nav-item">
+                        <div>
+                            <a class="nav-link active navbar__current-page" aria-current="page" href="#">Home</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">How can I help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Become a volunteer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Charities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+            <form class="form-inline my-2 my-md-0 p-2">
+                <!-- To Do -  add search icon  (fa-search) -->
+                <input class="form-control rounded-pill navbar__search" type="text" placeholder="Search">
+            </form>
+            <a class="btn navbar__login-button" href="#">Log in</a>
+        </nav>
+
+        <div class="hero-image mb-3">
+            <div class="container hero-text">
+                <h1>MAD Days</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="home-intro">
+            <div class="container p-4">
+                <h1 class="home-intro__title">Make a Difference Days</h1>
+                <p class="lead">
+                    Every year AO'ers can swap two desk days for volunteer work. Sometimes it's
+                    great to just roll up your sleeves, get stuck in and do something amazing - as long as your
+                    colleagues
+                    won't miss you too much! Select from the listed volunteer requests to book your day.
+                </p>
+            </div>
+        </section>
+
+        <section class="volunteer-requests">
+            <div class="container mb-3">
+                <h2 class="volunteer-requests__title mb-3">Volunteer opportunities</h2>
+                <div class="row row-cols-1 row-cols-md-3">
+                    <div class="col">
+                        <div class="card text-center mb-3 volunteer-requests__item">
+                            <img class="card-img-top mb-3" src="images/WrapPresents.jpg" alt="">
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="volunteer-requests__task">Wrap Presents</li>
+                                    <li class="volunteer-requests__location">Bolton - Derian House</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg rounded-pill volunteer-requests__button">See
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-center mb-3 volunteer-requests__item">
+                            <img class="card-img-top mb-3" src="images/WrapPresents.jpg" alt="">
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="volunteer-requests__task">Wrap Presents</li>
+                                    <li class="volunteer-requests__location">Bolton - Derian House</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg rounded-pill volunteer-requests__button">See
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-center mb-3 volunteer-requests__item">
+                            <img class="card-img-top mb-3" src="images/WrapPresents.jpg" alt="">
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="volunteer-requests__task">Wrap Presents</li>
+                                    <li class="volunteer-requests__location">Bolton - Derian House</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg rounded-pill volunteer-requests__button">See
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mb-4">
+                    <button type="button" class="btn btn-lg btn-block volunteer-requests__button">Click here for more
+                        volunteering opportunities</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container p-4 mb-3 section--grey">
+                <h3 class="section__header">Some numbers</h3>
+                <div class="row">
+                    <div class="col-sm stats__circle">
+                        <svg height="120" width="120">
+                            <style>
+                                .small {
+                                    font: normal 12px sans-serif;
+                                }
+
+                                .heavy {
+                                    font: bold 20px sans-serif;
+                                }
+                            </style>
+                            <circle cx="60" cy="60" r="50" fill="#C9C2C2" />
+                            <text text-anchor="middle" x="60" y="55" class="heavy">1200</text>
+                            <text text-anchor="middle" x="60" y="70" class="small">volunteers</text>
+                        </svg>
+                    </div>
+                    <div class="col-sm stats__circle">
+                        <svg height="120" width="120">
+                            <circle cx="60" cy="60" r="50" fill="#C9C2C2" />
+                            <text text-anchor="middle" x="60" y="55" class="heavy">25</text>
+                            <text text-anchor="middle" x="60" y="70" class="small">charities</text>
+                        </svg>
+                    </div>
+                    <div class="col-sm stats__circle">
+                        <svg height="120" width="120">
+                            <circle cx="60" cy="60" r="50" fill="#C9C2C2" />
+                            <text text-anchor="middle" x="60" y="55" class="heavy">3000</text>
+                            <text text-anchor="middle" x="60" y="70" class="small">helped</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container p-4 mb-3 section--grey">
+                <h3 class="section__header mb-3">What volunteers say</h3>
+                <div class=row>
+                    <div class="col-sm testimonial">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet sint quas quaerat vero
+                            possimus,qui, nesciunt amet mollitia odit expedita omnis voluptas vitae exercitationem eius
+                            odio
+                            error consectetur repudiandae nisi?</p>
+                        <p class="testimonial__name">A name, charity</p>
+                    </div>
+                    <div class="col-sm testimonial">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet sint quas quaerat vero
+                            possimus,qui, nesciunt amet mollitia odit expedita omnis voluptas vitae </p>
+                        <p class="testimonial__name">A name, charity</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top p-3">
+            <div class="container ml-3 p-3">
+                Connect with us
+                <div class="my-3">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom p-3">
+            <div class="container ml-3">
+                <div class="row">
+                    <div class="p-3">
+                        <img class="footer__logo" src="images/logorecordadaback.png" alt="" width="50px" height="50px">
+                    </div>
+                    <div class="p-2">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="footer__privacy-policy" href="#">Privacy policy</a>
+                            </li>
+                            <li class="footer__copyright">
+                                <small>Copyright 2020 Tech Returns. All rights reserved.</small>
+                            </li>
+                            <li class="footer__copyright">
+                                <small>Created by Back to the Future</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- bootstrap JS - reqd for collapsible navbar-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

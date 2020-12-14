@@ -8,6 +8,9 @@
   background-color: #46c2b6;
   color: #ffffff;
   width: 120px;
+  border: 0ch;
+  border-radius: 6px;
+  height: 2rem;
 }
 .form-settings {
   background-color: #f0ebeb;

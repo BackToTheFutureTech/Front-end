@@ -1,1 +1,1 @@
-# This Branch contains the Static version of our frontend
+# This Branch contains the static version of our frontend

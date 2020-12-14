@@ -10,7 +10,7 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/opportunity.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -82,67 +82,74 @@
     </header>
 
     <main>
-      <section class="home-intro">
-        <div class="container p-4">
-          <h1 class="home-intro__title">Make a Difference Days</h1>
-          <form class="form d-flex">
-            <div class="col">
-              <label for="name">
-                Opportunity Name
-                <input type="text" name="name" />
-              </label>
-              <label for="type">
-                Type
-                <select name="type">
-                  <option value="wrap">Wrap Presents</option>
-                  <option value="sort">Sort Clothes</option>
-                  <option value="garden">Gardening</option>
-                  <option value="other">Other Things</option>
-                </select>
-              </label>
-              <label for="number">
-                How many people will be needed
-                <input type="text" name="number" />
-              </label>
-              <label for="date">
-                When?
-                <input type="text" name="date" />
-              </label>
+      <section class="container p-">
+        <h1 class="home-intro__title">Create a volunteering opportunity</h1>
+        <form class="form mt-5 mb-4">
+          <div class="container-fluid form-settings">
+            <div class="row d-flex justify-content-between">
+              <div class="col-sm form-column">
+                <label for="name">
+                  Opportunity Name
+                  <input
+                    class="form-control rounded-pill form-input"
+                    type="text"
+                    name="name"
+                  />
+                </label>
+                <label for="type">
+                  Type
+                    <select name="type" class="form-control rounded-pill form-input">
+                    <option value="wrap">Wrap Presents</option>
+                    <option value="sort">Sort Clothes</option>
+                    <option value="garden">Gardening</option>
+                    <option value="other">Other Things</option>
+                  </select>
+                </label>
+                <label for="number">
+                  How many people will be needed
+                  <input type="text" name="number" class="form-control rounded-pill form-input" />
+                </label>
+                <label for="date">
+                  When?
+                  <input type="date" name="date" class="form-control rounded-pill form-input"/>
+                </label>
+              </div>
+              <div class="col-sm form-column">
+                <label for="description">
+                  A brief description
+                  <textarea name="description" rows="10" cols="30" class="form-control rounded form-input"></textarea>
+                </label>
+                <label for="thumbnail">
+                  Upload a thumbnail
+                  <input type="file" name="thumbnail" class="" />
+                </label>
+              </div>
+              <div class="col-sm form-column">
+                <label for="postcode">
+                  PostCode
+                  <input type="text" name="postcode" class="form-control rounded-pill form-input"/>
+                </label>
+                <label for="address">
+                  Address
+                  <input type="text" name="address" class="form-control rounded-pill form-input"/>
+                </label>
+                <label for="city">
+                  City
+                  <input type="text" name="city" class="form-control rounded-pill form-input"/>
+                </label>
+                <label for="state">
+                  State
+                  <input type="text" name="state" class="form-control rounded-pill form-input"/>
+                </label>
+              </div>
             </div>
-            <div class="col">
-              <label for="description">
-                A brief description
-                <textarea name="description" rows="10" cols="30"></textarea>
-              </label>
-              <label for="thumbnail">
-                Upload a thumbnail
-                <input type="file" name="thumbnail" />
-              </label>
-            </div>
-            <div class="col">
-              <label for="postcode">
-                PostCode
-                <input type="text" name="postcode" />
-              </label>
-              <label for="address">
-                Address
-                <input type="text" name="address" />
-              </label>
-              <label for="city">
-                City
-                <input type="text" name="city" />
-              </label>
-              <label for="state">
-                State
-                <input type="text" name="state" />
-              </label>
-            </div>
-          </form>
-        </div>
+          </div>
+          <button class="float-right form-submit mt-2">Create</button>
+        </form>
       </section>
     </main>
 
-    <footer>
+    <footer class="mt-5">
       <div class="footer-top p-3">
         <div class="container ml-3 p-3">
           Connect with us

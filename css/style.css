@@ -1,8 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 body {
   font-family: "Poppins", Helvetica, sans-serif;
   /* font-size: 14px; */
 }
+.bg-light {
+  /* border-style: solid; */
+  border-bottom: 3px solid  #46c2b6;
 
+}
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
@@ -51,44 +57,44 @@ hr {
 }
 
 .card-body {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #f0ebeb;
 }
 
 .card {
   margin-bottom: 20px;
 }
 
-.pagination{
-    margin-top: 50px;
-    margin-bottom: 50px;
+.pagination {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.footer-top{
-    background-color: #29877E;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    color: #fff;
+.footer-top {
+  background-color: #29877e;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #fff;
 }
 
-.footer-bottom{
-    background-color: #46C2B6;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    color: #fff;
+.footer-bottom {
+  background-color: #46c2b6;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #fff;
 }
 
-footer{
-    margin-bottom: 0px;
+footer {
+  margin-bottom: 0px;
 }
 
-.socialmedia{
-    height: 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.socialmedia {
+  height: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.card-img-top{
-    max-height:180px
+.card-img-top {
+  max-height: 180px;
 }
 
 .fa {
@@ -97,19 +103,19 @@ footer{
   color: #ffffff;
 }
 
-.breadcrumb{
+.breadcrumb {
   background-color: #fff;
 }
 
-a{
-  color: #46C2B6;
+a {
+  color: #46c2b6;
 }
 
-.breadcrumb-item + .breadcrumb-item::before{
+.breadcrumb-item + .breadcrumb-item::before {
   content: ">";
 }
 
-.details{
+.details {
   background-color: rgba(0, 0, 0, 0.05);
   padding-top: 20px;
   padding-bottom: 20px;
@@ -117,7 +123,7 @@ a{
   margin-bottom: 40px;
 }
 
-.apply{
+.apply {
   background-color: white;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -125,7 +131,7 @@ a{
   margin-bottom: 40px;
   margin-left: -20px;
 }
-.apply .row{
+.apply .row {
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -136,7 +142,7 @@ a{
   border-color: #46c2b6;
 }
 
-.badge{
+.badge {
   font-size: 16px;
 }
 

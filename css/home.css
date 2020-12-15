@@ -45,7 +45,8 @@
 
 .home-intro__title {
   color: #46c2b6;
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
+  font-weight: bold;
 }
 
 .navbar__current-page {

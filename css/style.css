@@ -6,8 +6,7 @@ body {
 }
 .bg-light {
   /* border-style: solid; */
-  border-bottom: 3px solid  #46c2b6;
-
+  border-bottom: 3px solid #46c2b6;
 }
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.active,
@@ -160,4 +159,22 @@ a {
 
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-element {
+  margin: 1rem;
+}
+.opp-table {
+  background-color: #f0ebeb;
+  width: 100%;
+  border-radius: 15px;
+}
+.opp-table-last {
+  width: 120px;
 }

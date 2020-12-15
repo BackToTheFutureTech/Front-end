@@ -1,214 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create a new volunteering opportunity</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/opportunity.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
 
-  <body>
-    <header class="header">
-      <!-- Needs fixing to set colour for home page link -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-          <img
-            class="navbar__logo"
-            src="images/logorecordadaback.png"
-            alt=""
-            width="50px"
-            height="50px"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbar__nav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create a new volunteering opportunity</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/opportunity.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-        <div class="collapse navbar-collapse" id="navbar__nav">
-          <ul class="navbar-nav mr-auto mb-lg-0">
-            <li class="nav-item">
-              <div>
-                <a
-                  class="nav-link active navbar__current-page"
-                  aria-current="page"
-                  href="#"
-                  >Home</a
-                >
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">How can I help</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Become a volunteer</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Charities</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contacts</a>
-            </li>
-          </ul>
-        </div>
+<body>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="./home.html">
+        <img class="navbar__logo" src="images/logo.png" alt="" height="50px" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar__nav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar__nav">
+        <ul class="navbar-nav mr-auto mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="./home.html">Home <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">How can I help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./becameavolunteer.html">Become a volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./charities.html">Charities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacts</a>
+          </li>
+        </ul>
         <form class="form-inline my-2 my-md-0 p-2">
           <!-- To Do -  add search icon  (fa-search) -->
-          <input
-            class="form-control rounded-pill navbar__search"
-            type="text"
-            placeholder="Search"
-          />
+          <input class="form-control rounded-pill navbar__search" type="text" placeholder="Search" />
         </form>
         <a class="btn navbar__login-button" href="#">Log in</a>
-      </nav>
-      <hr style="border-top: 2px solid #46c2b6; max-width: 98%" />
-    </header>
-
-    <main>
-      <section class="container p-">
-        <h1 class="home-intro__title">Create a volunteering opportunity</h1>
-        <form class="form mt-5 mb-4">
-          <div class="container-fluid form-settings">
-            <div class="row d-flex justify-content-between">
-              <div class="col-sm form-column">
-                <label for="name">
-                  Opportunity Name
-                  <input
-                    class="form-control rounded-pill form-input"
-                    type="text"
-                    name="name"
-                  />
-                </label>
-                <label for="type">
-                  Type
-                    <select name="type" class="form-control rounded-pill form-input">
-                    <option value="wrap">Wrap Presents</option>
-                    <option value="sort">Sort Clothes</option>
-                    <option value="garden">Gardening</option>
-                    <option value="other">Other Things</option>
-                  </select>
-                </label>
-                <label for="number">
-                  How many people will be needed
-                  <input type="text" name="number" class="form-control rounded-pill form-input" />
-                </label>
-                <label for="date">
-                  When?
-                  <input type="date" name="date" class="form-control rounded-pill form-input"/>
-                </label>
-              </div>
-              <div class="col-sm form-column">
-                <label for="description">
-                  A brief description
-                  <textarea name="description" rows="10" cols="30" class="form-control rounded form-input"></textarea>
-                </label>
-                <label for="thumbnail">
-                  Upload a thumbnail
-                  <input type="file" name="thumbnail" class="" />
-                </label>
-              </div>
-              <div class="col-sm form-column">
-                <label for="postcode">
-                  PostCode
-                  <input type="text" name="postcode" class="form-control rounded-pill form-input"/>
-                </label>
-                <label for="address">
-                  Address
-                  <input type="text" name="address" class="form-control rounded-pill form-input"/>
-                </label>
-                <label for="city">
-                  City
-                  <input type="text" name="city" class="form-control rounded-pill form-input"/>
-                </label>
-                <label for="state">
-                  State
-                  <input type="text" name="state" class="form-control rounded-pill form-input"/>
-                </label>
-              </div>
-            </div>
-          </div>
-          <button class="float-right form-submit mt-2">Create</button>
-        </form>
-      </section>
-    </main>
-
-    <footer class="mt-5">
-      <div class="footer-top p-3">
-        <div class="container ml-3 p-3">
-          Connect with us
-          <div class="my-3">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-instagram"></a>
-            <a href="#" class="fa fa-youtube"></a>
-          </div>
-        </div>
       </div>
 
-      <div class="footer-bottom p-3">
-        <div class="container ml-3">
-          <div class="row">
-            <div class="p-3">
-              <img
-                class="footer__logo"
-                src="images/logorecordadaback.png"
-                alt=""
-                width="50px"
-                height="50px"
-              />
+    </nav>
+    <hr style="border-top: 2px solid #46c2b6; max-width: 98%" />
+  </header>
+
+  <main>
+    <section class="container p-">
+      <h1 class="home-intro__title">Create a volunteering opportunity</h1>
+      <form class="form mt-5 mb-4">
+        <div class="container-fluid form-settings">
+          <div class="row d-flex justify-content-between">
+            <div class="col-sm form-column">
+              <label for="name">
+                Opportunity Name
+                <input class="form-control rounded-pill form-input" type="text" name="name" />
+              </label>
+              <label for="type">
+                Type
+                <select name="type" class="form-control rounded-pill form-input">
+                  <option value="wrap">Wrap Presents</option>
+                  <option value="sort">Sort Clothes</option>
+                  <option value="garden">Gardening</option>
+                  <option value="other">Other Things</option>
+                </select>
+              </label>
+              <label for="number">
+                How many people will be needed
+                <input type="text" name="number" class="form-control rounded-pill form-input" />
+              </label>
+              <label for="date">
+                When?
+                <input type="date" name="date" class="form-control rounded-pill form-input" />
+              </label>
             </div>
-            <div class="p-2">
-              <ul class="list-unstyled">
-                <li>
-                  <a class="footer__privacy-policy" href="#">Privacy policy</a>
-                </li>
-                <li class="footer__copyright">
-                  <small
-                    >Copyright 2020 Tech Returns. All rights reserved.</small
-                  >
-                </li>
-                <li class="footer__copyright">
-                  <small>Created by Back to the Future</small>
-                </li>
-              </ul>
+            <div class="col-sm form-column">
+              <label for="description">
+                A brief description
+                <textarea name="description" rows="10" cols="30" class="form-control rounded form-input"></textarea>
+              </label>
+              <label for="thumbnail">
+                Upload a thumbnail
+                <input type="file" name="thumbnail" class="" />
+              </label>
+            </div>
+            <div class="col-sm form-column">
+              <label for="postcode">
+                PostCode
+                <input type="text" name="postcode" class="form-control rounded-pill form-input" />
+              </label>
+              <label for="address">
+                Address
+                <input type="text" name="address" class="form-control rounded-pill form-input" />
+              </label>
+              <label for="city">
+                City
+                <input type="text" name="city" class="form-control rounded-pill form-input" />
+              </label>
+              <label for="state">
+                State
+                <input type="text" name="state" class="form-control rounded-pill form-input" />
+              </label>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+        <button class="float-right form-submit mt-2">Create</button>
+      </form>
+    </section>
+  </main>
 
-    <!-- bootstrap JS - reqd for collapsible navbar-->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <footer class="mt-5">
+    <div class="footer-top p-3">
+      <div class="container ml-3 p-3">
+        Connect with us
+        <div class="my-3">
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-youtube"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom p-3">
+      <div class="container ml-3">
+        <div class="row">
+          <div class="p-3">
+            <img class="footer__logo" src="images/logo.png" alt="" height="50px" />
+          </div>
+          <div class="p-2">
+            <ul class="list-unstyled">
+              <li>
+                <a class="footer__privacy-policy" href="#">Privacy policy</a>
+              </li>
+              <li class="footer__copyright">
+                <small>Copyright 2020 Tech Returns. All rights reserved.</small>
+              </li>
+              <li class="footer__copyright">
+                <small>Created by Back to the Future</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- bootstrap JS - reqd for collapsible navbar-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

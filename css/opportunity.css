@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+.form-column {
+  max-width: min-content;
+  margin-top: 1rem;
+}
+.form-submit {
+  background-color: #46c2b6;
+  color: #ffffff;
+  width: 120px;
+  border: 0ch;
+  border-radius: 6px;
+  height: 2rem;
+}
+.form-settings {
+  background-color: #f0ebeb;
+  color: #7a7474;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  border-radius: 10px;
+  padding-top: 10px;
+}
+.form-input {
+  width: 20rem;
+  height: 2rem;
+}
+.fa {
+  font-size: 30px;
+  width: 40px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer-top {
+  color: #ffffff;
+  background-color: #29877e;
+}
+.footer-bottom {
+  color: #ffffff;
+  background-color: #46c2b6;
+}
+
+.footer__privacy-policy {
+  font-size: 0.8rem;
+  color: #000000;
+}
+
+.footer__copyright {
+  font-size: 0.7rem;
+}
+
+.home-intro__title {
+  color: #46c2b6;
+  font-size: 1.6rem;
+}
+
+.navbar__current-page {
+  color: #46c2b6;
+  font-weight: 700;
+}
+
+.navbar__login-button {
+  background-color: #46c2b6;
+  color: #ffffff;
+  width: 120px;
+}
+
+.navbar__search {
+  background-color: #f0ebeb;
+}

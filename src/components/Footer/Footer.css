@@ -1,0 +1,27 @@
+.footer-top {
+    background-color: #29877e;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color: #fff;
+  }
+  
+  .footer-bottom {
+    background-color: #46c2b6;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color: #fff;
+  }
+  
+  footer {
+    margin-bottom: 0px;
+  }
+  
+  .footer__privacy-policy {
+    font-size: 0.8rem;
+    color: #000000;
+  }
+  
+  .footer__copyright {
+    font-size: 0.7rem;
+  }
+  

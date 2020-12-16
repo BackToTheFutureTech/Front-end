@@ -1,11 +1,12 @@
 import React from 'react'
-import "./header.css"
-export const Header = () => {
+import Logo from './../../Assets/logo.png'
+import "./Header.css"
+const Header = () => {
     return (
         <header className="header">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <a className="navbar-brand" href="#"
-                ><img src="images/logo.png" height="75"
+                ><img src={Logo} height="75"
                     /></a>
                 <button
                     className="navbar-toggler"
@@ -52,4 +53,5 @@ export const Header = () => {
             </nav>
         </header>
     )
-}
+};
+export default Header;

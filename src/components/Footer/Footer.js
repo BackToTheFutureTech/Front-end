@@ -22,9 +22,8 @@ function Footer() {
                         <div className="p-3">
                             <img
                                 className="footer__logo"
-                                src="images/logorecordadaback.png"
+                                src="../../logo.png"
                                 alt=""
-                                width="50px"
                                 height="50px"
                             />
                         </div>

@@ -3,15 +3,15 @@ import './Banner.css'
 
 function Banner() {
     return (
-        <section class="home-intro">
-            <div class="container p-3">
-                <div class="hero-image mb-3">
-                    <div class="container hero-text">
+        <section className="home-intro">
+            <div className="container p-3">
+                <div className="hero-image mb-3">
+                    <div className="container hero-text">
                         <h1>MAD Days</h1>
                     </div>
                 </div>
-                <h2 class="home-intro__title">Make a Difference Days</h2>
-                <p class="lead">
+                <h2 className="home-intro__title">Make a Difference Days</h2>
+                <p className="lead">
                     Every year AO'ers can swap two desk days for volunteer work.
                     Sometimes it's great to just roll up your sleeves, get stuck in and
                     do something amazing - as long as your colleagues won't miss you too

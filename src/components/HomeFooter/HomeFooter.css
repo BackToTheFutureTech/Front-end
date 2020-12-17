@@ -1,0 +1,21 @@
+.section--grey {
+    background-color: #f0ebeb;
+  }
+  
+  .section__header {
+    font-size: 1.3rem;
+  }
+  
+  .stats__circle {
+    justify-content: center;
+    display: flex;
+  }
+  
+  .testimonial {
+    font-size: 0.8rem;
+  }
+  
+  .testimonial__name {
+    font-style: italic;
+    float: right;
+  }

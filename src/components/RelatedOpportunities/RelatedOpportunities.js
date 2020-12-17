@@ -5,82 +5,82 @@ import Presents from './../../Assets/WrapPresents.jpg'
 
 function RelatedOpportunities() {
     return (
-        <div class="container details">
+        <div className="container details">
             <h4>Related Opportunities</h4>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="card" style={{ width: 18 + "rem" }}>
-                                        <img src={ServeFood} class="card-img-top max-height:100px" alt="..." />
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Serve Food</h5>
-                                            <p class="card-text">Saint Mary's</p>
-                                            <p class="card-text">Volunteers Needed:</p>
-                                            <a href="./becomeavolunteer-Details.html" class="btn btn-primary">See Details</a>
+            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                <div className="carousel-inner">
+                    <div className="carousel-item">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-sm">
+                                    <div className="card" style={{ width: 18 + "rem" }}>
+                                        <img src={ServeFood} className="card-img-top max-height:100px" alt="..." />
+                                        <div className="card-body text-center">
+                                            <h5 className="card-title">Serve Food</h5>
+                                            <p className="card-text">Saint Mary's</p>
+                                            <p className="card-text">Volunteers Needed:</p>
+                                            <a href="./becomeavolunteer-Details.html" className="btn btn-primary">See Details</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm">
-                                    <div class="card" style={{ width: 18 + "rem" }}>
-                                        <img src={Garden} class="card-img-top" alt="..." />
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Clean Out Garden</h5>
-                                            <p class="card-text">Bolton - Derian House</p>
-                                            <p class="card-text">Volunteers Needed:</p>
-                                            <a href="./becomeavolunteer-Details.html" class="btn btn-primary">See Details</a>
+                                <div className="col-sm">
+                                    <div className="card" style={{ width: 18 + "rem" }}>
+                                        <img src={Garden} className="card-img-top" alt="..." />
+                                        <div className="card-body text-center">
+                                            <h5 className="card-title">Clean Out Garden</h5>
+                                            <p className="card-text">Bolton - Derian House</p>
+                                            <p className="card-text">Volunteers Needed:</p>
+                                            <a href="./becomeavolunteer-Details.html" className="btn btn-primary">See Details</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm">
-                                    <div class="card" style={{ width: 18 + "rem" }}>
-                                        <img src={Presents} class="card-img-top" alt="..." />
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Wrap Presents</h5>
-                                            <p class="card-text">NSPCC's Childline Service</p>
-                                            <p class="card-text">Volunteers Needed:</p>
-                                            <a href="./becomeavolunteer-Details.html" class="btn btn-primary">See Details</a>
+                                <div className="col-sm">
+                                    <div className="card" style={{ width: 18 + "rem" }}>
+                                        <img src={Presents} className="card-img-top" alt="..." />
+                                        <div className="card-body text-center">
+                                            <h5 className="card-title">Wrap Presents</h5>
+                                            <p className="card-text">NSPCC's Childline Service</p>
+                                            <p className="card-text">Volunteers Needed:</p>
+                                            <a href="./becomeavolunteer-Details.html" className="btn btn-primary">See Details</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item active">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="card" style={{ width: 18 + "rem" }}>
-                                        <img src={ServeFood} class="card-img-top max-height:100px" alt="..." />
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Serve Food</h5>
-                                            <p class="card-text">Saint Mary's</p>
-                                            <p class="card-text">Volunteers Needed:</p>
-                                            <a href="./becomeavolunteer-Details.html" class="btn btn-primary">See Details</a>
+                    <div className="carousel-item active">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-sm">
+                                    <div className="card" style={{ width: 18 + "rem" }}>
+                                        <img src={ServeFood} className="card-img-top max-height:100px" alt="..." />
+                                        <div className="card-body text-center">
+                                            <h5 className="card-title">Serve Food</h5>
+                                            <p className="card-text">Saint Mary's</p>
+                                            <p className="card-text">Volunteers Needed:</p>
+                                            <a href="./becomeavolunteer-Details.html" className="btn btn-primary">See Details</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm">
-                                    <div class="card" style={{ width: 18 + "rem" }}>
-                                        <img src={Garden} class="card-img-top" alt="..." />
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Clean Out Garden</h5>
-                                            <p class="card-text">Bolton - Derian House</p>
-                                            <p class="card-text">Volunteers Needed:</p>
-                                            <a href="./becomeavolunteer-Details.html" class="btn btn-primary">See Details</a>
+                                <div className="col-sm">
+                                    <div className="card" style={{ width: 18 + "rem" }}>
+                                        <img src={Garden} className="card-img-top" alt="..." />
+                                        <div className="card-body text-center">
+                                            <h5 className="card-title">Clean Out Garden</h5>
+                                            <p className="card-text">Bolton - Derian House</p>
+                                            <p className="card-text">Volunteers Needed:</p>
+                                            <a href="./becomeavolunteer-Details.html" className="btn btn-primary">See Details</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm">
-                                    <div class="card" style={{ width: 18 + "rem" }}>
-                                        <img src={Presents} class="card-img-top" alt="..." />
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Wrap Presents</h5>
-                                            <p class="card-text">NSPCC's Childline Service</p>
-                                            <p class="card-text">Volunteers Needed:</p>
-                                            <a href="./becomeavolunteer-Details.html" class="btn btn-primary">See Details</a>
+                                <div className="col-sm">
+                                    <div className="card" style={{ width: 18 + "rem" }}>
+                                        <img src={Presents} className="card-img-top" alt="..." />
+                                        <div className="card-body text-center">
+                                            <h5 className="card-title">Wrap Presents</h5>
+                                            <p className="card-text">NSPCC's Childline Service</p>
+                                            <p className="card-text">Volunteers Needed:</p>
+                                            <a href="./becomeavolunteer-Details.html" className="btn btn-primary">See Details</a>
                                         </div>
                                     </div>
                                 </div>
@@ -88,13 +88,13 @@ function RelatedOpportunities() {
                         </div>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Next</span>
                 </a>
             </div>
 

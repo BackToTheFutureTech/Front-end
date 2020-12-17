@@ -11,7 +11,7 @@ function ChooseAnOpportunity() {
                 </h2>
 
 
-                <form class="form-inline my-4">
+                <form className="form-inline my-4">
                     <input
                         className="form-control"
                         type="text"

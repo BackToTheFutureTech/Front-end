@@ -1,0 +1,22 @@
+
+.volunteer-requests__button {
+    background-color: #46c2b6;
+    color: #ffffff;
+  }
+  
+  .volunteer-requests__item {
+    background-color: #f0ebeb;
+    width: 18rem;
+  }
+  
+  .volunteer-requests__location {
+    font-weight: 400;
+  }
+  
+  .volunteer-requests__task {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 2rem;
+  }
+  
+  

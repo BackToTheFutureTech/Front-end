@@ -5,7 +5,7 @@ import TidyGardenImg from "../../Assets/TidyGarden.jpg";
 import ServeFoodImg from "../../Assets/ServeFood.jpg";
 import SortClothingImg from "../../Assets/SortClothing.jpg";
 
-function VolunteerOpportunity({ taskType, location, id }) {
+function VolunteerOpportunity({ charity, taskType, location }) {
 
     const taskImg = 
         {"Sort Clothes": SortClothingImg,
@@ -24,6 +24,7 @@ function VolunteerOpportunity({ taskType, location, id }) {
                 />
                 <div className="card-body text-center ">
                     <ul className="list-unstyled mb-4">
+                        <li className="volunteer-requests__charity">{charity}</li>
                         <li className="volunteer-requests__task">{taskType}</li>
                         <li className="volunteer-requests__location">{location}</li>
                     </ul>
@@ -31,7 +32,7 @@ function VolunteerOpportunity({ taskType, location, id }) {
                         href="./becomeavolunteer-Details.html"
                         className="btn btn-lg volunteer-requests__button">
                         See Details
-                </a>
+                    </a>
                 </div>
             </div>
     </div >

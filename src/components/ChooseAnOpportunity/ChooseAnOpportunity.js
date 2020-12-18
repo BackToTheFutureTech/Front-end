@@ -1,8 +1,17 @@
-import React from "react"
+import React, { useState } from "react"
 import VolunteerOpportunity from "../VolunteerOpportunity/VolunteerOpportunity"
 import "./ChooseAnOpportunity.css"
 
 function ChooseAnOpportunity() {
+    const [opportunities, setOpportunities] = useState(
+        [{ id:1, charity: "NSPCC", taskType: "Sort Clothes", numVolunteers: 5, date: "10/1/2021", location: "Bolton" }, { id:2, charity: "NSPCC", taskType: "Wrap Presents", numVolunteers: 5, date: "10/12/2020", location: "Bolton" },
+        { id:3, charity: "NSPCC", taskType: "Sort Clothes", numVolunteers: 5, date: "10/1/2021", location: "Manchester" },
+        { id:4, charity: "Derrian House", taskType: "Gardening", numVolunteers: 5, date: "10/1/2021", location: "Crewe" },
+        { id:5, charity: "NSPCC", taskType: "Sort Clothes", numVolunteers: 5, date: "10/1/2021", location: "Crewe" },
+        { id:6, charity: "NSPCC", taskType: "Wrap Presents", numVolunteers: 5, date: "10/1/2021", location: "Bolton" },
+        { id:7, charity: "NSPCC", taskType: "Serve Food", numVolunteers: 5, date: "10/1/2021", location: "Bolton" }
+        ])
+
     return (
         <div>
             <div className="container">
@@ -27,12 +36,13 @@ function ChooseAnOpportunity() {
                 </form>
 
                 <div className="row">
-                    <VolunteerOpportunity />
-                    <VolunteerOpportunity />
-                    <VolunteerOpportunity />
-                    <VolunteerOpportunity />
-                    <VolunteerOpportunity />
-                    <VolunteerOpportunity />
+                   { opportunities.map(opportunity => 
+                        <VolunteerOpportunity 
+                            taskType = {opportunity.taskType}
+                            location = {opportunity.location}
+                            id = {opportunity.id}
+                        />
+                    ) }
                 </div>
             </div>
         </div>

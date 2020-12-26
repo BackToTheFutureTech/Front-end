@@ -8,10 +8,10 @@ function Footer() {
                 <div className="container ml-3 p-3">
                     Connect with us
             <div className="my-3">
-                        <a href="#" className="fa fa-facebook"></a>
-                        <a href="#" className="fa fa-twitter"></a>
-                        <a href="#" className="fa fa-instagram"></a>
-                        <a href="#" className="fa fa-youtube"></a>
+                        <a href="./toDo.html" className="fa fa-facebook"></a>
+                        <a href="./toDo.html" className="fa fa-twitter"></a>
+                        <a href="./toDo.html" className="fa fa-instagram"></a>
+                        <a href="./toDo.html" className="fa fa-youtube"></a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@ function Footer() {
                         <div className="p-2">
                             <ul className="list-unstyled">
                                 <li>
-                                    <a className="footer__privacy-policy" href="#">Privacy policy</a>
+                                    <a className="footer__privacy-policy" href="./toDo.html">Privacy policy</a>
                                 </li>
                                 <li className="footer__copyright">
                                     <small

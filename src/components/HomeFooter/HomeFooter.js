@@ -11,10 +11,10 @@ function HomeFooter() {
                         <div className="col-sm stats__circle">
                             <svg height="120" width="120">
                                 <circle cx="60" cy="60" r="50" fill="#C9C2C2" />
-                                <text text-anchor="middle" x="60" y="55" className="heavy">
+                                <text textAnchor="middle" x="60" y="55" className="heavy">
                                     1200
                                 </text>
-                                <text text-anchor="middle" x="60" y="70" className="small">
+                                <text textAnchor="middle" x="60" y="70" className="small">
                                     volunteers
                                 </text>
                             </svg>
@@ -22,8 +22,8 @@ function HomeFooter() {
                         <div className="col-sm stats__circle">
                             <svg height="120" width="120">
                                 <circle cx="60" cy="60" r="50" fill="#C9C2C2" />
-                                <text text-anchor="middle" x="60" y="55" className="heavy">25</text>
-                                <text text-anchor="middle" x="60" y="70" className="small">
+                                <text textAnchor="middle" x="60" y="55" className="heavy">25</text>
+                                <text textAnchor="middle" x="60" y="70" className="small">
                                     charities
                                 </text>
                             </svg>
@@ -31,10 +31,10 @@ function HomeFooter() {
                         <div className="col-sm stats__circle">
                             <svg height="120" width="120">
                                 <circle cx="60" cy="60" r="50" fill="#C9C2C2" />
-                                <text text-anchor="middle" x="60" y="55" className="heavy">
+                                <text textAnchor="middle" x="60" y="55" className="heavy">
                                     3000
                                 </text>
-                                <text text-anchor="middle" x="60" y="70" className="small">
+                                <text textAnchor="middle" x="60" y="70" className="small">
                                     helped
                                 </text>
                             </svg>

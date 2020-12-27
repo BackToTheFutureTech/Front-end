@@ -1,44 +1,54 @@
 import React from 'react'
-import WrapPresents from './../../Assets/WrapPresents.jpg'
+import WrapPresentsImg from './../../Assets/WrapPresents.jpg'
+import TidyGardenImg from "../../Assets/TidyGarden.jpg";
+import ServeFoodImg from "../../Assets/ServeFood.jpg";
+import SortClothingImg from "../../Assets/SortClothing.jpg";
 
-function OpportunityDetails() {
+function OpportunityDetails({ handleReset, opportunity }) {
+    const taskImg = 
+        {"Sort Clothes": SortClothingImg,
+        "Gardening": TidyGardenImg,
+        "Wrap Presents": WrapPresentsImg,   
+        "Serve Food": ServeFoodImg
+        }[opportunity.taskType]
+
     return (
         <div className="container details">
 
             <div className="row">
                 <div className="col-4">
-                    <img src={WrapPresents} width="100%" alt="" />
+                    <img src={taskImg} width="100%" alt="" />
                 </div>
                 <div className="col-5">
-                    <h6>Wrap Presents </h6>
-                    <h5>NSPCC's Childline Service</h5>
-                    <h6>Volunteers Needed: <span className="badge badge-danger">20</span></h6>
-                    <h6>Volunteers so far: <span className="badge badge-primary">5</span></h6>
+                    <h6>{opportunity.taskType}</h6>
+                    <h5>{opportunity.charity}</h5>
+                    <h6>Volunteers Needed: <span className="badge badge-danger">{opportunity.numVolunteers}</span></h6>
+                    <h6>Volunteers so far: <span className="badge badge-primary">0</span></h6>
                     <hr width="80%" align="left" />
                     <p>Description</p>
-                    <p>• Morbi dapibus nibh ac quam efficitur pretium.<br />
-                    • Fusce molestie mi quis faucibus pretium.<br />
-                    • Integer quis ante eget justo interdum tempor.<br />
-                    • Ut eget sapien vehicula, laoreet odio ut, fringilla
-                    neque.
-                </p><br />
+                    <p>{opportunity.description}</p><br />
                     <p>Address</p>
-                    <p>60 Grange Road, ABERDEEN<br />
-                    AB48 3TH
-                </p>
+                    <p>{opportunity.address}</p>
                 </div>
                 <div className="col-3">
                     <div className="apply">
-                        <p className="text-center">Date: 24/12/2020</p>
+                        <p className="text-center">Date: {opportunity.date}</p>
                         <div className="container">
                             <div className="row">
                                 <div className="col text-center">
-                                    <button type="button" className="btn btn-primary btn-sm">Apply</button>
+                                    <button 
+                                        type="button" 
+                                        className="btn btn-lg btn-primary"
+                                        >Sign up</button>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col text-center">
-                                    <button type="button" className="btn btn-primary btn-sm">Apply Team</button>
+                                    <button 
+                                        type="button" 
+                                        className="btn btn-lg btn-primary "
+                                        onClick={handleReset}
+                                    >Return to List</button>
                                 </div>
                             </div>
                         </div>

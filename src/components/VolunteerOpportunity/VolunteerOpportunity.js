@@ -5,7 +5,7 @@ import TidyGardenImg from "../../Assets/TidyGarden.jpg";
 import ServeFoodImg from "../../Assets/ServeFood.jpg";
 import SortClothingImg from "../../Assets/SortClothing.jpg";
 
-function VolunteerOpportunity({ charity, taskType, location }) {
+function VolunteerOpportunity({ charity, taskType, location, id, handleSelect, setSelectedItem }) {
 
     const taskImg = 
         {"Sort Clothes": SortClothingImg,
@@ -13,6 +13,11 @@ function VolunteerOpportunity({ charity, taskType, location }) {
         "Wrap Presents": WrapPresentsImg,   
         "Serve Food": ServeFoodImg
         }[taskType]
+
+    const handleEvent = e => {
+        handleSelect(e);
+        setSelectedItem(id);
+    }
 
     return (
         < div className = "mx-auto mb-3" >
@@ -28,11 +33,12 @@ function VolunteerOpportunity({ charity, taskType, location }) {
                         <li className="volunteer-requests__task">{taskType}</li>
                         <li className="volunteer-requests__location">{location}</li>
                     </ul>
-                    <a
-                        href="./becomeavolunteer-Details.html"
+                    <button
+                        type="button"
+                        onClick={handleEvent}
                         className="btn btn-lg volunteer-requests__button">
                         See Details
-                    </a>
+                    </button>
                 </div>
             </div>
     </div >

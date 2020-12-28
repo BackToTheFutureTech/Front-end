@@ -1,0 +1,22 @@
+.opportunity-details__apply-div {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 0.25rem;
+    margin-bottom: 40px;
+    margin-left: -20px;
+  }
+  
+.opportunity-details__badge {
+    color: #fff;
+    background-color: #35a398;
+    border-color: #46c2b6;
+  }
+
+.opportunity-details__details {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 0.25rem;
+    margin-bottom: 40px;
+}

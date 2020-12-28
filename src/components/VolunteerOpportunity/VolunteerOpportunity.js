@@ -1,23 +1,7 @@
 import React from "react";
 import "./VolunteerOpportunity.css";
-import WrapPresentsImg from "../../Assets/WrapPresents.jpg";
-import TidyGardenImg from "../../Assets/TidyGarden.jpg";
-import ServeFoodImg from "../../Assets/ServeFood.jpg";
-import SortClothingImg from "../../Assets/SortClothing.jpg";
 
-function VolunteerOpportunity({ charity, taskType, location, id, handleSelect, setSelectedItem }) {
-
-    const taskImg = 
-        {"Sort Clothes": SortClothingImg,
-        "Gardening": TidyGardenImg,
-        "Wrap Presents": WrapPresentsImg,   
-        "Serve Food": ServeFoodImg
-        }[taskType]
-
-    const handleEvent = e => {
-        handleSelect(e);
-        setSelectedItem(id);
-    }
+function VolunteerOpportunity({ taskImg, charity, taskType, location, id, handleSelect}) {
 
     return (
         < div className = "mx-auto mb-3" >
@@ -35,8 +19,8 @@ function VolunteerOpportunity({ charity, taskType, location, id, handleSelect, s
                     </ul>
                     <button
                         type="button"
-                        onClick={handleEvent}
-                        className="btn btn-lg volunteer-requests__button">
+                        onClick={() => handleSelect(id)}
+                        className="btn btn-lg button-MAD-theme">
                         See Details
                     </button>
                 </div>

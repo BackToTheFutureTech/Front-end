@@ -1,19 +1,10 @@
 import React from 'react'
-import WrapPresentsImg from './../../Assets/WrapPresents.jpg'
-import TidyGardenImg from "../../Assets/TidyGarden.jpg";
-import ServeFoodImg from "../../Assets/ServeFood.jpg";
-import SortClothingImg from "../../Assets/SortClothing.jpg";
+import "./OpportunityDetails.css"
 
-function OpportunityDetails({ handleReset, opportunity }) {
-    const taskImg = 
-        {"Sort Clothes": SortClothingImg,
-        "Gardening": TidyGardenImg,
-        "Wrap Presents": WrapPresentsImg,   
-        "Serve Food": ServeFoodImg
-        }[opportunity.taskType]
+function OpportunityDetails({ taskImg, handleReset, opportunity }) {
 
     return (
-        <div className="container details">
+        <div className="container opportunity-details__details">
 
             <div className="row">
                 <div className="col-4">
@@ -23,7 +14,7 @@ function OpportunityDetails({ handleReset, opportunity }) {
                     <h6>{opportunity.taskType}</h6>
                     <h5>{opportunity.charity}</h5>
                     <h6>Volunteers Needed: <span className="badge badge-danger">{opportunity.numVolunteers}</span></h6>
-                    <h6>Volunteers so far: <span className="badge badge-primary">0</span></h6>
+                    <h6>Volunteers so far: <span className="badge opportunity-details__badge">0</span></h6>
                     <hr width="80%" align="left" />
                     <p>Description</p>
                     <p>{opportunity.description}</p><br />
@@ -31,22 +22,22 @@ function OpportunityDetails({ handleReset, opportunity }) {
                     <p>{opportunity.address}</p>
                 </div>
                 <div className="col-3">
-                    <div className="apply">
+                    <div className="opportunity-details__apply-div">
                         <p className="text-center">Date: {opportunity.date}</p>
                         <div className="container">
-                            <div className="row">
+                            <div className="row my-4">
                                 <div className="col text-center">
-                                    <button 
-                                        type="button" 
-                                        className="btn btn-lg btn-primary"
-                                        >Sign up</button>
+                                    <button
+                                        type="button"
+                                        className="btn btn-lg button-MAD-theme"
+                                    >Sign up</button>
                                 </div>
                             </div>
-                            <div className="row">
+                            <div className="row my-4">
                                 <div className="col text-center">
-                                    <button 
-                                        type="button" 
-                                        className="btn btn-lg btn-primary "
+                                    <button
+                                        type="button"
+                                        className="btn button-MAD-theme "
                                         onClick={handleReset}
                                     >Return to List</button>
                                 </div>

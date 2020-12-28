@@ -90,6 +90,7 @@ function ChooseAnOpportunity() {
                             {locations.map(site =>
                                 <button className="dropdown-item"
                                     type="button"
+                                    key={site}
                                     onClick={() => filterOpportunities(site)}>
                                     {site}
                                 </button>)

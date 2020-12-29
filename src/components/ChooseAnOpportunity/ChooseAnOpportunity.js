@@ -2,7 +2,7 @@ import React from "react";
 import VolunteerOpportunity from "../VolunteerOpportunity/VolunteerOpportunity";
 import "./ChooseAnOpportunity.css";
 
-function ChooseAnOpportunity() {
+function ChooseAnOpportunity({ children }) {
     return (
         <div>
             <div className="container">
@@ -20,27 +20,7 @@ function ChooseAnOpportunity() {
                 </form>
 
                 <div className="row">
-                    <div className="col-sm">
-                        <VolunteerOpportunity />
-                    </div>
-
-                    <div className="col-sm">
-                        <VolunteerOpportunity />
-                    </div>
-                    <div className="col-sm">
-                        <VolunteerOpportunity />
-                    </div>
-
-                    <div className="col-sm">
-                        <VolunteerOpportunity />
-                    </div>
-                    <div className="col-sm">
-                        <VolunteerOpportunity />
-                    </div>
-
-                    <div className="col-sm">
-                        <VolunteerOpportunity />
-                    </div>
+                    {children}
                 </div>
             </div>
         </div>

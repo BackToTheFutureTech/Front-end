@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Children } from 'react'
 import Logo from './../../Assets/logo.png'
 import "./Header.css"
-const Header = () => {
+
+const Header = ({children}) => {
     return (
         <header className="header">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <a className="navbar-brand" href="#"
-                ><img src={Logo} height="75"
+                ><img src={Logo} height="75" alt="logo Image"
                     /></a>
                 <button
                     className="navbar-toggler"
@@ -40,14 +41,7 @@ const Header = () => {
                             <a className="nav-link" href="contact.html">Contacts</a>
                         </li>
                     </ul>
-                    <form className="form-inline my-2 my-lg-0">
-                        <input
-                            className="form-control mr-sm-2 rounded-pill"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                        />
-                    </form>
+                        {children}
                     <a className="btn navbar__login-button" href="login.html">Login</a>
                 </div>
             </nav>

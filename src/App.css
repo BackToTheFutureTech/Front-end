@@ -1,9 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
+a {
+  color: #46c2b6;
+}
+
+
 body {
   font-family: "Poppins", Helvetica, sans-serif;
   /* font-size: 14px; */
 }
+
+
+hr {
+  border-color: #46c2b6;
+  border-width: 3px;
+}
+
+
+/* classes in alphabetic order NB many override bootstrap classess  */
+
 .bg-light {
   /* border-style: solid; */
   border-bottom: 3px solid  #46c2b6;
@@ -15,6 +30,38 @@ body {
 .navbar-light .navbar-nav .show > .nav-link {
   color: #46c2b6;
   font-weight: bold;
+}
+
+.badge-primary {
+  color: #fff;
+  background-color: #35a398;
+  border-color: #46c2b6;
+}
+
+.badge {
+  font-size: 16px;
+}
+
+
+.breadcrumb {
+  background-color: #fff;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
+
+
+.btn-primary {
+  color: #fff;
+  background-color: #46c2b6;
+  border-color: #46c2b6;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #79bdb6;
+  border-color: #79bdb6;
 }
 
 .btn-success {
@@ -29,31 +76,10 @@ body {
   border-color: #79bdb6;
 }
 
-hr {
-  border-color: #46c2b6;
-  border-width: 3px;
-}
 
-.title {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.title h2 {
-  color: #46c2b6;
-  font-weight: bold;
-}
-
-.btn-primary {
-  color: #fff;
+.button-MAD-theme {
   background-color: #46c2b6;
-  border-color: #46c2b6;
-}
-
-.btn-primary:hover {
-  color: #fff;
-  background-color: #79bdb6;
-  border-color: #79bdb6;
+  color: #ffffff;
 }
 
 .card-body {
@@ -64,69 +90,8 @@ hr {
   margin-bottom: 20px;
 }
 
-.pagination {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-
-.socialmedia {
-  height: 25px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 .card-img-top {
   max-height: 180px;
-}
-
-.fa {
-  width: 25px;
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.breadcrumb {
-  background-color: #fff;
-}
-
-a {
-  color: #46c2b6;
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-  content: ">";
-}
-
-.details {
-  background-color: rgba(0, 0, 0, 0.05);
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 0.25rem;
-  margin-bottom: 40px;
-}
-
-.apply {
-  background-color: white;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 0.25rem;
-  margin-bottom: 40px;
-  margin-left: -20px;
-}
-.apply .row {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.badge-primary {
-  color: #fff;
-  background-color: #35a398;
-  border-color: #46c2b6;
-}
-
-.badge {
-  font-size: 16px;
 }
 
 .carousel-control-prev {
@@ -143,4 +108,40 @@ a {
 
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.details {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 0.25rem;
+  margin-bottom: 40px;
+}
+
+.fa {
+  width: 25px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+.pagination {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.socialmedia {
+  height: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.title {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.title h2 {
+  color: #46c2b6;
+  font-weight: bold;
 }

@@ -1,4 +1,14 @@
+//lib's
 import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+// components
 import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import ChooseAnOpportunity from "./components/ChooseAnOpportunity/ChooseAnOpportunity"
@@ -7,32 +17,48 @@ import './App.css'
 import Banner from "./components/Banner/Banner"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails";
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity";
+import RelatedOpportunities from "./components/RelatedOpportunities/RelatedOpportunities"
 import Search from "./components/Search/Search";
-import Data from "./Assets/databasemoc.json"
+import Contact from "./components/Contact/Contact"
+import { Data } from "./Assets/moreData"; //data
+import Login from "./components/Login/Login";
+
 
 function App() {
   const [serverResponse, setServerResponse] = useState(Data)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
 
   return (
-    <div>
+    <Router>
       <Header>
         <Search serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities} />
       </Header>
       <main>
-        <Banner />
-        <ChooseAnOpportunity>
-          {filteredOpportunities.length > 0 ? filteredOpportunities.map((item) => {
-            return <VolunteerOpportunity {...item} />
-          }): serverResponse.map((item) => {
-            return <VolunteerOpportunity {...item} />
-          })}
-        </ChooseAnOpportunity>
-        <OpportunityDetails />
-        <HomeFooter />
+        <Switch>
+          <Route path="/contacts">
+            <Contact />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/becomeAVolunteer">
+            <ChooseAnOpportunity>
+              {filteredOpportunities.length > 0 ? filteredOpportunities.map((item) => {
+                return <VolunteerOpportunity {...item} />
+              }) : serverResponse.map((item) => {
+                return <VolunteerOpportunity {...item} />
+              })}
+            </ChooseAnOpportunity>
+          </Route>
+          <Route path="/home">
+            <Banner />
+            <RelatedOpportunities />
+            <HomeFooter />
+          </Route>
+        </Switch>
       </main>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

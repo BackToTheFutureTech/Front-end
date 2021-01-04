@@ -1,8 +1,15 @@
-import React, { Children } from 'react'
+import React from 'react'
 import Logo from './../../Assets/logo.png'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    NavLink,
+} from "react-router-dom";
 import "./Header.css"
 
-const Header = ({children}) => {
+const Header = ({ children }) => {
     return (
         <header className="header">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,25 +31,23 @@ const Header = ({children}) => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <a className="nav-link active" href="./home.html">Home</a>
+                            <NavLink activeClassName="active" className="nav-link" to="/home">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="howcanihelp.html">How Can I Help</a>
+                            <NavLink activeClassName="active" className="nav-link" to="/howToHelp">How Can I Help</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="./becomeavolunteer.html"
-                            >Become a Volunteer</a
-                            >
+                            <NavLink activeClassName="active" className="nav-link" to="/becomeAVolunteer">Become a Volunteer</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="./charities.html">Charities</a>
+                        <NavLink activeClassName="active" className="nav-link" to="/charities">Charities</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="contact.html">Contacts</a>
+                        <NavLink activeClassName="active" className="nav-link" to="/contacts">Contacts</NavLink>
                         </li>
                     </ul>
-                        {children}
-                    <a className="btn navbar__login-button" href="login.html">Login</a>
+                    {children}
+                    <Link className="btn navbar__login-button" to="/login">Login</Link>
                 </div>
             </nav>
         </header>

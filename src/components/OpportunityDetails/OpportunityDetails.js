@@ -45,7 +45,7 @@ function OpportunityDetails({ taskImg, handleReset, opportunity }) {
                             </div>
                         </div>
                     </div></>
-                    : <h6>No Opportunity was found</h6>
+                    : <h6>No Opportunities were found</h6>
                 }
 
             </div>

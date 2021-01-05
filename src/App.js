@@ -15,9 +15,8 @@ import ChooseAnOpportunity from "./components/ChooseAnOpportunity/ChooseAnOpport
 import HomeFooter from "./components/HomeFooter/HomeFooter"
 import './App.css'
 import Banner from "./components/Banner/Banner"
-import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails";
-import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity";
 import RelatedOpportunities from "./components/RelatedOpportunities/RelatedOpportunities"
+import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity";
 import Search from "./components/Search/Search";
 import Contact from "./components/Contact/Contact"
 import { Data } from "./Assets/moreData"; //data

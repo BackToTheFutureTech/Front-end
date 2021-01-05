@@ -15,8 +15,6 @@ import ChooseAnOpportunity from "./components/ChooseAnOpportunity/ChooseAnOpport
 import HomeFooter from "./components/HomeFooter/HomeFooter"
 import './App.css'
 import Banner from "./components/Banner/Banner"
-import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails";
-import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity";
 import RelatedOpportunities from "./components/RelatedOpportunities/RelatedOpportunities"
 import Search from "./components/Search/Search";
 import Contact from "./components/Contact/Contact"
@@ -42,13 +40,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/becomeAVolunteer">
-            <ChooseAnOpportunity>
-              {filteredOpportunities.length > 0 ? filteredOpportunities.map((item) => {
-                return <VolunteerOpportunity {...item} />
-              }) : serverResponse.map((item) => {
-                return <VolunteerOpportunity {...item} />
-              })}
-            </ChooseAnOpportunity>
+            <ChooseAnOpportunity/>
           </Route>
           <Route path="/home">
             <Banner />

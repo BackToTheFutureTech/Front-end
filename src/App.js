@@ -43,10 +43,10 @@ function App() {
           </Route>
           <Route path="/becomeAVolunteer">
             <ChooseAnOpportunity>
-              {filteredOpportunities.length > 0 ? filteredOpportunities.map((item) => {
-                return <VolunteerOpportunity {...item} />
-              }) : serverResponse.map((item) => {
-                return <VolunteerOpportunity {...item} />
+              {filteredOpportunities.length > 0 ? filteredOpportunities.map((item,index) => {
+                return <VolunteerOpportunity {...item} key={index} />
+              }) : serverResponse.map((item,index) => {
+                return <VolunteerOpportunity {...item} key={index} />
               })}
             </ChooseAnOpportunity>
           </Route>

@@ -6,14 +6,17 @@
 
 .charity-details {
     background-color: rgba(0, 0, 0, 0.05);
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 40px;
     border-radius: 0.25rem;
     margin-bottom: 40px;
+    margin-top: 20px;
 }
 
 .charity-details__title {
     color: #46c2b6;
     font-weight: bold;
     font-size: 1.6rem;
+}
+.charity-details__volunteer-comment {
+    padding:20px;
 }

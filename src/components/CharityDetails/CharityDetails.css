@@ -1,0 +1,19 @@
+.charity-details__badge {
+    color: #fff;
+    background-color: #35a398;
+    border-color: #46c2b6;
+  }
+
+.charity-details {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 0.25rem;
+    margin-bottom: 40px;
+}
+
+.charity-details__title {
+    color: #46c2b6;
+    font-weight: bold;
+    font-size: 1.6rem;
+}

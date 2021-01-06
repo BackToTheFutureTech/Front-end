@@ -140,3 +140,46 @@ export const Data = [
             "https://images.unsplash.com/photo-1474932430478-367dbb6832c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
 ];
+export const charities = [
+    {
+        id: 1,
+        name: "NSPCC",
+        numActiveProjects: 5,
+        numCompletedProjects: 1,
+        description:
+            "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus pretium. Integer quis ante eget justo interdum tempor. Ut eget sapien vehicula, laoreet odio ut, fringillaneque.",
+        address: "60 Grange Road, BOLTON, AB48 3TH",
+        img:  "https://github.com/BackToTheFutureTech/Front-end/blob/main/src/Assets/TidyGarden.jpg?raw=true"
+    },
+    {
+        id: 2,
+        name: "Derrian House",
+        numActiveProjects: 3,
+        numCompletedProjects: 1,
+        description:
+            "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus",
+        address: "60 Grange Road, BOLTON, AB48 3TH",
+        img:  "https://github.com/BackToTheFutureTech/Front-end/blob/main/src/Assets/TidyGarden.jpg?raw=true"
+    },
+    {
+        id: 3,
+        name: "St Mary's",
+        numActiveProjects: 4,
+        numCompletedProjects: 2,
+        description:
+            "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus pretium. Integer quis ante eget justo interdum tempore.",
+        address: "60 Grange Road, MANCHESTER, AB48 3TH",
+        img:  "https://github.com/BackToTheFutureTech/Front-end/blob/main/src/Assets/TidyGarden.jpg?raw=true"
+    },
+    {
+        id: 4,
+        name: "Hospice",
+        numActiveProjects: 2,
+        numCompletedProjects: 0,
+        description:
+            "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus pretium. Integer quis ante eget justo interdum tempor. Ut eget sapien vehicula, laoreet odio ut, fringillaneque.",
+        address: "60 Grange Road, CREWE, AB48 3TH",
+        img:  "https://github.com/BackToTheFutureTech/Front-end/blob/main/src/Assets/TidyGarden.jpg?raw=true"
+    },
+    
+];

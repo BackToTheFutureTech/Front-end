@@ -14,6 +14,8 @@ function Charities() {
         setSelectedItem(id);
     }
 
+    const handleReset = e => { setIsSelected(false); }
+
     let selectedIx = charities.findIndex(charity => charity.id === selectedItem);
 
 
@@ -40,6 +42,7 @@ function Charities() {
 
     let charityDetail = (<CharityDetails
         charity={charities[selectedIx]}
+        handleReset={handleReset}
     />)
 
     return (

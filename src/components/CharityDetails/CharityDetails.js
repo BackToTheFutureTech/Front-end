@@ -1,10 +1,9 @@
 import React from 'react'
 import "./CharityDetails.css"
 
-function CharityDetails({ charity }) {
+function CharityDetails({ charity, handleReset }) {
 
     let VolunteerPhoto = (photo) => {
-        console.log(photo)
         // TODO - fails to display image passed as parameter
         return (<>
             <div className="col-12 col-md-4">
@@ -41,12 +40,16 @@ function CharityDetails({ charity }) {
                         <h4>Active Projects: <span className="badge badge-danger">{charity.numActiveProjects}</span></h4>
                         <h4>Completed Projects: <span className="badge charity-details__badge">{charity.numCompletedProjects}</span></h4>
                         <hr />
-                        <p>Description</p>
+                        <h5>Description</h5>
                         <p>{charity.description}</p>
-                        <p>Address</p>
+                        <h5>Address</h5>
                         <p>{charity.address}</p>
+                        <button
+                            type="button"
+                            className="btn button-MAD-theme "
+                            onClick={handleReset}
+                        >Return to List</button>
                     </div>
-
                 </div>
             </div>
             {charity.volunteerComments ?

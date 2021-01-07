@@ -3,15 +3,15 @@ import "./CharityDetails.css"
 
 function CharityDetails({ charity, handleReset }) {
 
-    let VolunteerPhoto = (photo) => {
-        // TODO - fails to display image passed as parameter
+    const VolunteerPhoto = (props) => {
+     
         return (<>
             <div className="col-12 col-md-4">
-                <img src="https://github.com/BackToTheFutureTech/Front-end/blob/main/src/Assets/SortClothing.jpg?raw=true" width="100%" alt="" />
+                <img src={props.photo} width="100%" alt="" />
             </div></>)
     }
 
-    let VolunteerComment = (comment) => {
+    const VolunteerComment = (comment) => {
         return (<div className="charity-details__volunteer-comment">
             <div className="row">
                 <h3>{comment.name}</h3>

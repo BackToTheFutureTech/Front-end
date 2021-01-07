@@ -21,6 +21,7 @@ import Search from "./components/Search/Search";
 import Contact from "./components/Contact/Contact"
 import { Data } from "./Assets/moreData"; //data
 import Login from "./components/Login/Login";
+import Charities from "./components/Charities/Charities"
 
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
                 return <VolunteerOpportunity {...item} key={index} />
               })}
             </ChooseAnOpportunity>
+          </Route>
+          <Route path="/charities">
+            <Charities />
           </Route>
           <Route path="/home">
             <Banner />

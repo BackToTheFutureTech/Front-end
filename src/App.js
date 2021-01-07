@@ -54,7 +54,7 @@ function App() {
           <Route path="/charities">
             <Charities />
           </Route>
-          <Route path="/home">
+          <Route path={["/home", "/"]}>
             <Banner />
             <RelatedOpportunities />
             <HomeFooter />

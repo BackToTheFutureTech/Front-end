@@ -4,10 +4,10 @@ import "./CharityDetails.css"
 function CharityDetails({ charity, handleReset }) {
 
     let VolunteerPhoto = (photo) => {
-        // TODO - fails to display image passed as parameter
+        let imgSrc = Object.values(photo)[0]
         return (<>
             <div className="col-12 col-md-4">
-                <img src="https://github.com/BackToTheFutureTech/Front-end/blob/main/src/Assets/SortClothing.jpg?raw=true" width="100%" alt="" />
+                <img src={imgSrc} width="100%" alt="" />
             </div></>)
     }
 

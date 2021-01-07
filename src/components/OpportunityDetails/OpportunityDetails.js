@@ -1,7 +1,14 @@
 import React from 'react'
 import "./OpportunityDetails.css"
+import {
+    BrowserRouter as Router,
+    useParams
+} from "react-router-dom";
+function OpportunityDetails({ allTaskImg, serverResponse }) {
 
-function OpportunityDetails({ taskImg, handleReset, opportunity }) {
+    let { id } = useParams();
+    let opportunity = serverResponse.find(item => item.id === parseInt(id))
+    let taskImg = allTaskImg[opportunity.taskType]
 
     return (
         <div className="container opportunity-details__details">
@@ -38,8 +45,7 @@ function OpportunityDetails({ taskImg, handleReset, opportunity }) {
                                         <button
                                             type="button"
                                             className="btn button-MAD-theme "
-                                            onClick={handleReset}
-                                        >Return to List</button>
+                                        >Something else will happen</button>
                                     </div>
                                 </div>
                             </div>

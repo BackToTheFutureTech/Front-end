@@ -32,9 +32,7 @@ function BreadCrumbs({ serverResponse }) {
                         match,
                         breadcrumb
                     }) => (
-
-                        <li key={match.url} className="breadcrumb-item"><NavLink to={match.url}>{breadcrumb}</NavLink></li>
-
+                        <li key={match.url} className="breadcrumb-item active"><NavLink to={match.url}>{breadcrumb}</NavLink></li>
                     ))}</ol>
             </nav>
         </div>

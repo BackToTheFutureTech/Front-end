@@ -8,9 +8,7 @@ import "./CharityDetails.css"
 function CharityDetails({ charities, handleReset }) {
   
     let {charityName} = useParams();
-    console.log(charityName)
     let charity = charities.find(item => item.name === charityName);
-    console.log(charity)
 
     const VolunteerPhoto = (props) => {
         return (<>

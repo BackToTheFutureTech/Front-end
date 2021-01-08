@@ -36,8 +36,6 @@ function App() {
       </Header>
       <main>
         <Switch>
-          <Route path="/charities/:charityName" children={<CharityDetails
-            charities={allCharities} />} />
           <Route path="/becomeAVolunteer/:id" children={<OpportunityDetails
             allTaskImg={taskImg}
             serverResponse={serverResponse} />} />
@@ -56,6 +54,8 @@ function App() {
               })}
             </ChooseAnOpportunity>
           </Route>
+          <Route path="/charities/:charityName" children={<CharityDetails
+            charities={allCharities} />} />
           <Route path="/charities">
             <Charities charities={allCharities}>
               {allCharities.map(charity => <CharityCard {...charity} key={charity.name} />)}

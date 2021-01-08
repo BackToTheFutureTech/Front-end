@@ -8,6 +8,7 @@ import {
 import './App.css'
 // components in alphabetic order
 import Banner from "./components/Banner/Banner"
+import BreadCrumbs from "./components/BreadCrumbs/BreadCrumbs"
 import Charities from "./components/Charities/Charities"
 import CharityCard from "./components/CharityCard/CharityCard"
 import CharityDetails from "./components/CharityDetails/CharityDetails"
@@ -36,6 +37,7 @@ function App() {
         <Search serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities} />
       </Header>
       <main>
+        <BreadCrumbs serverResponse={serverResponse} />
         <Switch>
           <Route path="/becomeAVolunteer/:id" children={<OpportunityDetails
             allTaskImg={taskImg}

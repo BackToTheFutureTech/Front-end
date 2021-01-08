@@ -30,6 +30,7 @@ function App() {
   const [serverResponse, setServerResponse] = useState(opportunities)
   const [allCharities, setAllCharities] = useState(charities)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
+  const latestOpportunities = opportunities.filter((item, ix) => ix > (opportunities.length - 4))
 
   return (
     <Router>
@@ -66,8 +67,10 @@ function App() {
           </Route>
           <Route path={["/home", "/"]}>
             <Banner />
-            <HomeContent />
-            <RelatedOpportunities />
+            <HomeContent>
+              {latestOpportunities.map((item, index) =>
+                <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={index} />)}
+            </HomeContent>
             <HomeFooter />
           </Route>
         </Switch>

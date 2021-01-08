@@ -1,7 +1,8 @@
 import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom"
 import "./CharityCard.css";
 
-function CharityCard({ img, name, id, handleSelect}) {
+function CharityCard({ img, name}) {
 
     return (
         < div className = "mx-auto mb-3" >
@@ -14,13 +15,12 @@ function CharityCard({ img, name, id, handleSelect}) {
                 <div className="card-body text-center ">
                     <ul className="list-unstyled mb-4">
                         <li>{name}</li>
-                    </ul>
-                    <button
-                        type="button"
-                        onClick={() => handleSelect(id)}
+                        <li><Link
+                        to={`/charities/${name}`}
                         className="btn btn-lg button-MAD-theme">
                         See Details
-                    </button>
+                        </Link></li>
+                    </ul>
                 </div>
             </div>
     </div >

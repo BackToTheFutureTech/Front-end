@@ -1,10 +1,18 @@
 import React from 'react'
+import {
+    BrowserRouter as Router,
+    useParams
+} from "react-router-dom";
 import "./CharityDetails.css"
 
-function CharityDetails({ charity, handleReset }) {
+function CharityDetails({ charities, handleReset }) {
+  
+    let {charityName} = useParams();
+    console.log(charityName)
+    let charity = charities.find(item => item.name === charityName);
+    console.log(charity)
 
     const VolunteerPhoto = (props) => {
-     
         return (<>
             <div className="col-12 col-md-4">
                 <img src={props.photo} width="100%" alt="" />

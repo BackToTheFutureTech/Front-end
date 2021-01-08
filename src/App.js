@@ -16,14 +16,17 @@ import RelatedOpportunities from "./components/RelatedOpportunities/RelatedOppor
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity";
 import Search from "./components/Search/Search";
 import Contact from "./components/Contact/Contact"
-import { opportunities, taskImg } from "./Assets/moreData"; //data
+import { opportunities, taskImg, charities } from "./Assets/moreData"; //data
 import Login from "./components/Login/Login";
 import Charities from "./components/Charities/Charities"
+import CharityCard from "./components/CharityCard/CharityCard"
+import CharityDetails from "./components/CharityDetails/CharityDetails"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
 
 
 function App() {
   const [serverResponse, setServerResponse] = useState(opportunities)
+  const [allCharities, setAllCharities] = useState(charities)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
 
   return (
@@ -33,6 +36,8 @@ function App() {
       </Header>
       <main>
         <Switch>
+          <Route path="/charities/:charityName" children={<CharityDetails
+            charities={allCharities} />} />
           <Route path="/becomeAVolunteer/:id" children={<OpportunityDetails
             allTaskImg={taskImg}
             serverResponse={serverResponse} />} />
@@ -52,7 +57,9 @@ function App() {
             </ChooseAnOpportunity>
           </Route>
           <Route path="/charities">
-            <Charities />
+            <Charities charities={allCharities}>
+              {allCharities.map(charity => <CharityCard {...charity} key={charity.name} />)}
+            </Charities>
           </Route>
           <Route path={["/home", "/"]}>
             <Banner />

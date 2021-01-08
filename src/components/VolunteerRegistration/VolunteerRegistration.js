@@ -1,7 +1,7 @@
 import React from "react";
 import "./VolunteerRegistration.css";
 
-function VolunteerRegistration({id}) {
+function VolunteerRegistration({ id }) {
 
     return (
         <section className="container">
@@ -10,43 +10,51 @@ function VolunteerRegistration({id}) {
             </div>
             <form className="form volunteer-registration-form">
                 <div className="col-sm form-column">
-
-                    <label htmlFor="name">
-                        Name
+                    <div className="row">
+                        <label htmlFor="name">
+                            Name
                             <input
-                            type="text"
-                            name="name"
-                            className="form-control rounded-pill"
-                        />
-                    </label>
-                    <label htmlFor="email">
-                        Email Address
+                                type="text"
+                                name="name"
+                                className="form-control rounded-pill"
+                            />
+                        </label>
+                    </div>
+                    <div className="row">
+                        <label htmlFor="email">
+                            Email Address
                                 <input
-                            type="text"
-                            name="email"
-                            className="form-control rounded-pill"
-                        />
-                    </label>
-                    <label htmlFor="mobile">
-                        Mobile Number (for text reminder)
+                                type="text"
+                                name="email"
+                                className="form-control rounded-pill"
+                            />
+                        </label>
+                    </div>
+                    <div className="row">
+                        <label htmlFor="mobile">
+                            Mobile Number
                                 <input
-                            type="text"
-                            name="mobile"
-                            className="form-control rounded-pill"
-                        />
-                    </label>
-                    <label htmlFor="numberVolunteers">
-                        Number of volunteers
+                                type="text"
+                                name="mobile"
+                                className="form-control rounded-pill"
+                            />
+                        </label>
+                    </div>
+                    <div className="row">
+                        <label htmlFor="numberVolunteers">
+                            Number of volunteers
                                 <input
-                            type="text"
-                            name="numberVolunteers"
-                            className="form-control rounded-pill"
-                        />
-                    </label>
+                                type="text"
+                                name="numberVolunteers"
+                                className="form-control rounded-pill"
+                            />
+                        </label>
+                    </div>
+
                     <div className="row">
                         <div className="col-12 text-center">
                             <button className="btn btn-lg button-MAD-theme my-3">
-                            Submit
+                                Submit
                             </button>
                         </div>
                     </div>

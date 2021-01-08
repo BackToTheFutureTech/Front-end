@@ -1,25 +1,9 @@
-import React, { useState } from "react"
-import CharityCard from "../CharityCard/CharityCard"
-import CharityDetails from "../CharityDetails/CharityDetails"
+import React from "react"
 import "./Charities.css";
-import {charities} from '../../Assets/moreData';
 
-function Charities() {    
-    // state
-    const [isSelected, setIsSelected] = useState(false);
-    const [selectedItem, setSelectedItem] = useState(1);
+function Charities({ children}) {
 
-    const handleSelect = id => {
-        setIsSelected(true);
-        setSelectedItem(id);
-    }
-
-    const handleReset = e => { setIsSelected(false); }
-
-    let selectedIx = charities.findIndex(charity => charity.id === selectedItem);
-
-
-    let charityList = (
+    return (
         <div>
             <div className="container pt-5">
                 <h2 className="charities__title">
@@ -29,25 +13,9 @@ function Charities() {
 
             <div className="container pt-3">
                 <div className="row">
-                    {charities.map((charity, index) =>
-                        <CharityCard {...charity}
-                            key={index}
-                            handleSelect={handleSelect}
-                        />
-                    )}
+                    {children}
                 </div>
             </div>
-        </div>
-    )
-
-    let charityDetail = (<CharityDetails
-        charity={charities[selectedIx]}
-        handleReset={handleReset}
-    />)
-
-    return (
-        <div>
-            {isSelected ? charityDetail : charityList}
         </div>
     )
 

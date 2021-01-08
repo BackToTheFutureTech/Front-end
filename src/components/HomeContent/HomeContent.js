@@ -5,7 +5,7 @@ import "./HomeContent.css";
 function HomeContent({ children }) {
 
     return (
-        <div className="container p-3">
+        <div className="container pt-3 pb-3">
             <h2 className="home-content__title">
                 Latest Volunteer Opportunities
                 </h2>

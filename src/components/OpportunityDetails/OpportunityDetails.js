@@ -5,9 +5,9 @@ import {
     useParams
 } from "react-router-dom";
 import VolunteerRegistration from "../VolunteerRegistration/VolunteerRegistration"
-    
+
 function OpportunityDetails({ allTaskImg, serverResponse }) {
-// state
+    // state
     const [isApply, setIsApply] = useState(false);
     let { id } = useParams();
     let opportunity = serverResponse.find(item => item.id === parseInt(id))
@@ -37,24 +37,14 @@ function OpportunityDetails({ allTaskImg, serverResponse }) {
                         <div className="opportunity-details__apply-div">
                             <h4 className="text-center">Date: {opportunity.date}</h4>
                             <div className="container">
-                                <div className="row my-4">
-                                    <div className="col text-center">
-                                        {isApply ? <VolunteerRegistration id={opportunity.id} /> :
-                                            <button
-                                                type="button"
-                                                className="btn btn-lg button-MAD-theme"
-                                                onClick={() => setIsApply(true)}
-                                            >Sign up</button>
-                                        }
-                                    </div>
-                                </div>
-                                <div className="row my-4">
-                                    <div className="col text-center">
+                                <div className="col text-center">
+                                    {isApply ? <VolunteerRegistration id={opportunity.id} /> :
                                         <button
                                             type="button"
-                                            className="btn button-MAD-theme "
-                                        >Something else will happen</button>
-                                    </div>
+                                            className="btn btn-lg button-MAD-theme"
+                                            onClick={() => setIsApply(true)}
+                                        >Sign up</button>
+                                    }
                                 </div>
                             </div>
                         </div>

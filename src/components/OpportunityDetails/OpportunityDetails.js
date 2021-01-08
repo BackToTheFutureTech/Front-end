@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
 import "./OpportunityDetails.css"
+import {
+    BrowserRouter as Router,
+    useParams
+} from "react-router-dom";
 import VolunteerRegistration from "../VolunteerRegistration/VolunteerRegistration"
-
-function OpportunityDetails({ taskImg, handleReset, opportunity }) {
-    // state
+    
+function OpportunityDetails({ allTaskImg, serverResponse }) {
+// state
     const [isApply, setIsApply] = useState(false);
+    let { id } = useParams();
+    let opportunity = serverResponse.find(item => item.id === parseInt(id))
+    let taskImg = allTaskImg[opportunity.taskType]
 
     return (
-        <div className="container opportunity-details__details">
+        <div className="container opportunity-details__details mt-5 mb-5">
 
             <div className="row">
                 {opportunity ? <>
@@ -46,8 +53,7 @@ function OpportunityDetails({ taskImg, handleReset, opportunity }) {
                                         <button
                                             type="button"
                                             className="btn button-MAD-theme "
-                                            onClick={handleReset}
-                                        >Return to List</button>
+                                        >Something else will happen</button>
                                     </div>
                                 </div>
                             </div>

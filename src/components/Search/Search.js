@@ -6,15 +6,19 @@ const Search = ({ serverResponse, setFillteredOpportunities }) => {
         const result = serverResponse.filter(element => {
             return (
                 element.location.toLowerCase().includes(term.toLowerCase()) ||
-                element.title.toLowerCase().includes(term.toLowerCase())
+                element.description.toLowerCase().includes(term.toLowerCase()) ||
+                element.address.toLowerCase().includes(term.toLowerCase()) ||
+                element.taskType.toLowerCase().includes(term.toLowerCase()) ||
+                element.charity.toLowerCase().includes(term.toLowerCase())  
             );
         });
         setFillteredOpportunities(result)
     };
 
     const handleChange = (event) => {
-        setSearchTerm(event.target.value);
         findTerm(searchTerm);
+        setSearchTerm(event.target.value);
+     
     };
     
     return (

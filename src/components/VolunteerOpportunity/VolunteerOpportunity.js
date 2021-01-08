@@ -1,10 +1,10 @@
 import React from "react";
 import "./VolunteerOpportunity.css";
-
-function VolunteerOpportunity({ taskImg, charity, taskType, location, id, handleSelect}) {
+import { BrowserRouter as Router, Link } from "react-router-dom"
+function VolunteerOpportunity({ taskImg, charity, taskType, location, id }) {
 
     return (
-        < div className = "mx-auto mb-3" >
+        < div className="mx-auto mb-3" >
             <div className="card volunteer-requests__item">
                 <img
                     className="card-img-top"
@@ -17,16 +17,15 @@ function VolunteerOpportunity({ taskImg, charity, taskType, location, id, handle
                         <li className="volunteer-requests__task">{taskType}</li>
                         <li className="volunteer-requests__location">{location}</li>
                     </ul>
-                    <button
-                        type="button"
-                        onClick={() => handleSelect(id)}
+                    <Link
+                        to={`/becomeAVolunteer/${id}`}
                         className="btn btn-lg button-MAD-theme">
                         See Details
-                    </button>
+                    </Link>
                 </div>
             </div>
-    </div >
-)
+        </div >
+    )
 }
 
 export default VolunteerOpportunity;

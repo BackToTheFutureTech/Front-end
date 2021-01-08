@@ -57,7 +57,7 @@ function App() {
           <Route path="/charities/:charityName" children={<CharityDetails
             charities={allCharities} />} />
           <Route path="/charities">
-            <Charities charities={allCharities}>
+            <Charities>
               {allCharities.map(charity => <CharityCard {...charity} key={charity.name} />)}
             </Charities>
           </Route>

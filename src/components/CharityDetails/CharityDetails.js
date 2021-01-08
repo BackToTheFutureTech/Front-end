@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import "./CharityDetails.css"
 
-function CharityDetails({ charities, handleReset }) {
+function CharityDetails({ charities}) {
   
     let {charityName} = useParams();
     let charity = charities.find(item => item.name === charityName);
@@ -50,11 +50,6 @@ function CharityDetails({ charities, handleReset }) {
                         <p>{charity.description}</p>
                         <h5>Address</h5>
                         <p>{charity.address}</p>
-                        <button
-                            type="button"
-                            className="btn button-MAD-theme "
-                            onClick={handleReset}
-                        >Return to List</button>
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ function OpportunityDetails({ allTaskImg, serverResponse }) {
     let taskImg = allTaskImg[opportunity.taskType]
 
     return (
-        <div className="container opportunity-details__details">
+        <div className="container opportunity-details__details mt-5 mb-5">
 
             <div className="row">
                 {opportunity ? <>

@@ -17,7 +17,7 @@ function ChooseAnOpportunity({ children, setFillteredOpportunities,serverRespons
     };
 
     return (<>
-        <div className="container pt-4">
+        <div className="container pt-3">
             <h2 className="choose-an-opportunity__title">
                 Where we need you
                     </h2>

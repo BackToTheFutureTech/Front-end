@@ -32,11 +32,10 @@ function CharityDetails({ charities}) {
     };
 
     return (
-        <div className="container pt-5">
+        <div className="container pt-3">
             <div className="row">
                 <h2 className="charity-details__title">{charity.name}</h2>
             </div>
-
             <div className="charity-details">
                 <div className="row">
                     <div className="col-12 col-md-5 mb-3">

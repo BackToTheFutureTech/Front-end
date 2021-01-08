@@ -4,8 +4,8 @@ import "./Charities.css";
 function Charities({ children}) {
 
     return (
-        <div>
-            <div className="container pt-5">
+        <>
+            <div className="container pt-3">
                 <h2 className="charities__title">
                     Charities we work with
                 </h2>
@@ -16,7 +16,7 @@ function Charities({ children}) {
                     {children}
                 </div>
             </div>
-        </div>
+        </>
     )
 
 }

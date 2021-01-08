@@ -22,6 +22,7 @@ import Charities from "./components/Charities/Charities"
 import CharityCard from "./components/CharityCard/CharityCard"
 import CharityDetails from "./components/CharityDetails/CharityDetails"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
+import BreadCrumbs from "./components/BreadCrumbs/BreadCrumbs";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Search serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities} />
       </Header>
       <main>
+        <BreadCrumbs serverResponse={serverResponse} />
         <Switch>
           <Route path="/becomeAVolunteer/:id" children={<OpportunityDetails
             allTaskImg={taskImg}

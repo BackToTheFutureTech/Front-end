@@ -4,7 +4,7 @@ import './Banner.css'
 function Banner() {
     return (
         <section className="home-intro">
-            <div className="container p-3">
+            <div className="container pt-3 pb-3">
                 <div className="hero-image mb-3">
                     <div className="container hero-text">
                         <h1>MAD Days</h1>

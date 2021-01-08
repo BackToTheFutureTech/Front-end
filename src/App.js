@@ -5,30 +5,32 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-// components
-import Footer from "./components/Footer/Footer"
-import Header from "./components/Header/Header"
-import ChooseAnOpportunity from "./components/ChooseAnOpportunity/ChooseAnOpportunity"
-import HomeFooter from "./components/HomeFooter/HomeFooter"
 import './App.css'
+// components in alphabetic order
 import Banner from "./components/Banner/Banner"
-import RelatedOpportunities from "./components/RelatedOpportunities/RelatedOpportunities"
-import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity";
-import Search from "./components/Search/Search";
-import Contact from "./components/Contact/Contact"
-import { opportunities, taskImg, charities } from "./Assets/moreData"; //data
-import Login from "./components/Login/Login";
+import BreadCrumbs from "./components/BreadCrumbs/BreadCrumbs"
 import Charities from "./components/Charities/Charities"
 import CharityCard from "./components/CharityCard/CharityCard"
 import CharityDetails from "./components/CharityDetails/CharityDetails"
+import ChooseAnOpportunity from "./components/ChooseAnOpportunity/ChooseAnOpportunity"
+import Contact from "./components/Contact/Contact"
+import Footer from "./components/Footer/Footer"
+import Header from "./components/Header/Header"
+import HomeContent from "./components/HomeContent/HomeContent"
+import HomeFooter from "./components/HomeFooter/HomeFooter"
+import Login from "./components/Login/Login"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
-import BreadCrumbs from "./components/BreadCrumbs/BreadCrumbs";
+import RelatedOpportunities from "./components/RelatedOpportunities/RelatedOpportunities"
+import Search from "./components/Search/Search"
+import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
 
+import { opportunities, taskImg, charities } from "./Assets/moreData"; //data
 
 function App() {
   const [serverResponse, setServerResponse] = useState(opportunities)
   const [allCharities, setAllCharities] = useState(charities)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
+  const latestOpportunities = opportunities.filter((item, ix) => ix > (opportunities.length - 4))
 
   return (
     <Router>
@@ -65,7 +67,10 @@ function App() {
           </Route>
           <Route path={["/home", "/"]}>
             <Banner />
-            <RelatedOpportunities />
+            <HomeContent>
+              {latestOpportunities.map((item, index) =>
+                <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={index} />)}
+            </HomeContent>
             <HomeFooter />
           </Route>
         </Switch>

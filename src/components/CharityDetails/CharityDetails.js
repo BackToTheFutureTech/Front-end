@@ -1,10 +1,16 @@
 import React from 'react'
+import {
+    BrowserRouter as Router,
+    useParams
+} from "react-router-dom";
 import "./CharityDetails.css"
 
-function CharityDetails({ charity, handleReset }) {
+function CharityDetails({ charities}) {
+  
+    let {charityName} = useParams();
+    let charity = charities.find(item => item.name === charityName);
 
     const VolunteerPhoto = (props) => {
-     
         return (<>
             <div className="col-12 col-md-4">
                 <img src={props.photo} width="100%" alt="" />
@@ -44,11 +50,6 @@ function CharityDetails({ charity, handleReset }) {
                         <p>{charity.description}</p>
                         <h5>Address</h5>
                         <p>{charity.address}</p>
-                        <button
-                            type="button"
-                            className="btn button-MAD-theme "
-                            onClick={handleReset}
-                        >Return to List</button>
                     </div>
                 </div>
             </div>

@@ -20,6 +20,7 @@ import { opportunities, taskImg } from "./Assets/moreData"; //data
 import Login from "./components/Login/Login";
 import Charities from "./components/Charities/Charities"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
+import BreadCrumbs from "./components/BreadCrumbs/BreadCrumbs";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Search serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities} />
       </Header>
       <main>
+        <BreadCrumbs serverResponse={serverResponse} />
         <Switch>
           <Route path="/becomeAVolunteer/:id" children={<OpportunityDetails
             allTaskImg={taskImg}

@@ -124,6 +124,11 @@ hr {
   color: #ffffff;
 }
 
+.intro__title {
+  color: #46c2b6;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
 
 .pagination {
   margin-top: 50px;

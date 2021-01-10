@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import './App.css'
 // components in alphabetic order
+import AdminPortalBody from "./components/AdminPortalBody/AdminPortalBody";
 import Banner from "./components/Banner/Banner"
 import BreadCrumbs from "./components/BreadCrumbs/BreadCrumbs"
 import Charities from "./components/Charities/Charities"
@@ -14,6 +15,7 @@ import CharityCard from "./components/CharityCard/CharityCard"
 import CharityDetails from "./components/CharityDetails/CharityDetails"
 import ChooseAnOpportunity from "./components/ChooseAnOpportunity/ChooseAnOpportunity"
 import Contact from "./components/Contact/Contact"
+import CreateAnOpportBody from "./components/CreateAnOpportBody/CreateAnOpportBody";
 import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import HomeContent from "./components/HomeContent/HomeContent"
@@ -30,7 +32,7 @@ import HowToHelp from "./components/HowToHelp/HowToHelp";
 function App() {
   const [serverResponse, setServerResponse] = useState(opportunities)
   const [allCharities, setAllCharities] = useState(charities)
-  const [helpingWays,setHelpingWays] = useState(waysToHelp)
+  const [helpingWays, setHelpingWays] = useState(waysToHelp)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
   const latestOpportunities = opportunities.filter((item, ix) => ix > (opportunities.length - 4))
 
@@ -42,6 +44,12 @@ function App() {
       <main>
         <BreadCrumbs serverResponse={serverResponse} />
         <Switch>
+          <Route path="/createOpportunity" >
+            <CreateAnOpportBody />
+          </Route>
+          <Route path="/adminportal">
+            <AdminPortalBody />
+          </Route>
           <Route path="/howToHelp">
             <HowToHelp>
               {helpingWays.map((item, index) => {

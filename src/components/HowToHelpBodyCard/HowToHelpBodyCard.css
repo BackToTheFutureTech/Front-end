@@ -1,0 +1,11 @@
+.custom_card {
+  background-color: #46c2b6;
+  color: white;
+}
+.custom_header {
+  border-bottom: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+.custom_card_body {
+  background-color: rgba(0, 0, 0, 0);
+}

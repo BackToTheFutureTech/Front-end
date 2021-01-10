@@ -18,17 +18,19 @@ import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import HomeContent from "./components/HomeContent/HomeContent"
 import HomeFooter from "./components/HomeFooter/HomeFooter"
+import HowToHelpBodyCard from './components/HowToHelpBodyCard/HowToHelpBodyCard'
 import Login from "./components/Login/Login"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
-import RelatedOpportunities from "./components/RelatedOpportunities/RelatedOpportunities"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
 
-import { opportunities, taskImg, charities } from "./Assets/moreData"; //data
+import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
+import HowToHelp from "./components/HowToHelp/HowToHelp";
 
 function App() {
   const [serverResponse, setServerResponse] = useState(opportunities)
   const [allCharities, setAllCharities] = useState(charities)
+  const [helpingWays,setHelpingWays] = useState(waysToHelp)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
   const latestOpportunities = opportunities.filter((item, ix) => ix > (opportunities.length - 4))
 
@@ -40,6 +42,13 @@ function App() {
       <main>
         <BreadCrumbs serverResponse={serverResponse} />
         <Switch>
+          <Route path="/howToHelp">
+            <HowToHelp>
+              {helpingWays.map((item, index) => {
+                return <HowToHelpBodyCard key={index} {...item} taskImg={taskImg} />
+              })}
+            </HowToHelp>
+          </Route>
           <Route path="/becomeAVolunteer/:id" children={<OpportunityDetails
             allTaskImg={taskImg}
             serverResponse={serverResponse} />} />

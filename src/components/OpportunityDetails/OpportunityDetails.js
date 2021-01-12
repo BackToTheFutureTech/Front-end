@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import "./OpportunityDetails.css"
-import {
-    BrowserRouter as Router,
-    useParams
-} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import VolunteerRegistration from "../VolunteerRegistration/VolunteerRegistration"
 
 function OpportunityDetails({ allTaskImg, serverResponse }) {

@@ -20,6 +20,7 @@ import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import HomeContent from "./components/HomeContent/HomeContent"
 import HomeFooter from "./components/HomeFooter/HomeFooter"
+import HowToHelp from "./components/HowToHelp/HowToHelp";
 import HowToHelpBodyCard from './components/HowToHelpBodyCard/HowToHelpBodyCard'
 import Login from "./components/Login/Login"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
@@ -27,14 +28,60 @@ import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
 
 import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
-import HowToHelp from "./components/HowToHelp/HowToHelp";
+
 
 function App() {
   const [serverResponse, setServerResponse] = useState(opportunities)
   const [allCharities, setAllCharities] = useState(charities)
+  const [allOpportunities, setAllOpportunities] = useState(opportunities)
   const [helpingWays, setHelpingWays] = useState(waysToHelp)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
-  const latestOpportunities = opportunities.filter((item, ix) => ix > (opportunities.length - 4))
+  const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
+  //charityName should be set on log in
+  const charityName = "NSPCC"
+
+  const editedOpportunity = (opportunity) => {
+    const editedOpportunity = {
+      id: opportunity.id,
+      name: opportunity.name,
+      charity: opportunity.charity,
+      taskType: opportunity.taskType,
+      numVolunteers: opportunity.numVolunteers,
+      date: opportunity.date,
+      location: opportunity.location,
+      description: opportunity.description,
+      address: opportunity.address
+    }
+    const updatedOpportunities = allOpportunities.map(opportunity => {
+      if (opportunity.id === editedOpportunity.id) return editedOpportunity
+      return opportunity
+    })
+    setAllOpportunities(updatedOpportunities)
+  }
+
+  const deleteOpportunity = id => {
+    const updatedOpportunities = allOpportunities.filter(opportunity => opportunity.id !== id)
+    setAllOpportunities(updatedOpportunities)
+  }
+
+  const createOpportunity = (opportunity) => {
+    // ToDo - need a unique id here
+    let id = allOpportunities.length
+    const newOpportunity = {
+      id: id,
+      name: opportunity.name,
+      charity: opportunity.charity,
+      taskType: opportunity.taskType,
+      numVolunteers: opportunity.numVolunteers,
+      date: opportunity.date,
+      location: opportunity.location,
+      description: opportunity.description,
+      address: opportunity.address
+    }
+    const updatedOpportunities = [ ...allOpportunities, newOpportunity ]
+    console.log(updatedOpportunities)
+    setAllOpportunities(updatedOpportunities)
+  }
 
   return (
     <Router>
@@ -45,10 +92,15 @@ function App() {
         <BreadCrumbs serverResponse={serverResponse} />
         <Switch>
           <Route path="/createOpportunity" >
-            <CreateAnOpportBody />
+            <CreateAnOpportBody 
+              createOpportunity={createOpportunity}
+              charityName={charityName}/>
           </Route>
           <Route path="/adminportal">
-            <AdminPortalBody />
+            <AdminPortalBody 
+              charityName={charityName}
+              allOpportunities={allOpportunities}
+              deleteOpportunity={deleteOpportunity} />
           </Route>
           <Route path="/howToHelp">
             <HowToHelp>
@@ -68,10 +120,10 @@ function App() {
           </Route>
           <Route path="/becomeAVolunteer">
             <ChooseAnOpportunity serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities}>
-              {filteredOpportunities.length > 0 ? filteredOpportunities.map((item, index) => {
-                return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={index} />
-              }) : serverResponse.map((item, index) => {
-                return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={index} />
+              {filteredOpportunities.length > 0 ? filteredOpportunities.map((item) => {
+                return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />
+              }) : serverResponse.map((item) => {
+                return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />
               })}
             </ChooseAnOpportunity>
           </Route>
@@ -85,8 +137,8 @@ function App() {
           <Route path={["/home", "/"]}>
             <Banner />
             <HomeContent>
-              {latestOpportunities.map((item, index) =>
-                <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={index} />)}
+              {latestOpportunities.map((item) =>
+                <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />)}
             </HomeContent>
             <HomeFooter />
           </Route>

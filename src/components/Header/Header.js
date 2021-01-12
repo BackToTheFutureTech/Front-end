@@ -1,12 +1,6 @@
 import React from 'react'
 import Logo from './../../Assets/logo.png'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    NavLink,
-} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css"
 
 const Header = ({ children }) => {
@@ -40,10 +34,10 @@ const Header = ({ children }) => {
                             <NavLink activeClassName="active" className="nav-link" to="/becomeAVolunteer">Become a Volunteer</NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink activeClassName="active" className="nav-link" to="/charities">Charities</NavLink>
+                            <NavLink activeClassName="active" className="nav-link" to="/charities">Charities</NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink activeClassName="active" className="nav-link" to="/contacts">Contacts</NavLink>
+                            <NavLink activeClassName="active" className="nav-link" to="/contacts">Contacts</NavLink>
                         </li>
                     </ul>
                     {children}

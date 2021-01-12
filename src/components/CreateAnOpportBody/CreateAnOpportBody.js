@@ -1,7 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./CreateAnOpportBody.css"
 
-const CreateAnOpportBody = () => {
+const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
+    const [name, setName] = useState("")
+    const [taskType, setTaskType] = useState("")
+    const [numVolunteers, setNumVolunteers] = useState(0)
+    const [date, setDate] = useState("")
+    const [description, setDescription] = useState("")
+    const [postcode, setPostcode] = useState("")
+    const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+    const [state, setState] = useState("")
+
+    const handleClick = () => {
+        let opportunity = {
+            name: name,
+            charity: charityName,
+            taskType: taskType,
+            numVolunteers: numVolunteers,
+            date: date,
+            description: description,
+            location: city, 
+            address: address
+        }
+        createOpportunity(opportunity)
+        // reset input fields
+        setName("")
+        setTaskType("")
+        setNumVolunteers(0)
+        setDate("")
+        setDescription("")
+        setPostcode("")
+        setAddress("")
+        setCity("")
+        setState("")
+    }
+
     return (
         <div className="container">
             <h2 className="opportunity_title">Create a volunteering opportunity</h2>
@@ -9,60 +43,105 @@ const CreateAnOpportBody = () => {
                 <div className="container-fluid form-settings mb-5">
                     <div className="row d-flex justify-content-between">
                         <div className="col-sm form-column">
-                            <label for="name">
+                            <label htmlFor="name">
                                 Opportunity Name
-                  <input className="form-control rounded-pill form-input" type="text" name="name" />
+                                <input className="form-control rounded-pill form-input"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    id="add-opportunity-name"
+                                    type="text"
+                                    name="name" />
                             </label>
-                            <label for="type">
+                            <label htmlFor="type">
                                 Type
-                  <select name="type" className="form-control rounded-pill form-input">
+                            <select name="type"
+                                    className="form-control rounded-pill form-input"
+                                    onChange={(e) => setTaskType(e.target.value)}
+                                    id="add-opportunity-num">
                                     <option value="wrap">Wrap Presents</option>
                                     <option value="sort">Sort Clothes</option>
                                     <option value="garden">Gardening</option>
                                     <option value="other">Other Things</option>
                                 </select>
                             </label>
-                            <label for="number">
+                            <label htmlFor="number">
                                 How many people will be needed
-                  <input type="text" name="number" className="form-control rounded-pill form-input" />
+                                <input className="form-control rounded-pill form-input"
+                                    value={numVolunteers}
+                                    onChange={(e) => setNumVolunteers(e.target.value)}
+                                    id="add-opportunity-num"
+                                    type="text"
+                                    name="number" />
                             </label>
-                            <label for="date">
+                            <label htmlFor="date">
                                 When?
-                  <input type="date" name="date" className="form-control rounded-pill form-input" />
+                                <input value={date}
+                                    onChange={(e) => setDate(e.target.value)}
+                                    id="add-opportunity-date" type="date"
+                                    name="date"
+                                    className="form-control rounded-pill form-input" />
                             </label>
                         </div>
                         <div className="col-sm form-column">
-                            <label for="description">
+                            <label htmlFor="description">
                                 A brief description
-                  <textarea name="description" rows="10" cols="30" className="form-control rounded form-input"></textarea>
+                                <textarea value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                    id="add-opportunity-description"
+                                    name="description" rows="10" cols="30"
+                                    className="form-control rounded form-input"></textarea>
                             </label>
-                            <label for="thumbnail">
+                            <label htmlFor="thumbnail">
                                 Upload a thumbnail
-                  <input type="file" name="thumbnail" className="" />
+                                <input type="file" name="thumbnail" className="" />
                             </label>
                         </div>
                         <div className="col-sm form-column">
-                            <label for="postcode">
+                            <label htmlFor="postcode">
                                 PostCode
-                  <input type="text" name="postcode" className="form-control rounded-pill form-input" />
+                                <input value={postcode}
+                                    onChange={(e) => setPostcode(e.target.value)}
+                                    id="add-opportunity-postcode"
+                                    type="text"
+                                    name="postcode"
+                                    className="form-control rounded-pill form-input" />
                             </label>
-                            <label for="address">
+                            <label htmlFor="address">
                                 Address
-                  <input type="text" name="address" className="form-control rounded-pill form-input" />
+                                <input value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                    id="add-opportunity-address"
+                                    type="text"
+                                    name="address"
+                                    className="form-control rounded-pill form-input" />
                             </label>
-                            <label for="city">
+                            <label htmlFor="city">
                                 City
-                  <input type="text" name="city" className="form-control rounded-pill form-input" />
+                                <input value={city}
+                                    onChange={(e) => setCity(e.target.value)}
+                                    id="add-opportunity-city"
+                                    type="text"
+                                    name="city"
+                                    className="form-control rounded-pill form-input" />
                             </label>
-                            <label for="state">
+                            <label htmlFor="state">
                                 State
-                  <input type="text" name="state" className="form-control rounded-pill form-input" />
+                                    <input value={state}
+                                    onChange={(e) => setState(e.target.value)}
+                                    id="add-opportunity-state"
+                                    type="text"
+                                    name="state"
+                                    className="form-control rounded-pill form-input" />
                             </label>
                         </div>
                     </div>
                 </div>
                 <div className="float-right">
-                    <button className="form-submit mt-2">Create</button>
+                    <button
+                        type="button"
+                        className="form-submit mt-2"
+                        onClick={() => handleClick()}
+                    >Create</button>
                 </div>
             </form>
         </div>

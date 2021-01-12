@@ -8,3 +8,10 @@
     width: 100%;
     border-radius: 15px;
 }
+
+.opp-table__actions {
+}
+
+.opp-table__action {
+    color: #46c2b6;
+}

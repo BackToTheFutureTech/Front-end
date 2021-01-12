@@ -21,6 +21,8 @@ function BreadCrumbs({ serverResponse }) {
         { path: '/howToHelp', breadcrumb: 'How To Help' },
         { path: '/becomeAVolunteer', breadcrumb: 'Become A Volunteer' },
         { path: '/home', breadcrumb: ' ' },
+        { path: '/createOpportunity', breadcrumb: 'Create an opportunity' },
+
     ];
     const breadcrumbs = useBreadcrumbs(routes);
 

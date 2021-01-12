@@ -8,7 +8,7 @@ const Login = () => {
             <section className="home-intro">
                 <div className="container p-3">
                     <div className="text-center">
-                        <form className="form-signin" action=" adminportal.html">
+                        <form className="form-signin" action="/adminportal">
                             <img
                                 src={Logo}
                                 height="150"

@@ -1,10 +1,8 @@
 import React from 'react'
 import "./AdminPortalBody.css"
 
-const AdminPortalBody = ({ allOpportunities, deleteOpportunity }) => {
+const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) => {
 
-  //charityName should be set on log in
-  const charityName = "NSPCC"
   let charityOpportunities = allOpportunities.filter(opportunity => opportunity.charity === charityName)
 
   return (
@@ -32,7 +30,7 @@ const AdminPortalBody = ({ allOpportunities, deleteOpportunity }) => {
                 <td>{item.date}</td>
                 <td>{item.description}</td>
                 <td>
-                  <div class="btn-group" role="group" aria-label="Actions">
+                  <div className="btn-group opp-table__actions" role="group" aria-label="Actions">
                     <button
                       type="button"
                       className="btn opp-table__action"

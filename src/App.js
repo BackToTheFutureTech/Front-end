@@ -37,6 +37,8 @@ function App() {
   const [helpingWays, setHelpingWays] = useState(waysToHelp)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
+  //charityName should be set on log in
+  const charityName = "NSPCC"
 
   const editedOpportunity = (opportunity) => {
     const editedOpportunity = {
@@ -62,9 +64,11 @@ function App() {
     setAllOpportunities(updatedOpportunities)
   }
 
-  const newOpportunity = (opportunity) => {
+  const createOpportunity = (opportunity) => {
+    // ToDo - need a unique id here
+    let id = allOpportunities.length
     const newOpportunity = {
-      id: opportunity.id,
+      id: id,
       name: opportunity.name,
       charity: opportunity.charity,
       taskType: opportunity.taskType,
@@ -75,6 +79,7 @@ function App() {
       address: opportunity.address
     }
     const updatedOpportunities = [ ...allOpportunities, newOpportunity ]
+    console.log(updatedOpportunities)
     setAllOpportunities(updatedOpportunities)
   }
 
@@ -87,10 +92,13 @@ function App() {
         <BreadCrumbs serverResponse={serverResponse} />
         <Switch>
           <Route path="/createOpportunity" >
-            <CreateAnOpportBody />
+            <CreateAnOpportBody 
+              createOpportunity={createOpportunity}
+              charityName={charityName}/>
           </Route>
           <Route path="/adminportal">
             <AdminPortalBody 
+              charityName={charityName}
               allOpportunities={allOpportunities}
               deleteOpportunity={deleteOpportunity} />
           </Route>

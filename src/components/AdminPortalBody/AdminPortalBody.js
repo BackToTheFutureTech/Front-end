@@ -2,14 +2,15 @@ import React from 'react'
 import "./AdminPortalBody.css"
 
 const AdminPortalBody = () => {
+
     return (
-        <div class="container p-3">
-          <h2 class="admin_title">List of Opportunities</h2>
-        <div class="float-right">
-          <a class="btn btn-primary mb-5 rounded-pill pr-3 pl-3" href="/createOpportunity">Create an opportunity</a>
+        <div className="container p-3">
+          <h2 className="admin_title">List of Opportunities</h2>
+        <div className="float-right">
+          <a className="btn btn-primary mb-5 rounded-pill pr-3 pl-3" href="/createOpportunity">Create an opportunity</a>
         </div>
         <section>
-          <table class="table table-hover opp-table">
+          <table className="table table-hover opp-table">
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -28,7 +29,7 @@ const AdminPortalBody = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Nulla vitae suscipit.
                 </td>
-                <td class="opp-table-last">
+                <td className="opp-table-last">
                   <a href="#">delete</a> | <a href="#">edit</a>
                 </td>
               </tr>
@@ -40,7 +41,7 @@ const AdminPortalBody = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Nulla vitae suscipit.
                 </td>
-                <td class="opp-table-last">
+                <td className="opp-table-last">
                   <a href="#">delete</a> | <a href="#">edit</a>
                 </td>
               </tr>
@@ -52,7 +53,7 @@ const AdminPortalBody = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Nulla vitae suscipit.
                 </td>
-                <td class="opp-table-last">
+                <td className="opp-table-last">
                   <a href="#">delete</a> | <a href="#">edit</a>
                 </td>
               </tr>

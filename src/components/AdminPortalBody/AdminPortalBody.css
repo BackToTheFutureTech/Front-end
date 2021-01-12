@@ -8,3 +8,9 @@
     width: 100%;
     border-radius: 15px;
 }
+
+.opp-table__action {
+    color: #46c2b6;
+    line-height: inherit;
+    vertical-align: inherit;
+}

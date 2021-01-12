@@ -36,7 +36,47 @@ function App() {
   const [allOpportunities, setAllOpportunities] = useState(opportunities)
   const [helpingWays, setHelpingWays] = useState(waysToHelp)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
-  const latestOpportunities = opportunities.filter((item, ix) => ix > (opportunities.length - 4))
+  const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
+
+  const editedOpportunity = (opportunity) => {
+    const editedOpportunity = {
+      id: opportunity.id,
+      name: opportunity.name,
+      charity: opportunity.charity,
+      taskType: opportunity.taskType,
+      numVolunteers: opportunity.numVolunteers,
+      date: opportunity.date,
+      location: opportunity.location,
+      description: opportunity.description,
+      address: opportunity.address
+    }
+    const updatedOpportunities = allOpportunities.map(opportunity => {
+      if (opportunity.id === editedOpportunity.id) return editedOpportunity
+      return opportunity
+    })
+    setAllOpportunities(updatedOpportunities)
+  }
+
+  const deleteOpportunity = id => {
+    const updatedOpportunities = allOpportunities.filter(opportunity => opportunity.id !== id)
+    setAllOpportunities(updatedOpportunities)
+  }
+
+  const newOpportunity = (opportunity) => {
+    const newOpportunity = {
+      id: opportunity.id,
+      name: opportunity.name,
+      charity: opportunity.charity,
+      taskType: opportunity.taskType,
+      numVolunteers: opportunity.numVolunteers,
+      date: opportunity.date,
+      location: opportunity.location,
+      description: opportunity.description,
+      address: opportunity.address
+    }
+    const updatedOpportunities = [ ...allOpportunities, newOpportunity ]
+    setAllOpportunities(updatedOpportunities)
+  }
 
   return (
     <Router>
@@ -50,7 +90,9 @@ function App() {
             <CreateAnOpportBody />
           </Route>
           <Route path="/adminportal">
-            <AdminPortalBody allOpportunities={allOpportunities} />
+            <AdminPortalBody 
+              allOpportunities={allOpportunities}
+              deleteOpportunity={deleteOpportunity} />
           </Route>
           <Route path="/howToHelp">
             <HowToHelp>

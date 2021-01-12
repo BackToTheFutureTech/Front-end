@@ -33,6 +33,7 @@ import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData
 function App() {
   const [serverResponse, setServerResponse] = useState(opportunities)
   const [allCharities, setAllCharities] = useState(charities)
+  const [allOpportunities, setAllOpportunities] = useState(opportunities)
   const [helpingWays, setHelpingWays] = useState(waysToHelp)
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
   const latestOpportunities = opportunities.filter((item, ix) => ix > (opportunities.length - 4))
@@ -49,7 +50,7 @@ function App() {
             <CreateAnOpportBody />
           </Route>
           <Route path="/adminportal">
-            <AdminPortalBody />
+            <AdminPortalBody allOpportunities={allOpportunities} />
           </Route>
           <Route path="/howToHelp">
             <HowToHelp>

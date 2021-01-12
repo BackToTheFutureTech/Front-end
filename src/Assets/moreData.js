@@ -12,6 +12,7 @@ export const opportunities = [
   {
     id: 1,
     charity: "NSPCC",
+    name: "Winter Aid",
     taskType: "Sort Clothes",
     numVolunteers: 5,
     date: "10/1/2021",
@@ -23,6 +24,7 @@ export const opportunities = [
   {
     id: 2,
     charity: "NSPCC",
+    name: "Christmas Cheer",
     taskType: "Wrap Presents",
     numVolunteers: 5,
     date: "10/12/2020",
@@ -34,6 +36,7 @@ export const opportunities = [
   {
     id: 3,
     charity: "NSPCC",
+    name: "Support for children",
     taskType: "Sort Clothes",
     numVolunteers: 5,
     date: "10/1/2021",
@@ -45,6 +48,7 @@ export const opportunities = [
   {
     id: 4,
     charity: "Derrian House",
+    name: "Garden makeover",
     taskType: "Gardening",
     numVolunteers: 5,
     date: "10/1/2021",
@@ -56,6 +60,7 @@ export const opportunities = [
   {
     id: 5,
     charity: "NSPCC",
+    name: "Support for children",
     taskType: "Sort Clothes",
     numVolunteers: 5,
     date: "10/1/2021",
@@ -67,6 +72,7 @@ export const opportunities = [
   {
     id: 6,
     charity: "NSPCC",
+    name: "Chritsmas Cheer",
     taskType: "Wrap Presents",
     numVolunteers: 5,
     date: "10/1/2021",
@@ -77,7 +83,8 @@ export const opportunities = [
   },
   {
     id: 7,
-    charity: "NSPCC",
+    charity: "St Mary's",
+    name: "Feeding the homeless",
     taskType: "Serve Food",
     numVolunteers: 5,
     date: "10/1/2021",

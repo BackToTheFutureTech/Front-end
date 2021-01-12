@@ -9,11 +9,11 @@ const CreateAnOpportBody = () => {
                 <div className="container-fluid form-settings mb-5">
                     <div className="row d-flex justify-content-between">
                         <div className="col-sm form-column">
-                            <label for="name">
+                            <label htmlFor="name">
                                 Opportunity Name
                   <input className="form-control rounded-pill form-input" type="text" name="name" />
                             </label>
-                            <label for="type">
+                            <label htmlFor="type">
                                 Type
                   <select name="type" className="form-control rounded-pill form-input">
                                     <option value="wrap">Wrap Presents</option>
@@ -22,39 +22,39 @@ const CreateAnOpportBody = () => {
                                     <option value="other">Other Things</option>
                                 </select>
                             </label>
-                            <label for="number">
+                            <label htmlFor="number">
                                 How many people will be needed
                   <input type="text" name="number" className="form-control rounded-pill form-input" />
                             </label>
-                            <label for="date">
+                            <label htmlFor="date">
                                 When?
                   <input type="date" name="date" className="form-control rounded-pill form-input" />
                             </label>
                         </div>
                         <div className="col-sm form-column">
-                            <label for="description">
+                            <label htmlFor="description">
                                 A brief description
                   <textarea name="description" rows="10" cols="30" className="form-control rounded form-input"></textarea>
                             </label>
-                            <label for="thumbnail">
+                            <label htmlFor="thumbnail">
                                 Upload a thumbnail
                   <input type="file" name="thumbnail" className="" />
                             </label>
                         </div>
                         <div className="col-sm form-column">
-                            <label for="postcode">
+                            <label htmlFor="postcode">
                                 PostCode
                   <input type="text" name="postcode" className="form-control rounded-pill form-input" />
                             </label>
-                            <label for="address">
+                            <label htmlFor="address">
                                 Address
                   <input type="text" name="address" className="form-control rounded-pill form-input" />
                             </label>
-                            <label for="city">
+                            <label htmlFor="city">
                                 City
                   <input type="text" name="city" className="form-control rounded-pill form-input" />
                             </label>
-                            <label for="state">
+                            <label htmlFor="state">
                                 State
                   <input type="text" name="state" className="form-control rounded-pill form-input" />
                             </label>

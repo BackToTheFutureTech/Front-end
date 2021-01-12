@@ -1,13 +1,10 @@
 import React from 'react'
-import {
-    BrowserRouter as Router,
-    useParams
-} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./CharityDetails.css"
 
-function CharityDetails({ charities}) {
-  
-    let {charityName} = useParams();
+function CharityDetails({ charities }) {
+
+    let { charityName } = useParams();
     let charity = charities.find(item => item.name === charityName);
 
     const VolunteerPhoto = (props) => {

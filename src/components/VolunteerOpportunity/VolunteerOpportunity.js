@@ -1,6 +1,6 @@
 import React from "react";
 import "./VolunteerOpportunity.css";
-import { BrowserRouter as Router, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 function VolunteerOpportunity({ taskImg, charity, taskType, location, id }) {
 
     return (

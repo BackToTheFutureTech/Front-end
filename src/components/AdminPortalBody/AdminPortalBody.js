@@ -25,9 +25,7 @@ const AdminPortalBody = ({ allOpportunities }) => {
             </tr>
           </thead>
           <tbody>
-            {charityOpportunities.map(item => {
-              console.log(item.id)
-              return (
+            {charityOpportunities.map(item => 
                 <tr key={item.id}>
                   <td>{item.name}</td>
                   <td>{item.taskType}</td>
@@ -36,8 +34,7 @@ const AdminPortalBody = ({ allOpportunities }) => {
                   <td className="opp-table-last">
                     <a href="#">delete</a> | <a href="#">edit</a>
                   </td>
-                </tr>)
-            } 
+                </tr>
             )}
           </tbody>
         </table>

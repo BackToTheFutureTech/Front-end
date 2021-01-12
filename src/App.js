@@ -20,6 +20,7 @@ import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import HomeContent from "./components/HomeContent/HomeContent"
 import HomeFooter from "./components/HomeFooter/HomeFooter"
+import HowToHelp from "./components/HowToHelp/HowToHelp";
 import HowToHelpBodyCard from './components/HowToHelpBodyCard/HowToHelpBodyCard'
 import Login from "./components/Login/Login"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
@@ -27,7 +28,7 @@ import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
 
 import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
-import HowToHelp from "./components/HowToHelp/HowToHelp";
+
 
 function App() {
   const [serverResponse, setServerResponse] = useState(opportunities)
@@ -68,10 +69,10 @@ function App() {
           </Route>
           <Route path="/becomeAVolunteer">
             <ChooseAnOpportunity serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities}>
-              {filteredOpportunities.length > 0 ? filteredOpportunities.map((item, index) => {
-                return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={index} />
-              }) : serverResponse.map((item, index) => {
-                return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={index} />
+              {filteredOpportunities.length > 0 ? filteredOpportunities.map((item) => {
+                return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />
+              }) : serverResponse.map((item) => {
+                return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />
               })}
             </ChooseAnOpportunity>
           </Route>
@@ -85,8 +86,8 @@ function App() {
           <Route path={["/home", "/"]}>
             <Banner />
             <HomeContent>
-              {latestOpportunities.map((item, index) =>
-                <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={index} />)}
+              {latestOpportunities.map((item) =>
+                <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />)}
             </HomeContent>
             <HomeFooter />
           </Route>

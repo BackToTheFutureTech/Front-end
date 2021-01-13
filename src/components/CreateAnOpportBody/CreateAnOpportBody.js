@@ -64,7 +64,7 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
                                     <option value="Sort Clothes">Sort Clothes</option>
                                     <option value="Gardening">Gardening</option>
                                     <option value="Serve Food">Serve Food</option>
-                                    <option value="Other">Other</option>
+                                    <option value="Other" defaultValue>Other</option>
                                 </select>
                             </label>
                             <label htmlFor="number">

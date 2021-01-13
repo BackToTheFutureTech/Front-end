@@ -15,7 +15,8 @@ import CharityCard from "./components/CharityCard/CharityCard"
 import CharityDetails from "./components/CharityDetails/CharityDetails"
 import ChooseAnOpportunity from "./components/ChooseAnOpportunity/ChooseAnOpportunity"
 import Contact from "./components/Contact/Contact"
-import CreateAnOpportBody from "./components/CreateAnOpportBody/CreateAnOpportBody";
+import CreateAnOpportBody from "./components/CreateAnOpportBody/CreateAnOpportBody"
+import EditAnOpportBody from "./components/EditAnOpportBody/EditAnOpportBody"
 import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import HomeContent from "./components/HomeContent/HomeContent"
@@ -40,10 +41,10 @@ function App() {
 
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
-  //charityName should be set on log in
+  // for testing...charityName and authorisation should be set on log in
   const charityName = "NSPCC"
 
-  const editedOpportunity = (opportunity) => {
+  const editOpportunity = (opportunity) => {
     const editedOpportunity = {
       id: opportunity.id,
       name: opportunity.name,
@@ -53,14 +54,16 @@ function App() {
       date: opportunity.date,
       postcode: opportunity.postcode,
       location: opportunity.location,
-      address: opportunity.address,
+      address1: opportunity.address1,
+      address2: opportunity.address2,
       description: opportunity.description
     }
-    const updatedOpportunities = allOpportunities.map(opportunity => {
-      if (opportunity.id === editedOpportunity.id) return editedOpportunity
-      return opportunity
+    const updatedOpportunities = allOpportunities.map(item => {
+      if (item.id === editedOpportunity.id) return editedOpportunity
+      return item
     })
     setAllOpportunities(updatedOpportunities)
+    //console.log(updatedOpportunities)
   }
 
   const deleteOpportunity = id => {
@@ -80,11 +83,12 @@ function App() {
       date: opportunity.date,
       postcode: opportunity.postcode,
       location: opportunity.location,
-      address: opportunity.address,
+      address1: opportunity.address1,
+      address12: opportunity.address2,
       description: opportunity.description
     }
     const updatedOpportunities = [ ...allOpportunities, newOpportunity ]
-    console.log(updatedOpportunities)
+    //console.log(updatedOpportunities)
     setAllOpportunities(updatedOpportunities)
   }
 
@@ -100,6 +104,11 @@ function App() {
             <CreateAnOpportBody 
               createOpportunity={createOpportunity}
               charityName={charityName}/>
+          </Route>
+          <Route path="/editOpportunity/:id" >
+            <EditAnOpportBody 
+              editOpportunity={editOpportunity}
+              allOpportunities={allOpportunities}/>
           </Route>
           <Route path="/adminportal">
             <AdminPortalBody 

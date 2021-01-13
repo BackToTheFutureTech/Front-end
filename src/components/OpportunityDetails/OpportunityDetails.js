@@ -28,7 +28,7 @@ function OpportunityDetails({ allTaskImg, serverResponse }) {
                         <p>Description</p>
                         <p>{opportunity.description}</p><br />
                         <p>Address</p>
-                        <p>{opportunity.address}</p>
+                        <p>{opportunity.address1}, {opportunity.address2}, {opportunity.location}, {opportunity.postcode}</p>
                     </div>
                     <div className="col-12 col-lg-4">
                         <div className="opportunity-details__apply-div">

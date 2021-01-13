@@ -1,21 +1,27 @@
 import React, { useState } from 'react'
-import "./CreateAnOpportBody.css"
+import { useParams } from "react-router-dom";
+import "./EditAnOpportBody.css"
 
-const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
-    const [name, setName] = useState("")
-    const [taskType, setTaskType] = useState("")
-    const [numVolunteers, setNumVolunteers] = useState(0)
-    const [date, setDate] = useState("")
-    const [description, setDescription] = useState("")
-    const [postcode, setPostcode] = useState("")
-    const [address1, setAddress1] = useState("")
-    const [address2, setAddress2] = useState("")
-    const [city, setCity] = useState("")
+const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
+    const { id } = useParams()
+    const opportunity = allOpportunities.find(item => item.id === parseInt(id))
+
+    const [name, setName] = useState(opportunity.name)
+    const [charity, setCharity] = useState(opportunity.charity)
+    const [taskType, setTaskType] = useState(opportunity.taskType)
+    const [numVolunteers, setNumVolunteers] = useState(opportunity.numVolunteers)
+    const [date, setDate] = useState(opportunity.date)
+    const [description, setDescription] = useState(opportunity.description)
+    const [postcode, setPostcode] = useState(opportunity.postcode)
+    const [address1, setAddress1] = useState(opportunity.address1)
+    const [address2, setAddress2] = useState(opportunity.address2)
+    const [city, setCity] = useState(opportunity.location)
 
     const handleClick = () => {
-        let opportunity = {
+        let editedOpportunity = {
+            id: opportunity.id,
             name: name,
-            charity: charityName,
+            charity: charity,
             taskType: taskType,
             numVolunteers: numVolunteers,
             date: date,
@@ -25,22 +31,12 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
             address1: address1,
             address2: address2
         }
-        createOpportunity(opportunity)
-        // reset input fields
-        setName("")
-        setTaskType("")
-        setNumVolunteers(0)
-        setDate("")
-        setDescription("")
-        setPostcode("")
-        setAddress1("")
-        setAddress2("")
-        setCity("")
+        editOpportunity(editedOpportunity)
     }
 
     return (
         <div className="container">
-            <h2 className="opportunity_title">Create a volunteering opportunity</h2>
+            <h2 className="opportunity_title">Edit a volunteering opportunity</h2>
             <form className="form mt-5 mb-4 pb-5" action="#">
                 <div className="container-fluid form-settings mb-5">
                     <div className="row d-flex justify-content-between">
@@ -144,11 +140,11 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
                         type="button"
                         className="form-submit mt-2"
                         onClick={() => handleClick()}
-                    >Create</button>
+                    >Submit</button>
                 </div>
             </form>
         </div>
     )
 }
 
-export default CreateAnOpportBody
+export default EditAnOpportBody

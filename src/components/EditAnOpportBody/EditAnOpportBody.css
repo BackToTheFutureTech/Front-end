@@ -1,0 +1,29 @@
+.opportunity_title {
+    color: #46c2b6;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+  
+  .form-settings {
+    background-color: #f0ebeb;
+    color: #7a7474;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    border-radius: 10px;
+    padding-top: 10px;
+  }
+  
+  .form-submit {
+      background-color: #46c2b6;
+      color: #ffffff;
+      width: 120px;
+      border: 0ch;
+      border-radius: 6px;
+      height: 2rem;
+  }
+  

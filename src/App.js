@@ -31,10 +31,13 @@ import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData
 
 
 function App() {
-  const [serverResponse, setServerResponse] = useState(opportunities)
+  //const [serverResponse, setServerResponse] = useState(opportunities)
   const [allCharities, setAllCharities] = useState(charities)
+  // setAllOpportunities is called when charities update their list
+  // the backend db should also be updated
   const [allOpportunities, setAllOpportunities] = useState(opportunities)
   const [helpingWays, setHelpingWays] = useState(waysToHelp)
+
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
   //charityName should be set on log in
@@ -66,7 +69,7 @@ function App() {
 
   const createOpportunity = (opportunity) => {
     // ToDo - need a unique id here
-    let id = allOpportunities.length
+    let id = allOpportunities.length + 1
     const newOpportunity = {
       id: id,
       name: opportunity.name,
@@ -86,10 +89,10 @@ function App() {
   return (
     <Router>
       <Header>
-        <Search serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities} />
+        <Search serverResponse={allOpportunities} setFillteredOpportunities={setFillteredOpportunities} />
       </Header>
       <main>
-        <BreadCrumbs serverResponse={serverResponse} />
+        <BreadCrumbs serverResponse={allOpportunities} />
         <Switch>
           <Route path="/createOpportunity" >
             <CreateAnOpportBody 
@@ -111,7 +114,7 @@ function App() {
           </Route>
           <Route path="/becomeAVolunteer/:id" children={<OpportunityDetails
             allTaskImg={taskImg}
-            serverResponse={serverResponse} />} />
+            serverResponse={allOpportunities} />} />
           <Route path="/contacts">
             <Contact />
           </Route>
@@ -119,10 +122,10 @@ function App() {
             <Login />
           </Route>
           <Route path="/becomeAVolunteer">
-            <ChooseAnOpportunity serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities}>
+            <ChooseAnOpportunity serverResponse={allOpportunities} setFillteredOpportunities={setFillteredOpportunities}>
               {filteredOpportunities.length > 0 ? filteredOpportunities.map((item) => {
                 return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />
-              }) : serverResponse.map((item) => {
+              }) : allOpportunities.map((item) => {
                 return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />
               })}
             </ChooseAnOpportunity>

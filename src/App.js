@@ -51,9 +51,10 @@ function App() {
       taskType: opportunity.taskType,
       numVolunteers: opportunity.numVolunteers,
       date: opportunity.date,
+      postcode: opportunity.postcode,
       location: opportunity.location,
-      description: opportunity.description,
-      address: opportunity.address
+      address: opportunity.address,
+      description: opportunity.description
     }
     const updatedOpportunities = allOpportunities.map(opportunity => {
       if (opportunity.id === editedOpportunity.id) return editedOpportunity
@@ -77,9 +78,10 @@ function App() {
       taskType: opportunity.taskType,
       numVolunteers: opportunity.numVolunteers,
       date: opportunity.date,
+      postcode: opportunity.postcode,
       location: opportunity.location,
-      description: opportunity.description,
-      address: opportunity.address
+      address: opportunity.address,
+      description: opportunity.description
     }
     const updatedOpportunities = [ ...allOpportunities, newOpportunity ]
     console.log(updatedOpportunities)

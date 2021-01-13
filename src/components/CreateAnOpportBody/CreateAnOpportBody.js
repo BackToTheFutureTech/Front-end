@@ -8,9 +8,9 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
     const [date, setDate] = useState("")
     const [description, setDescription] = useState("")
     const [postcode, setPostcode] = useState("")
-    const [address, setAddress] = useState("")
+    const [address1, setAddress1] = useState("")
+    const [address2, setAddress2] = useState("")
     const [city, setCity] = useState("")
-    const [state, setState] = useState("")
 
     const handleClick = () => {
         let opportunity = {
@@ -20,8 +20,9 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
             numVolunteers: numVolunteers,
             date: date,
             description: description,
+            postcode: postcode,
             location: city, 
-            address: address
+            address: address1 + ', ' + address2 + ', ' + city + ', ' + postcode
         }
         createOpportunity(opportunity)
         // reset input fields
@@ -31,9 +32,9 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
         setDate("")
         setDescription("")
         setPostcode("")
-        setAddress("")
+        setAddress1("")
+        setAddress2("")
         setCity("")
-        setState("")
     }
 
     return (
@@ -107,13 +108,22 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
                                     name="postcode"
                                     className="form-control rounded-pill form-input" />
                             </label>
-                            <label htmlFor="address">
-                                Address
-                                <input value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
-                                    id="add-opportunity-address"
+                            <label htmlFor="address1">
+                                Address 1
+                                <input value={address1}
+                                    onChange={(e) => setAddress1(e.target.value)}
+                                    id="add-opportunity-address1"
                                     type="text"
-                                    name="address"
+                                    name="address1"
+                                    className="form-control rounded-pill form-input" />
+                            </label>
+                            <label htmlFor="address2">
+                                Address 2
+                                <input value={address2}
+                                    onChange={(e) => setAddress2(e.target.value)}
+                                    id="add-opportunity-address2"
+                                    type="text"
+                                    name="address2"
                                     className="form-control rounded-pill form-input" />
                             </label>
                             <label htmlFor="city">
@@ -123,15 +133,6 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
                                     id="add-opportunity-city"
                                     type="text"
                                     name="city"
-                                    className="form-control rounded-pill form-input" />
-                            </label>
-                            <label htmlFor="state">
-                                State
-                                    <input value={state}
-                                    onChange={(e) => setState(e.target.value)}
-                                    id="add-opportunity-state"
-                                    type="text"
-                                    name="state"
                                     className="form-control rounded-pill form-input" />
                             </label>
                         </div>

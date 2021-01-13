@@ -15,14 +15,14 @@ const Login = () => {
                                 className="mb-4 ml-4"
                                 alt=""
                             />
-                            <label for="username" className="sr-only"> </label>
+                            <label htmlFor="username" className="sr-only"> </label>
                             <input
                                 type="text"
                                 name="username"
                                 className="form-control form-element rounded-pill"
                                 placeholder="Username"
                             />
-                            <label for="password" className="sr-only"> </label>
+                            <label htmlFor="password" className="sr-only"> </label>
                             <input
                                 type="password"
                                 name="password"

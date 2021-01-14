@@ -10,7 +10,7 @@ const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) =
     <div className="container p-3">
       <h2 className="admin_title">List of Opportunities</h2>
       <div className="float-right">
-        <a className="btn button-MAD-theme mb-5 rounded-pill pr-3 pl-3" href="/createOpportunity">Create an opportunity</a>
+        <a className="btn button-MAD-theme mb-5 rounded-pill pr-3 pl-3" href="/adminportal/createOpportunity">Create an opportunity</a>
       </div>
       <section>
         <table className="table table-hover opp-table">
@@ -38,7 +38,7 @@ const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) =
                       onClick={() => deleteOpportunity(item.id)}
                     >delete</button> | 
                     <Link
-                      to={`/editOpportunity/${item.id}`}
+                      to={`/adminportal/editOpportunity/${item.id}`}
                       className="btn opp-table__action">
                       edit
                     </Link>

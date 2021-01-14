@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 import "./AdminPortalBody.css"
 
 const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) => {
@@ -35,11 +36,12 @@ const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) =
                       type="button"
                       className="btn opp-table__action"
                       onClick={() => deleteOpportunity(item.id)}
-                    >delete</button> | <button
-                      type="button"
-                      className="btn opp-table__action"
-                      onClick={() => deleteOpportunity(item.id)}
-                    >edit</button>
+                    >delete</button> | 
+                    <Link
+                      to={`/editOpportunity/${item.id}`}
+                      className="btn opp-table__action">
+                      edit
+                    </Link>
                   </div>
                 </td>
               </tr>

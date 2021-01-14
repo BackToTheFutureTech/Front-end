@@ -15,11 +15,13 @@ export const opportunities = [
     name: "Winter Aid",
     taskType: "Sort Clothes",
     numVolunteers: 5,
-    date: "10/1/2021",
+    date: "2021-12-10",
+    postcode: "AB48 3TH",
+    address1: "50 Grange Rd",
+    address2: "Somewhere",
     location: "Bolton",
     description:
       "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus pretium. Integer quis ante eget justo interdum tempor. Ut eget sapien vehicula, laoreet odio ut, fringillaneque.",
-    address: "60 Grange Road, BOLTON, AB48 3TH",
   },
   {
     id: 2,
@@ -27,11 +29,13 @@ export const opportunities = [
     name: "Christmas Cheer",
     taskType: "Wrap Presents",
     numVolunteers: 5,
-    date: "10/12/2020",
+    date: "2021-02-20",
+    postcode: "B48 3TH",
+    address1: "60 Grange Rd",
+    address2: "",
     location: "Bolton",
     description:
-      "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus",
-    address: "60 Grange Road, BOLTON, AB48 3TH",
+      "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus"
   },
   {
     id: 3,
@@ -39,11 +43,13 @@ export const opportunities = [
     name: "Support for children",
     taskType: "Sort Clothes",
     numVolunteers: 5,
-    date: "10/1/2021",
+    date: "2021-04-20",
+    postcode: "M48 3TH",
+    address1: "33 Grange Rd",
+    address2: "Bla",
     location: "Manchester",
     description:
       "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus pretium. Integer quis ante eget justo interdum tempore.",
-    address: "60 Grange Road, MANCHESTER, AB48 3TH",
   },
   {
     id: 4,
@@ -51,11 +57,13 @@ export const opportunities = [
     name: "Garden makeover",
     taskType: "Gardening",
     numVolunteers: 5,
-    date: "10/1/2021",
+    date: "2021-03-20",
+    postcode: "C48 3TH",
+    address1: "60 Grange Rd",
+    address2: "",
     location: "Crewe",
     description:
       "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus pretium. Integer quis ante eget justo interdum tempor. Ut eget sapien vehicula, laoreet odio ut, fringillaneque.",
-    address: "60 Grange Road, CREWE, AB48 3TH",
   },
   {
     id: 5,
@@ -63,11 +71,13 @@ export const opportunities = [
     name: "Support for children",
     taskType: "Sort Clothes",
     numVolunteers: 5,
-    date: "10/1/2021",
+    date: "2021-03-10",
+    postcode: "C40 3TH",
+    address1: "60 Grange Rd",
+    address2: "crewe",
     location: "Crewe",
     description:
       "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus pretium. Integer quis ante  fringillaneque.",
-    address: "60 Grange Road, CREWE, AB48 3TH",
   },
   {
     id: 6,
@@ -75,11 +85,13 @@ export const opportunities = [
     name: "Chritsmas Cheer",
     taskType: "Wrap Presents",
     numVolunteers: 5,
-    date: "10/1/2021",
+    date: "2021-03-30",
+    postcode: "B44 3TH",
+    address1: "60 Grange Rd",
+    address2: "",
     location: "Bolton",
     description:
       "Morbi dapibus nibh ac quam efficitur pretium. Fusce molestie mi quis faucibus peque.",
-    address: "60 Grange Road, BOLTON, AB48 3TH",
   },
   {
     id: 7,
@@ -87,11 +99,13 @@ export const opportunities = [
     name: "Feeding the homeless",
     taskType: "Serve Food",
     numVolunteers: 5,
-    date: "10/1/2021",
+    date: "2021-04-01",
+    postcode: "B8 3TH",
+    address1: "60 Grange Rd",
+    address2: "",
     location: "Bolton",
     description:
       "Integer quis ante eget justo interdum tempor. Ut eget sapien vehicula, laoreet odio ut, fringillaneque.",
-    address: "60 Grange Road, BOLTON, AB48 3TH",
   },
 ];
 export const taskImg = {

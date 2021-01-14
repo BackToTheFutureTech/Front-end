@@ -15,7 +15,8 @@ import CharityCard from "./components/CharityCard/CharityCard"
 import CharityDetails from "./components/CharityDetails/CharityDetails"
 import ChooseAnOpportunity from "./components/ChooseAnOpportunity/ChooseAnOpportunity"
 import Contact from "./components/Contact/Contact"
-import CreateAnOpportBody from "./components/CreateAnOpportBody/CreateAnOpportBody";
+import CreateAnOpportBody from "./components/CreateAnOpportBody/CreateAnOpportBody"
+import EditAnOpportBody from "./components/EditAnOpportBody/EditAnOpportBody"
 import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import HomeContent from "./components/HomeContent/HomeContent"
@@ -31,16 +32,19 @@ import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData
 
 
 function App() {
-  const [serverResponse, setServerResponse] = useState(opportunities)
+  //const [serverResponse, setServerResponse] = useState(opportunities)
   const [allCharities, setAllCharities] = useState(charities)
+  // setAllOpportunities is called when charities update their list
+  // the backend db should also be updated
   const [allOpportunities, setAllOpportunities] = useState(opportunities)
   const [helpingWays, setHelpingWays] = useState(waysToHelp)
+
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
-  //charityName should be set on log in
+  // for testing...charityName and authorisation should be set on log in
   const charityName = "NSPCC"
 
-  const editedOpportunity = (opportunity) => {
+  const editOpportunity = (opportunity) => {
     const editedOpportunity = {
       id: opportunity.id,
       name: opportunity.name,
@@ -48,15 +52,18 @@ function App() {
       taskType: opportunity.taskType,
       numVolunteers: opportunity.numVolunteers,
       date: opportunity.date,
+      postcode: opportunity.postcode,
       location: opportunity.location,
-      description: opportunity.description,
-      address: opportunity.address
+      address1: opportunity.address1,
+      address2: opportunity.address2,
+      description: opportunity.description
     }
-    const updatedOpportunities = allOpportunities.map(opportunity => {
-      if (opportunity.id === editedOpportunity.id) return editedOpportunity
-      return opportunity
+    const updatedOpportunities = allOpportunities.map(item => {
+      if (item.id === editedOpportunity.id) return editedOpportunity
+      return item
     })
     setAllOpportunities(updatedOpportunities)
+    //console.log(updatedOpportunities)
   }
 
   const deleteOpportunity = id => {
@@ -66,7 +73,7 @@ function App() {
 
   const createOpportunity = (opportunity) => {
     // ToDo - need a unique id here
-    let id = allOpportunities.length
+    let id = allOpportunities.length + 1
     const newOpportunity = {
       id: id,
       name: opportunity.name,
@@ -74,27 +81,34 @@ function App() {
       taskType: opportunity.taskType,
       numVolunteers: opportunity.numVolunteers,
       date: opportunity.date,
+      postcode: opportunity.postcode,
       location: opportunity.location,
-      description: opportunity.description,
-      address: opportunity.address
+      address1: opportunity.address1,
+      address12: opportunity.address2,
+      description: opportunity.description
     }
     const updatedOpportunities = [ ...allOpportunities, newOpportunity ]
-    console.log(updatedOpportunities)
+    //console.log(updatedOpportunities)
     setAllOpportunities(updatedOpportunities)
   }
 
   return (
     <Router>
       <Header>
-        <Search serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities} />
+        <Search serverResponse={allOpportunities} setFillteredOpportunities={setFillteredOpportunities} />
       </Header>
       <main>
-        <BreadCrumbs serverResponse={serverResponse} />
+        <BreadCrumbs serverResponse={allOpportunities} />
         <Switch>
           <Route path="/createOpportunity" >
             <CreateAnOpportBody 
               createOpportunity={createOpportunity}
               charityName={charityName}/>
+          </Route>
+          <Route path="/editOpportunity/:id" >
+            <EditAnOpportBody 
+              editOpportunity={editOpportunity}
+              allOpportunities={allOpportunities}/>
           </Route>
           <Route path="/adminportal">
             <AdminPortalBody 
@@ -111,7 +125,7 @@ function App() {
           </Route>
           <Route path="/becomeAVolunteer/:id" children={<OpportunityDetails
             allTaskImg={taskImg}
-            serverResponse={serverResponse} />} />
+            serverResponse={allOpportunities} />} />
           <Route path="/contacts">
             <Contact />
           </Route>
@@ -119,10 +133,10 @@ function App() {
             <Login />
           </Route>
           <Route path="/becomeAVolunteer">
-            <ChooseAnOpportunity serverResponse={serverResponse} setFillteredOpportunities={setFillteredOpportunities}>
+            <ChooseAnOpportunity serverResponse={allOpportunities} setFillteredOpportunities={setFillteredOpportunities}>
               {filteredOpportunities.length > 0 ? filteredOpportunities.map((item) => {
                 return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />
-              }) : serverResponse.map((item) => {
+              }) : allOpportunities.map((item) => {
                 return <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />
               })}
             </ChooseAnOpportunity>

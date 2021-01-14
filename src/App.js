@@ -100,12 +100,12 @@ function App() {
       <main>
         <BreadCrumbs serverResponse={allOpportunities} />
         <Switch>
-          <Route path="/createOpportunity" >
+          <Route path="/adminportal/createOpportunity" >
             <CreateAnOpportBody 
               createOpportunity={createOpportunity}
               charityName={charityName}/>
           </Route>
-          <Route path="/editOpportunity/:id" >
+          <Route path="/adminportal/editOpportunity/:id" >
             <EditAnOpportBody 
               editOpportunity={editOpportunity}
               allOpportunities={allOpportunities}/>

@@ -17,8 +17,11 @@ function BreadCrumbs({ serverResponse }) {
         { path: '/howToHelp', breadcrumb: 'How To Help' },
         { path: '/becomeAVolunteer', breadcrumb: 'Become A Volunteer' },
         { path: '/home', breadcrumb: ' ' },
-        { path: '/createOpportunity', breadcrumb: 'Create an opportunity' },
-        { path: '/editOpportunity', breadcrumb: 'Edit an opportunity'},
+        { path:'/adminportal', breadcrumb:'Admin Page'},
+        { path: '/adminportal/createOpportunity', breadcrumb: 'Create an opportunity' },
+        { path: '/adminportal/editOpportunity', breadcrumb: 'Edit an opportunity'},
+        { path: '/adminportal/editOpportunity/:id', breadcrumb: DynamicPathBreadcrumb},
+
 
     ];
     const breadcrumbs = useBreadcrumbs(routes);

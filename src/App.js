@@ -27,6 +27,7 @@ import Login from "./components/Login/Login"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 
 import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
 
@@ -87,7 +88,7 @@ function App() {
       address12: opportunity.address2,
       description: opportunity.description
     }
-    const updatedOpportunities = [ ...allOpportunities, newOpportunity ]
+    const updatedOpportunities = [...allOpportunities, newOpportunity]
     //console.log(updatedOpportunities)
     setAllOpportunities(updatedOpportunities)
   }
@@ -100,22 +101,21 @@ function App() {
       <main>
         <BreadCrumbs serverResponse={allOpportunities} />
         <Switch>
-          <Route path="/createOpportunity" >
-            <CreateAnOpportBody 
+          <ProtectedRoute path="/createOpportunity" component={()=>{return <CreateAnOpportBody
               createOpportunity={createOpportunity}
-              charityName={charityName}/>
-          </Route>
-          <Route path="/editOpportunity/:id" >
-            <EditAnOpportBody 
+              charityName={charityName} />}}/>
+            
+          
+          <ProtectedRoute exact path="/editOpportunity/:id" component={()=>{return <EditAnOpportBody
               editOpportunity={editOpportunity}
-              allOpportunities={allOpportunities}/>
-          </Route>
-          <Route path="/adminportal">
-            <AdminPortalBody 
-              charityName={charityName}
-              allOpportunities={allOpportunities}
-              deleteOpportunity={deleteOpportunity} />
-          </Route>
+              allOpportunities={allOpportunities} />}} />
+            
+
+          <ProtectedRoute exact path="/adminportal" component={()=>{return <AdminPortalBody charityName={charityName}
+            allOpportunities={allOpportunities}
+            deleteOpportunity={deleteOpportunity} />}}  />
+
+          {/* </ProtectedRoute> */}
           <Route path="/howToHelp">
             <HowToHelp>
               {helpingWays.map((item, index) => {

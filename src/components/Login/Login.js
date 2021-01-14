@@ -1,14 +1,17 @@
 import React from 'react';
 import "./Login.css"
 import Logo from "../../Assets/logo.png";
+import auth from "../Auth/Auth"
+import {useHistory} from "react-router-dom"
 
 const Login = () => {
+    let history = useHistory();
     return (
         <div>
             <section className="home-intro">
                 <div className="container p-3">
                     <div className="text-center">
-                        <form className="form-signin" action="/adminportal">
+                        <form className="form-signin">
                             <img
                                 src={Logo}
                                 height="150"
@@ -29,7 +32,11 @@ const Login = () => {
                                 className="form-control form-element rounded-pill"
                                 placeholder="Password"
                             />
-                            <button type="submit">Login</button>
+                            <button onClick={ (e)=>{
+                                e.preventDefault();
+                                auth.Login(()=>{
+                                history.push("/adminportal")
+                            })}}>Login</button>
                             <small className="text-muted d-block mt-3"
                             ><a href="#">Forgot your password?</a>
                             </small>

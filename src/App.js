@@ -101,21 +101,23 @@ function App() {
       <main>
         <BreadCrumbs serverResponse={allOpportunities} />
         <Switch>
-          <ProtectedRoute path="/createOpportunity" component={()=>{return <CreateAnOpportBody
+          <ProtectedRoute path="/adminportal/createOpportunity" component={() => {
+            return <CreateAnOpportBody
               createOpportunity={createOpportunity}
-              charityName={charityName} />}}/>
-            
-          
-          <ProtectedRoute exact path="/editOpportunity/:id" component={()=>{return <EditAnOpportBody
+              charityName={charityName} />
+          }} />
+          <ProtectedRoute exact path="/adminportal/editOpportunity/:id" component={() => {
+            return <EditAnOpportBody
               editOpportunity={editOpportunity}
-              allOpportunities={allOpportunities} />}} />
-            
+              allOpportunities={allOpportunities} />
+          }} />
+          <ProtectedRoute exact path="/adminportal" component={() => {
+            return <AdminPortalBody 
+              charityName={charityName}
+              allOpportunities={allOpportunities}
+              deleteOpportunity={deleteOpportunity} />
+          }} />
 
-          <ProtectedRoute exact path="/adminportal" component={()=>{return <AdminPortalBody charityName={charityName}
-            allOpportunities={allOpportunities}
-            deleteOpportunity={deleteOpportunity} />}}  />
-
-          {/* </ProtectedRoute> */}
           <Route path="/howToHelp">
             <HowToHelp>
               {helpingWays.map((item, index) => {

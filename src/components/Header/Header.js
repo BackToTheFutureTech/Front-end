@@ -1,11 +1,13 @@
 import React from 'react'
 import Logo from './../../Assets/logo.png'
 import { Link, NavLink, useHistory } from "react-router-dom";
-import auth from "../Auth/Auth"
+import Auth from "../Auth/Auth"
 import "./Header.css"
 
 const Header = ({ children }) => {
     let history = useHistory();
+    console.log(Auth.isAuthenticated())
+
     return (
         <header className="header">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,8 +45,8 @@ const Header = ({ children }) => {
                         </li>
                     </ul>
                     {children}
-                    {auth.isAuthenticated()? <button onClick={()=>{
-                        auth.logout(()=>{
+                    {Auth.isAuthenticated()? <button onClick={()=>{
+                        Auth.logout(()=>{
                             history.push("/")
                         })
                     }} >Logout</button> : <Link className="btn navbar__login-button" to="/login">Login</Link>}

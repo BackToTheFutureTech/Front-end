@@ -1,11 +1,22 @@
 import React from 'react';
 import "./Login.css"
 import Logo from "../../Assets/logo.png";
-import auth from "../Auth/Auth"
-import {useHistory} from "react-router-dom"
+import Auth from "../Auth/Auth"
+import { useHistory } from "react-router-dom"
 
 const Login = () => {
+
     let history = useHistory();
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        Auth.Login(() => { history.push("/adminportal") })
+        console.log(Auth.isAuthenticated())
+        // authenticate!
+        return true
+    };
+
+
     return (
         <div>
             <section className="home-intro">
@@ -32,11 +43,10 @@ const Login = () => {
                                 className="form-control form-element rounded-pill"
                                 placeholder="Password"
                             />
-                            <button onClick={ (e)=>{
-                                e.preventDefault();
-                                auth.Login(()=>{
-                                history.push("/adminportal")
-                            })}}>Login</button>
+                            <button 
+                                onClick={(e) => handleClick(e)}>
+                                    Login
+                            </button>
                             <small className="text-muted d-block mt-3"
                             ><a href="#">Forgot your password?</a>
                             </small>

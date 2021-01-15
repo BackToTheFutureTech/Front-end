@@ -58,13 +58,15 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
                                 Type
                             <select name="type"
                                     className="form-control rounded-pill form-input"
+                                    value={taskType}
                                     onChange={(e) => setTaskType(e.target.value)}
                                     id="add-opportunity-num">
+                                    <option value=""></option>
                                     <option value="Wrap Presents">Wrap Presents</option>
                                     <option value="Sort Clothes">Sort Clothes</option>
                                     <option value="Gardening">Gardening</option>
                                     <option value="Serve Food">Serve Food</option>
-                                    <option value="Other" defaultValue>Other</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </label>
                             <label htmlFor="number">

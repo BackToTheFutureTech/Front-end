@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from './../../Assets/logo.png'
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import LoginButton from '../LoginButton/LoginButton'
 import LogoutButton from '../LogoutButton/LogoutButton'
 import { useAuth0 } from "@auth0/auth0-react";
@@ -11,9 +11,9 @@ const Header = ({ children }) => {
     return (
         <header className="header">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#"
-                ><img src={Logo} height="75" alt="logo Image"
-                    /></a>
+                <NavLink className="navbar-brand" to="/home"
+                ><img src={Logo} height="50" alt="logo"
+                    /></NavLink>
                 <button
                     className="navbar-toggler"
                     type="button"

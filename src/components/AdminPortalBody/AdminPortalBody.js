@@ -3,12 +3,12 @@ import { Link } from "react-router-dom"
 import "./AdminPortalBody.css"
 
 const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) => {
-
+  
   let charityOpportunities = allOpportunities.filter(opportunity => opportunity.charity === charityName)
 
   return (
     <div className="container p-3">
-      <h2 className="admin_title">List of Opportunities</h2>
+      <h2 className="admin_title">Admin portal for {charityName}</h2>
       <div className="float-right">
         <Link
           to={`/adminportal/createOpportunity`}

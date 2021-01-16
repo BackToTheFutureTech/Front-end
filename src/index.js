@@ -2,11 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Auth0Provider} from "@auth0/auth0-react";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Auth0Provider
+    domain="dev-s21nt3vm.eu.auth0.com"
+    clientId="CJJ7qbiiWvskVneLQ3UfYHs23mwcFLTi"
+    redirectUri="http://localhost:3000/adminportal"
+  >
     <App />
+  </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

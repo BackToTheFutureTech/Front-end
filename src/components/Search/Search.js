@@ -7,7 +7,7 @@ const Search = ({ serverResponse, setFillteredOpportunities }) => {
             return (
                 element.location.toLowerCase().includes(term.toLowerCase()) ||
                 element.description.toLowerCase().includes(term.toLowerCase()) ||
-                element.address.toLowerCase().includes(term.toLowerCase()) ||
+                element.address1.toLowerCase().includes(term.toLowerCase()) ||
                 element.taskType.toLowerCase().includes(term.toLowerCase()) ||
                 element.charity.toLowerCase().includes(term.toLowerCase())  
             );

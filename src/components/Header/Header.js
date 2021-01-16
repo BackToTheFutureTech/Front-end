@@ -1,12 +1,12 @@
 import React from 'react'
 import Logo from './../../Assets/logo.png'
-import { Link, NavLink, useHistory } from "react-router-dom";
-import Auth from "../Auth/Auth"
-import "./Header.css"
+import { NavLink, useHistory } from "react-router-dom";
+import LoginButton from '../LoginButton/LoginButton'
+import LogoutButton from '../LogoutButton/LogoutButton'
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = ({ children }) => {
-    let history = useHistory();
-    console.log(Auth.isAuthenticated())
+    const { isAuthenticated } = useAuth0();
 
     return (
         <header className="header">
@@ -35,7 +35,7 @@ const Header = ({ children }) => {
                             <NavLink activeClassName="active" className="nav-link" to="/howToHelp">How Can I Help</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink activeClassName="active" className="nav-link" to="/becomeAVolunteer">Become a Volunteer</NavLink>
+                            <NavLink activeClassName="active" className="nav-link" to="/becomeAVolunteer">Volunteer</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink activeClassName="active" className="nav-link" to="/charities">Charities</NavLink>
@@ -43,13 +43,12 @@ const Header = ({ children }) => {
                         <li className="nav-item">
                             <NavLink activeClassName="active" className="nav-link" to="/contacts">Contacts</NavLink>
                         </li>
+                        { isAuthenticated && (<li className="nav-item">
+                            <NavLink activeClassName="active" className="nav-link" to="/adminportal">Admin</NavLink>
+                        </li>) }
                     </ul>
                     {children}
-                    {Auth.isAuthenticated()? <button onClick={()=>{
-                        Auth.logout(()=>{
-                            history.push("/")
-                        })
-                    }} >Logout</button> : <Link className="btn navbar__login-button" to="/login">Login</Link>}
+                    { isAuthenticated ? <LogoutButton /> : <LoginButton />}
                 </div>
             </nav>
         </header>

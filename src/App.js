@@ -23,7 +23,7 @@ import HomeContent from "./components/HomeContent/HomeContent"
 import HomeFooter from "./components/HomeFooter/HomeFooter"
 import HowToHelp from "./components/HowToHelp/HowToHelp";
 import HowToHelpBodyCard from './components/HowToHelpBodyCard/HowToHelpBodyCard'
-import Login from "./components/Login/Login"
+//import Login from "./components/Login/Login"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
@@ -130,9 +130,6 @@ function App() {
             serverResponse={allOpportunities} />} />
           <Route path="/contacts">
             <Contact />
-          </Route>
-          <Route path="/login">
-            <Login />
           </Route>
           <Route path="/becomeAVolunteer">
             <ChooseAnOpportunity serverResponse={allOpportunities} setFillteredOpportunities={setFillteredOpportunities}>

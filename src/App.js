@@ -5,6 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import './App.css'
 // components in alphabetic order
 import AdminPortalBody from "./components/AdminPortalBody/AdminPortalBody";
@@ -23,10 +24,11 @@ import HomeContent from "./components/HomeContent/HomeContent"
 import HomeFooter from "./components/HomeFooter/HomeFooter"
 import HowToHelp from "./components/HowToHelp/HowToHelp";
 import HowToHelpBodyCard from './components/HowToHelpBodyCard/HowToHelpBodyCard'
-import Login from "./components/Login/Login"
 import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetails"
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
+
 
 import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
 
@@ -41,8 +43,9 @@ function App() {
 
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
-  // for testing...charityName and authorisation should be set on log in
-  const charityName = "NSPCC"
+
+  const { user } = useAuth0();
+  const charityName = user ? user.name : "" 
 
   const editOpportunity = (opportunity) => {
     const editedOpportunity = {
@@ -63,7 +66,6 @@ function App() {
       return item
     })
     setAllOpportunities(updatedOpportunities)
-    //console.log(updatedOpportunities)
   }
 
   const deleteOpportunity = id => {
@@ -87,8 +89,7 @@ function App() {
       address12: opportunity.address2,
       description: opportunity.description
     }
-    const updatedOpportunities = [ ...allOpportunities, newOpportunity ]
-    //console.log(updatedOpportunities)
+    const updatedOpportunities = [...allOpportunities, newOpportunity]
     setAllOpportunities(updatedOpportunities)
   }
 
@@ -100,22 +101,18 @@ function App() {
       <main>
         <BreadCrumbs serverResponse={allOpportunities} />
         <Switch>
-          <Route path="/adminportal/createOpportunity" >
-            <CreateAnOpportBody 
-              createOpportunity={createOpportunity}
-              charityName={charityName}/>
-          </Route>
-          <Route path="/adminportal/editOpportunity/:id" >
-            <EditAnOpportBody 
-              editOpportunity={editOpportunity}
-              allOpportunities={allOpportunities}/>
-          </Route>
-          <Route path="/adminportal">
-            <AdminPortalBody 
-              charityName={charityName}
-              allOpportunities={allOpportunities}
-              deleteOpportunity={deleteOpportunity} />
-          </Route>
+          <ProtectedRoute path="/adminportal/createOpportunity"
+            component={() => <CreateAnOpportBody createOpportunity={createOpportunity} charityName={charityName} />}
+          />
+          <ProtectedRoute exact path="/adminportal/editOpportunity/:id"
+            component={() => <EditAnOpportBody editOpportunity={editOpportunity}
+              allOpportunities={allOpportunities}  />}
+          />
+          <ProtectedRoute exact path="/adminportal"
+            component={() => <AdminPortalBody allOpportunities={allOpportunities}
+              deleteOpportunity={deleteOpportunity} charityName={charityName} />}
+          />
+
           <Route path="/howToHelp">
             <HowToHelp>
               {helpingWays.map((item, index) => {
@@ -123,14 +120,10 @@ function App() {
               })}
             </HowToHelp>
           </Route>
-          <Route path="/becomeAVolunteer/:id" children={<OpportunityDetails
-            allTaskImg={taskImg}
-            serverResponse={allOpportunities} />} />
+          <Route path="/becomeAVolunteer/:id"
+            children={<OpportunityDetails allTaskImg={taskImg} serverResponse={allOpportunities} />} />
           <Route path="/contacts">
             <Contact />
-          </Route>
-          <Route path="/login">
-            <Login />
           </Route>
           <Route path="/becomeAVolunteer">
             <ChooseAnOpportunity serverResponse={allOpportunities} setFillteredOpportunities={setFillteredOpportunities}>
@@ -141,8 +134,8 @@ function App() {
               })}
             </ChooseAnOpportunity>
           </Route>
-          <Route path="/charities/:charityName" children={<CharityDetails
-            charities={allCharities} />} />
+          <Route path="/charities/:charityName"
+            children={<CharityDetails charities={allCharities} />} />
           <Route path="/charities">
             <Charities>
               {allCharities.map(charity => <CharityCard {...charity} key={charity.name} />)}
@@ -152,7 +145,9 @@ function App() {
             <Banner />
             <HomeContent>
               {latestOpportunities.map((item) =>
-                <VolunteerOpportunity {...item} taskImg={taskImg[item.taskType]} key={item.id} />)}
+                <VolunteerOpportunity {...item}
+                  taskImg={taskImg[item.taskType]}
+                  key={item.id} />)}
             </HomeContent>
             <HomeFooter />
           </Route>

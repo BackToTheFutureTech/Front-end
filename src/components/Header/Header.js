@@ -1,15 +1,19 @@
 import React from 'react'
 import Logo from './../../Assets/logo.png'
-import { Link, NavLink } from "react-router-dom";
-import "./Header.css"
+import { NavLink} from "react-router-dom";
+import LoginButton from '../LoginButton/LoginButton'
+import LogoutButton from '../LogoutButton/LogoutButton'
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = ({ children }) => {
+    const { isAuthenticated } = useAuth0();
+
     return (
         <header className="header">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#"
-                ><img src={Logo} height="75" alt="logo Image"
-                    /></a>
+                <NavLink className="navbar-brand" to="/home"
+                ><img src={Logo} height="50" alt="logo"
+                    /></NavLink>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -31,7 +35,7 @@ const Header = ({ children }) => {
                             <NavLink activeClassName="active" className="nav-link" to="/howToHelp">How Can I Help</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink activeClassName="active" className="nav-link" to="/becomeAVolunteer">Become a Volunteer</NavLink>
+                            <NavLink activeClassName="active" className="nav-link" to="/becomeAVolunteer">Volunteer</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink activeClassName="active" className="nav-link" to="/charities">Charities</NavLink>
@@ -39,9 +43,12 @@ const Header = ({ children }) => {
                         <li className="nav-item">
                             <NavLink activeClassName="active" className="nav-link" to="/contacts">Contacts</NavLink>
                         </li>
+                        { isAuthenticated && (<li className="nav-item">
+                            <NavLink activeClassName="active" className="nav-link" to="/adminportal">Admin</NavLink>
+                        </li>) }
                     </ul>
                     {children}
-                    <Link className="btn navbar__login-button" to="/login">Login</Link>
+                    { isAuthenticated ? <LogoutButton /> : <LoginButton />}
                 </div>
             </nav>
         </header>

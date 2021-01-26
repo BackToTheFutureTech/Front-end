@@ -39,7 +39,7 @@ function App() {
   // the backend db should also be updated
   const [allOpportunities, setAllOpportunities] = useState([])
   useEffect(()=> 
-  { axios.get('https://f8e6nl1bbd.execute-api.eu-west-2.amazonaws.com/opportunities')
+  { axios.get('https://dq7q9vd7a1.execute-api.eu-west-2.amazonaws.com/opportunities')
     .then(response => setAllOpportunities(response.data))
     .catch(err => console.log(err))
   },[])

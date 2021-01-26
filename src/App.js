@@ -1,11 +1,12 @@
 //lib's
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from 'axios';
 import './App.css'
 // components in alphabetic order
 import AdminPortalBody from "./components/AdminPortalBody/AdminPortalBody";
@@ -28,20 +29,25 @@ import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetai
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
-
-
+// ToDo replace with calls to backend
 import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
 
 
 function App() {
-  //const [serverResponse, setServerResponse] = useState(opportunities)
   const [allCharities, setAllCharities] = useState(charities)
   // setAllOpportunities is called when charities update their list
   // the backend db should also be updated
-  const [allOpportunities, setAllOpportunities] = useState(opportunities)
+  const [allOpportunities, setAllOpportunities] = useState([])
+  useEffect(()=> 
+  { axios.get('https://dq7q9vd7a1.execute-api.eu-west-2.amazonaws.com/opportunities')
+    .then(response => setAllOpportunities(response.data))
+    .catch(err => console.log(err))
+  },[])
+
   const [helpingWays, setHelpingWays] = useState(waysToHelp)
 
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
+  // ToDo select latest opportunities without relying on results order , eg with created date?
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
 
   const { user } = useAuth0();

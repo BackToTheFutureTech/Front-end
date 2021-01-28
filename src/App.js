@@ -30,22 +30,24 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
 // ToDo replace with calls to backend
-import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
-
+import { taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
 
 function App() {
   const [allCharities, setAllCharities] = useState(charities)
   const [allOpportunities, setAllOpportunities] = useState([])
   useEffect(() => {
     axios.get('https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities')
-    .then(response => setAllOpportunities(response.data))
-    .catch(err => console.log(err))
+      .then(response => setAllOpportunities(response.data))
+      .catch(err => console.log(err))
   }, [])
 
   // does this need to use state? will this be updated?
   const [helpingWays] = useState(waysToHelp)
 
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
+
+  const [isCreated, setIsCreated] = useState(false)
+
   // ToDo select latest opportunities without relying on results order , eg with created date?
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
 
@@ -83,6 +85,7 @@ function App() {
   }
 
   const createOpportunity = (opportunity) => {
+
     const newOpportunity = {
       name: opportunity.name,
       taskType: opportunity.taskType,
@@ -94,13 +97,15 @@ function App() {
       address2: opportunity.address2,
       description: opportunity.description
     }
-    console.log(newOpportunity)
-    axios
-      .post(`https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities/${charityId}`, newOpportunity)
-      .then(() => axios.get('https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities'))
-      .then(response => setAllOpportunities(response.data))
-      .catch(err => console.log(err))
 
+    axios
+        .post(`https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities/${charityId}`, newOpportunity)
+        .then(() => axios.get('https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities'))
+        .then(response => setAllOpportunities(response.data))
+        .then(() => console.log("Success"))
+        .then(() => alert("Opportunity Created"))
+        .catch((err) => console.log("Fail :" +err))
+        
   }
 
   // ******************************* //
@@ -114,7 +119,7 @@ function App() {
         <BreadCrumbs serverResponse={allOpportunities} />
         <Switch>
           <ProtectedRoute path="/adminportal/createOpportunity"
-            component={() => <CreateAnOpportBody createOpportunity={createOpportunity}  />}
+            component={() => <CreateAnOpportBody createOpportunity={createOpportunity} />}
           />
           <ProtectedRoute exact path="/adminportal/editOpportunity/:id"
             component={() => <EditAnOpportBody editOpportunity={editOpportunity}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./CreateAnOpportBody.css"
 
-const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
+const CreateAnOpportBody = ({ createOpportunity}) => {
     const [name, setName] = useState("")
     const [taskType, setTaskType] = useState("")
     const [numVolunteers, setNumVolunteers] = useState(0)
@@ -15,9 +15,8 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
     const handleClick = () => {
         let opportunity = {
             name: name,
-            charity: charityName,
             taskType: taskType,
-            numVolunteers: numVolunteers,
+            numVolunteers: parseInt(numVolunteers),
             date: date,
             description: description,
             postcode: postcode,

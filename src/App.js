@@ -102,10 +102,11 @@ function App() {
         .post(`https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities/${charityId}`, newOpportunity)
         .then(() => axios.get('https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities'))
         .then(response => setAllOpportunities(response.data))
-        .then(() => console.log("Success"))
         .then(() => alert("Opportunity Created"))
-        .catch((err) => console.log("Fail :" +err))
-        
+        .catch((err) => {
+          alert("Oops. Something went wrong. Please try again")
+          console.log(err)
+        })
   }
 
   // ******************************* //

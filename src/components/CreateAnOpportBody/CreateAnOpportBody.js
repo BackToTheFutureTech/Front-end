@@ -3,9 +3,9 @@ import "./CreateAnOpportBody.css"
 
 const CreateAnOpportBody = ({ createOpportunity}) => {
     const [name, setName] = useState("")
-    const [taskType, setTaskType] = useState("")
+    const [taskType, setTaskType] = useState("Other")
     const [numVolunteers, setNumVolunteers] = useState(0)
-    const [date, setDate] = useState("")
+    const [date, setDate] = useState(new Date())
     const [description, setDescription] = useState("")
     const [postcode, setPostcode] = useState("")
     const [address1, setAddress1] = useState("")
@@ -60,7 +60,6 @@ const CreateAnOpportBody = ({ createOpportunity}) => {
                                     value={taskType}
                                     onChange={(e) => setTaskType(e.target.value)}
                                     id="add-opportunity-num">
-                                    <option value=""></option>
                                     <option value="Wrap Presents">Wrap Presents</option>
                                     <option value="Sort Clothes">Sort Clothes</option>
                                     <option value="Gardening">Gardening</option>

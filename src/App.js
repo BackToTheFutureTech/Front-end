@@ -33,10 +33,16 @@ import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpp
 import { taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
 
 function App() {
-  const [allCharities, setAllCharities] = useState(charities)
+  const apiUrl = "https://r892sqdso9.execute-api.eu-west-2.amazonaws.com"
+  const [allCharities, setAllCharities] = useState([])
+  useEffect(() => {
+    axios.get(`${apiUrl}/charities`)
+      .then(response => setAllCharities(response.data))   
+      .catch(err => console.log(err))
+  }, [])
   const [allOpportunities, setAllOpportunities] = useState([])
   useEffect(() => {
-    axios.get('https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities')
+    axios.get(`${apiUrl}/opportunities`)
       .then(response => setAllOpportunities(response.data))
       .catch(err => console.log(err))
   }, [])
@@ -46,18 +52,15 @@ function App() {
 
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
 
-  const [isCreated, setIsCreated] = useState(false)
-
   // ToDo select latest opportunities without relying on results order , eg with created date?
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
 
 
-  // ******* For Charity Admin ********* //
+  // ********** For Charity Admin ********* //
   const { user } = useAuth0();
-  const charityName = user ? user.name : ""
-  // ToDo replace hardcoded charityId with userId from Auth0 or read from backend ??
-  const charityId = user ? "e9ded807-5c9d-11eb-83f0-06358a409ac0" : ""
-
+  let charityId = user ? user.name : ""
+  let charityName = user ? allCharities.find(c => c.charityId === charityId).charityName : ""
+  
   const editOpportunity = (opportunity) => {
     const editedOpportunity = {
       id: opportunity.id,
@@ -99,8 +102,8 @@ function App() {
     }
 
     axios
-        .post(`https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities/${charityId}`, newOpportunity)
-        .then(() => axios.get('https://r892sqdso9.execute-api.eu-west-2.amazonaws.com/opportunities'))
+        .post(`${apiUrl}/opportunities/${charityId}`, newOpportunity)
+        .then(() => axios.get(`${apiUrl}/opportunities`))
         .then(response => setAllOpportunities(response.data))
         .then(() => alert("Opportunity Created"))
         .catch((err) => {

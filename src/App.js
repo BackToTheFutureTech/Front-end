@@ -30,7 +30,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
 // ToDo replace with calls to backend
-import { taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
+import { taskImg, waysToHelp } from "./Assets/moreData"; //data
 
 function App() {
   const apiUrl = "https://r892sqdso9.execute-api.eu-west-2.amazonaws.com"

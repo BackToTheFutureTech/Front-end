@@ -98,7 +98,8 @@ function App() {
       location: opportunity.location, // where does this one go?
       address1: opportunity.address1,
       address2: opportunity.address2,
-      description: opportunity.description
+      description: opportunity.description,
+      thumbnail: opportunity.thumbnail
     }
 
     axios

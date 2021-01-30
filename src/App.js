@@ -102,7 +102,7 @@ function App() {
     }
 
     axios
-        .post(`${apiUrl}/opportunities/${charityId}`, newOpportunity)
+        .post(`${apiUrl}/charities/${charityId}/opportunities`, newOpportunity)
         .then(() => axios.get(`${apiUrl}/opportunities`))
         .then(response => setAllOpportunities(response.data))
         .then(() => alert("Opportunity Created"))

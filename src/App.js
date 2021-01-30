@@ -59,7 +59,7 @@ function App() {
   // ********** For Charity Admin ********* //
   const { user } = useAuth0();
   let charityId = user ? user.name : ""
-  let charityName = user ? allCharities.find(c => c.charityId === charityId).charityName : ""
+  // let charityName = user ? allCharities.find(c => c.charityId === charityId).charityName : ""
   
   const editOpportunity = (opportunity) => {
     const editedOpportunity = {
@@ -132,7 +132,7 @@ function App() {
           />
           <ProtectedRoute exact path="/adminportal"
             component={() => <AdminPortalBody allOpportunities={allOpportunities}
-              deleteOpportunity={deleteOpportunity} charityName={charityName} />}
+              deleteOpportunity={deleteOpportunity} /*charityName={charityName}*/ />}
           />
 
           <Route path="/howToHelp">

@@ -20,13 +20,13 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
     const [address2, setAddress2] = useState("")
     const [city, setCity] = useState("")
     const [thumbnail, setThumbnail] = useState("")
-
+ 
     const handleClick = () => {
         let opportunity = {
             name: name,
             taskType: taskType,
             numVolunteers: parseInt(numVolunteers),
-            date: date,
+            date: convert(date),
             description: description,
             postcode: postcode,
             location: city,
@@ -37,6 +37,14 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
 
         createOpportunity(opportunity)
     }
+
+    const convert = (str) => {
+        var date = new Date(str),
+          mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+          day = ("0" + date.getDate()).slice(-2);
+        return [date.getFullYear(), mnth, day].join("-");
+      }
+
     const upload = (e)=>{
         S3FileUpload.uploadFile(e.target.files[0], config)
         .then((data)=>{

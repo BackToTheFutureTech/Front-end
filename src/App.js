@@ -62,7 +62,7 @@ function App() {
       numVolunteers: opportunity.numVolunteers,
       date: opportunity.date,
       postcode: opportunity.postcode,
-      location: opportunity.location,
+      location: opportunity.location, // where does this one go?
       address1: opportunity.address1,
       address2: opportunity.address2,
       description: opportunity.description
@@ -90,7 +90,7 @@ function App() {
       numVolunteers: opportunity.numVolunteers,
       date: opportunity.date,
       postcode: opportunity.postcode,
-      location: opportunity.location,
+      location: opportunity.location, // where does this one go?
       address1: opportunity.address1,
       address12: opportunity.address2,
       description: opportunity.description

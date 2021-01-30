@@ -32,7 +32,7 @@ function OpportunityDetails({ allTaskImg, serverResponse }) {
                     </div>
                     <div className="col-12 col-lg-4">
                         <div className="opportunity-details__apply-div">
-                            <h4 className="text-center">Date: {opportunity.date}</h4>
+                            <h4 className="text-center">Date : {new Date(opportunity.date).toDateString()}</h4>
                             <div className="container">
                                 <div className="col text-center">
                                     {isApply ? <VolunteerRegistration id={opportunity.id} /> :

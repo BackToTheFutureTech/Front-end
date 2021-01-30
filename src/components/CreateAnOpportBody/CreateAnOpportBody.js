@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./CreateAnOpportBody.css"
 import S3FileUpload from "react-s3";
 
-const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
+const CreateAnOpportBody = ({ createOpportunity }) => {
     const config = {
         bucketName: process.env.REACT_APP_BUCKETNAME,
         dirName: '',
@@ -11,9 +11,9 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
         secretAccessKey: process.env.REACT_APP_SECRETACCESSKEY
   }
     const [name, setName] = useState("")
-    const [taskType, setTaskType] = useState("")
+    const [taskType, setTaskType] = useState("Other")
     const [numVolunteers, setNumVolunteers] = useState(0)
-    const [date, setDate] = useState("")
+    const [date, setDate] = useState(new Date())
     const [description, setDescription] = useState("")
     const [postcode, setPostcode] = useState("")
     const [address1, setAddress1] = useState("")
@@ -24,29 +24,18 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
     const handleClick = () => {
         let opportunity = {
             name: name,
-            charity: charityName,
             taskType: taskType,
-            numVolunteers: numVolunteers,
+            numVolunteers: parseInt(numVolunteers),
             date: date,
             description: description,
             postcode: postcode,
-            location: city, 
+            location: city,
             address1: address1,
             address2: address2,
             thumbnail: thumbnail
         }
+
         createOpportunity(opportunity)
-        // reset input fields
-        setName("")
-        setTaskType("")
-        setNumVolunteers(0)
-        setDate("")
-        setDescription("")
-        setPostcode("")
-        setAddress1("")
-        setAddress2("")
-        setCity("")
-        setThumbnail("")
     }
     const upload = (e)=>{
         S3FileUpload.uploadFile(e.target.files[0], config)
@@ -78,12 +67,11 @@ const CreateAnOpportBody = ({ createOpportunity, charityName }) => {
                                     value={taskType}
                                     onChange={(e) => setTaskType(e.target.value)}
                                     id="add-opportunity-num">
-                                    <option value=""></option>
+                                    <option value="Other">Other</option>
                                     <option value="Wrap Presents">Wrap Presents</option>
                                     <option value="Sort Clothes">Sort Clothes</option>
                                     <option value="Gardening">Gardening</option>
                                     <option value="Serve Food">Serve Food</option>
-                                    <option value="Other">Other</option>
                                 </select>
                             </label>
                             <label htmlFor="number">

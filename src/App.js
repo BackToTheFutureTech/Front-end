@@ -30,29 +30,37 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
 // ToDo replace with calls to backend
-import { opportunities, taskImg, charities, waysToHelp } from "./Assets/moreData"; //data
-
+import { taskImg, waysToHelp } from "./Assets/moreData"; //data
 
 function App() {
-  const [allCharities, setAllCharities] = useState(charities)
-  // setAllOpportunities is called when charities update their list
-  // the backend db should also be updated
+  const apiUrl = "https://r892sqdso9.execute-api.eu-west-2.amazonaws.com"
+  const [allCharities, setAllCharities] = useState([])
+  useEffect(() => {
+    axios.get(`${apiUrl}/charities`)
+      .then(response => setAllCharities(response.data))   
+      .catch(err => console.log(err))
+  }, [])
   const [allOpportunities, setAllOpportunities] = useState([])
-  useEffect(()=> 
-  { axios.get('https://dq7q9vd7a1.execute-api.eu-west-2.amazonaws.com/opportunities')
-    .then(response => setAllOpportunities(response.data))
-    .catch(err => console.log(err))
-  },[])
+  useEffect(() => {
+    axios.get(`${apiUrl}/opportunities`)
+      .then(response => setAllOpportunities(response.data))
+      .catch(err => console.log(err))
+  }, [])
 
-  const [helpingWays, setHelpingWays] = useState(waysToHelp)
+  // does this need to use state? will this be updated?
+  const [helpingWays] = useState(waysToHelp)
 
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
+
   // ToDo select latest opportunities without relying on results order , eg with created date?
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
 
-  const { user } = useAuth0();
-  const charityName = user ? user.name : "" 
 
+  // ********** For Charity Admin ********* //
+  const { user } = useAuth0();
+  let charityId = user ? user.name : ""
+  let charityName = user ? allCharities.find(c => c.charityId === charityId).charityName : ""
+  
   const editOpportunity = (opportunity) => {
     const editedOpportunity = {
       id: opportunity.id,
@@ -80,24 +88,31 @@ function App() {
   }
 
   const createOpportunity = (opportunity) => {
-    // ToDo - need a unique id here
-    let id = allOpportunities.length + 1
+
     const newOpportunity = {
-      id: id,
       name: opportunity.name,
-      charity: opportunity.charity,
       taskType: opportunity.taskType,
       numVolunteers: opportunity.numVolunteers,
       date: opportunity.date,
       postcode: opportunity.postcode,
       location: opportunity.location, // where does this one go?
       address1: opportunity.address1,
-      address12: opportunity.address2,
+      address2: opportunity.address2,
       description: opportunity.description
     }
-    const updatedOpportunities = [...allOpportunities, newOpportunity]
-    setAllOpportunities(updatedOpportunities)
+
+    axios
+        .post(`${apiUrl}/charities/${charityId}/opportunities`, newOpportunity)
+        .then(() => axios.get(`${apiUrl}/opportunities`))
+        .then(response => setAllOpportunities(response.data))
+        .then(() => alert("Opportunity Created"))
+        .catch((err) => {
+          alert("Oops. Something went wrong. Please try again")
+          console.log(err)
+        })
   }
+
+  // ******************************* //
 
   return (
     <Router>
@@ -108,11 +123,11 @@ function App() {
         <BreadCrumbs serverResponse={allOpportunities} />
         <Switch>
           <ProtectedRoute path="/adminportal/createOpportunity"
-            component={() => <CreateAnOpportBody createOpportunity={createOpportunity} charityName={charityName} />}
+            component={() => <CreateAnOpportBody createOpportunity={createOpportunity} />}
           />
           <ProtectedRoute exact path="/adminportal/editOpportunity/:id"
             component={() => <EditAnOpportBody editOpportunity={editOpportunity}
-              allOpportunities={allOpportunities}  />}
+              allOpportunities={allOpportunities} />}
           />
           <ProtectedRoute exact path="/adminportal"
             component={() => <AdminPortalBody allOpportunities={allOpportunities}
@@ -144,7 +159,7 @@ function App() {
             children={<CharityDetails charities={allCharities} />} />
           <Route path="/charities">
             <Charities>
-              {allCharities.map(charity => <CharityCard {...charity} key={charity.name} />)}
+              {allCharities.map(charity => <CharityCard {...charity} key={charity.charityName} />)}
             </Charities>
           </Route>
           <Route path={["/home", "/"]}>

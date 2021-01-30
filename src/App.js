@@ -86,8 +86,15 @@ function App() {
   }
 
   const deleteOpportunity = id => {
-    const updatedOpportunities = allOpportunities.filter(opportunity => opportunity.id !== id)
-    setAllOpportunities(updatedOpportunities)
+    axios
+        .delete(`${apiUrl}/charities/${charityId}/opportunities/${id}`)
+        .then(() => axios.get(`${apiUrl}/opportunities`))
+        .then(response => setAllOpportunities(response.data))
+        .then(() => alert("Opportunity deleted"))
+        .catch((err) => {
+          alert("Oops. Something went wrong. Please try again")
+          console.log(err)
+        })
   }
 
   const createOpportunity = (opportunity) => {

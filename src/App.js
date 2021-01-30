@@ -63,9 +63,7 @@ function App() {
   
   const editOpportunity = (opportunity) => {
     const editedOpportunity = {
-      id: opportunity.id,
       name: opportunity.name,
-      charity: opportunity.charity,
       taskType: opportunity.taskType,
       numVolunteers: opportunity.numVolunteers,
       date: opportunity.date,
@@ -75,11 +73,16 @@ function App() {
       address2: opportunity.address2,
       description: opportunity.description
     }
-    const updatedOpportunities = allOpportunities.map(item => {
-      if (item.id === editedOpportunity.id) return editedOpportunity
-      return item
-    })
-    setAllOpportunities(updatedOpportunities)
+    
+    axios
+        .put(`${apiUrl}/charities/${charityId}/opportunities/${opportunity.id}`, editedOpportunity)
+        .then(() => axios.get(`${apiUrl}/opportunities`))
+        .then(response => setAllOpportunities(response.data))
+        .then(() => alert("Opportunity Updated"))
+        .catch((err) => {
+          alert("Oops. Something went wrong. Please try again")
+          console.log(err)
+        })
   }
 
   const deleteOpportunity = id => {

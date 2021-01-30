@@ -4,8 +4,8 @@ import "./CharityDetails.css"
 
 function CharityDetails({ charities }) {
 
-    let { charityName } = useParams();
-    let charity = charities.find(item => item.name === charityName);
+    const { charityName } = useParams();
+    const charity = charities.find(item => item.charityName === charityName);
 
     const VolunteerPhoto = (props) => {
         return (<>
@@ -31,21 +31,19 @@ function CharityDetails({ charities }) {
     return (
         <div className="container pt-3">
             <div className="row">
-                <h2 className="charity-details__title">{charity.name}</h2>
+                <h2 className="charity-details__title">{charity.charityName}</h2>
             </div>
             <div className="charity-details">
                 <div className="row">
                     <div className="col-12 col-md-5 mb-3">
-                        <img src={charity.img} width="100%" alt="" />
+                        <img src={charity.imageUrl} width="100%" alt="" />
                     </div>
                     <div className="col-12 col-md-7">
                         <h4>Active Projects: <span className="badge badge-danger">{charity.numActiveProjects}</span></h4>
                         <h4>Completed Projects: <span className="badge charity-details__badge">{charity.numCompletedProjects}</span></h4>
                         <hr />
                         <h5>Description</h5>
-                        <p>{charity.description}</p>
-                        <h5>Address</h5>
-                        <p>{charity.address}</p>
+                        <p>{charity.charityDescription}</p>
                     </div>
                 </div>
             </div>

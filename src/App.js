@@ -59,13 +59,11 @@ function App() {
   // ********** For Charity Admin ********* //
   const { user } = useAuth0();
   let charityId = user ? user.name : ""
-  let charityName = user ? allCharities.find(c => c.charityId === charityId).charityName : ""
+  let charityName = allCharities.find(c => c.charityId === charityId) ? allCharities.find(c => c.charityId === charityId).charityName : ""
   
   const editOpportunity = (opportunity) => {
     const editedOpportunity = {
-      id: opportunity.id,
       name: opportunity.name,
-      charity: opportunity.charity,
       taskType: opportunity.taskType,
       numVolunteers: opportunity.numVolunteers,
       date: opportunity.date,
@@ -75,16 +73,28 @@ function App() {
       address2: opportunity.address2,
       description: opportunity.description
     }
-    const updatedOpportunities = allOpportunities.map(item => {
-      if (item.id === editedOpportunity.id) return editedOpportunity
-      return item
-    })
-    setAllOpportunities(updatedOpportunities)
+    
+    axios
+        .put(`${apiUrl}/charities/${charityId}/opportunities/${opportunity.id}`, editedOpportunity)
+        .then(() => axios.get(`${apiUrl}/opportunities`))
+        .then(response => setAllOpportunities(response.data))
+        .then(() => alert("Opportunity Updated"))
+        .catch((err) => {
+          alert("Oops. Something went wrong. Please try again")
+          console.log(err)
+        })
   }
 
   const deleteOpportunity = id => {
-    const updatedOpportunities = allOpportunities.filter(opportunity => opportunity.id !== id)
-    setAllOpportunities(updatedOpportunities)
+    axios
+        .delete(`${apiUrl}/charities/${charityId}/opportunities/${id}`)
+        .then(() => axios.get(`${apiUrl}/opportunities`))
+        .then(response => setAllOpportunities(response.data))
+        .then(() => alert("Opportunity deleted"))
+        .catch((err) => {
+          alert("Oops. Something went wrong. Please try again")
+          console.log(err)
+        })
   }
 
   const createOpportunity = (opportunity) => {

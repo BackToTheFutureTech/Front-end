@@ -7,10 +7,9 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
     const opportunity = allOpportunities.find(item => item.id === parseInt(id))
 
     const [name, setName] = useState(opportunity.name)
-    const [charity, setCharity] = useState(opportunity.charity)
     const [taskType, setTaskType] = useState(opportunity.taskType)
     const [numVolunteers, setNumVolunteers] = useState(opportunity.numVolunteers)
-    const [date, setDate] = useState(opportunity.date)
+    const [date, setDate] = useState(new Date(opportunity.date).toISOString().split('T')[0])
     const [description, setDescription] = useState(opportunity.description)
     const [postcode, setPostcode] = useState(opportunity.postcode)
     const [address1, setAddress1] = useState(opportunity.address1)
@@ -21,9 +20,8 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
         let editedOpportunity = {
             id: opportunity.id,
             name: name,
-            charity: charity,
             taskType: taskType,
-            numVolunteers: numVolunteers,
+            numVolunteers: parseInt(numVolunteers),
             date: date,
             description: description,
             postcode: postcode,

@@ -33,10 +33,7 @@ import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpp
 import { taskImg, waysToHelp } from "./Assets/moreData"; //data
 
 function App() {
-  // useEffect triggers
-  const [userStatus,setUserStatus] = useState();
-  const [reloadOpport, setReloadOpport] = useState();
-  const [reloadCharit,setReloadCharit] = useState();
+
 
 
   const apiUrl = "https://r892sqdso9.execute-api.eu-west-2.amazonaws.com"

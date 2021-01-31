@@ -33,6 +33,12 @@ import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpp
 import { taskImg, waysToHelp } from "./Assets/moreData"; //data
 
 function App() {
+  // useEffect triggers
+  const [userStatus,setUserStatus] = useState();
+  const [reloadOpport, setReloadOpport] = useState();
+  const [reloadCharit,setReloadCharit] = useState();
+
+
   const apiUrl = "https://r892sqdso9.execute-api.eu-west-2.amazonaws.com"
   const [allCharities, setAllCharities] = useState([])
   useEffect(() => {
@@ -60,23 +66,16 @@ function App() {
   const { user } = useAuth0();
   let charityId = user ? user.name : ""
   // let charityName = user ? allCharities.find(c => c.charityId === charityId).charityName : ""
-  
+  useEffect(()=>{
+    user?
+    
+    axios.post(`${apiUrl}/opportunities`)
+    .then()
+  })
   const editOpportunity = (opportunity) => {
-    const editedOpportunity = {
-      id: opportunity.id,
-      name: opportunity.name,
-      charity: opportunity.charity,
-      taskType: opportunity.taskType,
-      numVolunteers: opportunity.numVolunteers,
-      date: opportunity.date,
-      postcode: opportunity.postcode,
-      location: opportunity.location, // where does this one go?
-      address1: opportunity.address1,
-      address2: opportunity.address2,
-      description: opportunity.description
-    }
+
     const updatedOpportunities = allOpportunities.map(item => {
-      if (item.id === editedOpportunity.id) return editedOpportunity
+      if (item.id === opportunity.id) return opportunity
       return item
     })
     setAllOpportunities(updatedOpportunities)
@@ -88,22 +87,8 @@ function App() {
   }
 
   const createOpportunity = (opportunity) => {
-
-    const newOpportunity = {
-      name: opportunity.name,
-      taskType: opportunity.taskType,
-      numVolunteers: opportunity.numVolunteers,
-      date: opportunity.date,
-      postcode: opportunity.postcode,
-      location: opportunity.location, // where does this one go?
-      address1: opportunity.address1,
-      address2: opportunity.address2,
-      description: opportunity.description,
-      thumbnail: opportunity.thumbnail
-    }
-
     axios
-        .post(`${apiUrl}/charities/${charityId}/opportunities`, newOpportunity)
+        .post(`${apiUrl}/charities/${charityId}/opportunities`, opportunity)
         .then(() => axios.get(`${apiUrl}/opportunities`))
         .then(response => setAllOpportunities(response.data))
         .then(() => alert("Opportunity Created"))

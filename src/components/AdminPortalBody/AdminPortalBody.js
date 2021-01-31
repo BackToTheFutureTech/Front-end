@@ -32,7 +32,7 @@ const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) =
               <tr key={item.id}>
                 <td>{item.name}</td>
                 <td>{item.taskType}</td>
-                <td>{item.date}</td>
+                <td>{new Date(item.date).toDateString()}</td>
                 <td>{item.description}</td>
                 <td>
                   <div className="btn-group opp-table__actions" role="group" aria-label="Actions">

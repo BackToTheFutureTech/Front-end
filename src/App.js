@@ -65,19 +65,30 @@ function App() {
   // ********** For Charity Admin ********* //
   const { user } = useAuth0();
   let charityId = user ? user.name : ""
-  // let charityName = user ? allCharities.find(c => c.charityId === charityId).charityName : ""
-  const editOpportunity = (opportunity) => {
-
-    const updatedOpportunities = allOpportunities.map(item => {
-      if (item.id === opportunity.id) return opportunity
-      return item
-    })
-    setAllOpportunities(updatedOpportunities)
+  let charityName = allCharities.find(c => c.charityId === charityId) ? allCharities.find(c => c.charityId === charityId).charityName : ""
+  
+  const editOpportunity = (opportunity) => { 
+    axios
+        .put(`${apiUrl}/charities/${charityId}/opportunities/${opportunity.id}`, opportunity)
+        .then(() => axios.get(`${apiUrl}/opportunities`))
+        .then(response => setAllOpportunities(response.data))
+        .then(() => alert("Opportunity Updated"))
+        .catch((err) => {
+          alert("Oops. Something went wrong. Please try again")
+          console.log(err)
+        })
   }
 
   const deleteOpportunity = id => {
-    const updatedOpportunities = allOpportunities.filter(opportunity => opportunity.id !== id)
-    setAllOpportunities(updatedOpportunities)
+    axios
+        .delete(`${apiUrl}/charities/${charityId}/opportunities/${id}`)
+        .then(() => axios.get(`${apiUrl}/opportunities`))
+        .then(response => setAllOpportunities(response.data))
+        .then(() => alert("Opportunity deleted"))
+        .catch((err) => {
+          alert("Oops. Something went wrong. Please try again")
+          console.log(err)
+        })
   }
 
   const createOpportunity = (opportunity) => {
@@ -111,7 +122,7 @@ function App() {
           />
           <ProtectedRoute exact path="/adminportal"
             component={() => <AdminPortalBody allOpportunities={allOpportunities}
-              deleteOpportunity={deleteOpportunity} /*charityName={charityName}*/ />}
+              deleteOpportunity={deleteOpportunity} charityName={charityName} />}
           />
 
           <Route path="/howToHelp">

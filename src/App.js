@@ -59,7 +59,7 @@ function App() {
   // ********** For Charity Admin ********* //
   const { user } = useAuth0();
   let charityId = user ? user.name : ""
-  let charityName = user ? allCharities.find(c => c.charityId === charityId).charityName : ""
+  let charityName = allCharities.find(c => c.charityId === charityId) ? allCharities.find(c => c.charityId === charityId).charityName : ""
   
   const editOpportunity = (opportunity) => {
     const editedOpportunity = {

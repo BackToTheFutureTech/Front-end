@@ -66,12 +66,6 @@ function App() {
   const { user } = useAuth0();
   let charityId = user ? user.name : ""
   // let charityName = user ? allCharities.find(c => c.charityId === charityId).charityName : ""
-  useEffect(()=>{
-    user?
-    
-    axios.post(`${apiUrl}/opportunities`)
-    .then()
-  })
   const editOpportunity = (opportunity) => {
 
     const updatedOpportunities = allOpportunities.map(item => {

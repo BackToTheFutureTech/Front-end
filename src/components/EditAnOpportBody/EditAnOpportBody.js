@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from "react-router-dom";
 import "./EditAnOpportBody.css"
+import S3FileUpload from "react-s3";
 
 const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
     const { id } = useParams()
@@ -15,7 +16,14 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
     const [address1, setAddress1] = useState(opportunity.address1)
     const [address2, setAddress2] = useState(opportunity.address2)
     const [city, setCity] = useState(opportunity.location)
-
+    const [thumbnail, setThumbnail] = useState("")
+    const config = {
+        bucketName: process.env.REACT_APP_BUCKETNAME,
+        dirName: '',
+        region: process.env.REACT_APP_REGION,
+        accessKeyId: process.env.REACT_APP_ACCESSKEYID,
+        secretAccessKey: process.env.REACT_APP_SECRETACCESSKEY
+    }
     const handleClick = () => {
         let editedOpportunity = {
             id: opportunity.id,
@@ -25,11 +33,20 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
             date: date,
             description: description,
             postcode: postcode,
-            location: city, 
+            location: city,
             address1: address1,
-            address2: address2
+            address2: address2,
+            thumbnail: thumbnail
         }
         editOpportunity(editedOpportunity)
+    }
+    const upload = (e) => {
+        S3FileUpload.uploadFile(e.target.files[0], config)
+            .then((data) => {
+                setThumbnail(data.location);
+                console.log(thumbnail);
+            })
+            .catch(err => alert(err))
     }
 
     return (
@@ -92,7 +109,7 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
                             </label>
                             <label htmlFor="thumbnail">
                                 Upload a thumbnail
-                                <input type="file" name="thumbnail" className="" />
+                                <input type="file" onChange={upload} name="thumbnail" className="" />
                             </label>
                         </div>
                         <div className="col-sm form-column">

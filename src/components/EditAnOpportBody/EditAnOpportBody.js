@@ -43,7 +43,7 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
     const upload = (e) => {
         S3FileUpload.uploadFile(e.target.files[0], config)
             .then((data) => data.location)
-            .then(location => {setThumbnail(location)})
+            .then(imgUrl => {setThumbnail(imgUrl)})
             .catch(err => alert(err))
     }
 

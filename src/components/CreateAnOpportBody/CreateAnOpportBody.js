@@ -13,7 +13,7 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
     const [name, setName] = useState("")
     const [taskType, setTaskType] = useState("Other")
     const [numVolunteers, setNumVolunteers] = useState(0)
-    const [date, setDate] = useState(new Date())
+    const [date, setDate] = useState(new Date().toISOString().split('T')[0])
     const [description, setDescription] = useState("")
     const [postcode, setPostcode] = useState("")
     const [address1, setAddress1] = useState("")
@@ -26,7 +26,7 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
             name: name,
             taskType: taskType,
             numVolunteers: parseInt(numVolunteers),
-            date: convert(date),
+            date: date,
             description: description,
             postcode: postcode,
             location: city,
@@ -38,17 +38,10 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
         createOpportunity(opportunity)
     }
 
-    const convert = (str) => {
-        var date = new Date(str),
-            mnth = ("0" + (date.getMonth() + 1)).slice(-2),
-            day = ("0" + date.getDate()).slice(-2);
-        return [date.getFullYear(), mnth, day].join("-");
-    }
-
     const upload = (e) => {
         S3FileUpload.uploadFile(e.target.files[0], config)
             .then((data) => data.location)
-            .then(location => setThumbnail(location))
+            .then(imgUrl => setThumbnail(imgUrl))
             .catch(err => alert(err))
     }
     return (

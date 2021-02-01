@@ -33,6 +33,9 @@ import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpp
 import { taskImg, waysToHelp } from "./Assets/moreData"; //data
 
 function App() {
+
+
+
   const apiUrl = "https://r892sqdso9.execute-api.eu-west-2.amazonaws.com"
   const [allCharities, setAllCharities] = useState([])
   useEffect(() => {
@@ -61,21 +64,9 @@ function App() {
   let charityId = user ? user.name : ""
   let charityName = allCharities.find(c => c.charityId === charityId) ? allCharities.find(c => c.charityId === charityId).charityName : ""
   
-  const editOpportunity = (opportunity) => {
-    const editedOpportunity = {
-      name: opportunity.name,
-      taskType: opportunity.taskType,
-      numVolunteers: opportunity.numVolunteers,
-      date: opportunity.date,
-      postcode: opportunity.postcode,
-      location: opportunity.location,
-      address1: opportunity.address1,
-      address2: opportunity.address2,
-      description: opportunity.description
-    }
-    
+  const editOpportunity = (opportunity) => { 
     axios
-        .put(`${apiUrl}/charities/${charityId}/opportunities/${opportunity.id}`, editedOpportunity)
+        .put(`${apiUrl}/charities/${charityId}/opportunities/${opportunity.id}`, opportunity)
         .then(() => axios.get(`${apiUrl}/opportunities`))
         .then(response => setAllOpportunities(response.data))
         .then(() => alert("Opportunity Updated"))
@@ -98,21 +89,8 @@ function App() {
   }
 
   const createOpportunity = (opportunity) => {
-
-    const newOpportunity = {
-      name: opportunity.name,
-      taskType: opportunity.taskType,
-      numVolunteers: opportunity.numVolunteers,
-      date: opportunity.date,
-      postcode: opportunity.postcode,
-      location: opportunity.location,
-      address1: opportunity.address1,
-      address2: opportunity.address2,
-      description: opportunity.description
-    }
-
     axios
-        .post(`${apiUrl}/charities/${charityId}/opportunities`, newOpportunity)
+        .post(`${apiUrl}/charities/${charityId}/opportunities`, opportunity)
         .then(() => axios.get(`${apiUrl}/opportunities`))
         .then(response => setAllOpportunities(response.data))
         .then(() => alert("Opportunity Created"))

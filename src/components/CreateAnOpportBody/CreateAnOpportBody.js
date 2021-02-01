@@ -9,7 +9,7 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
         region: process.env.REACT_APP_REGION,
         accessKeyId: process.env.REACT_APP_ACCESSKEYID,
         secretAccessKey: process.env.REACT_APP_SECRETACCESSKEY
-  }
+    }
     const [name, setName] = useState("")
     const [taskType, setTaskType] = useState("Other")
     const [numVolunteers, setNumVolunteers] = useState(0)
@@ -20,7 +20,7 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
     const [address2, setAddress2] = useState("")
     const [city, setCity] = useState("")
     const [thumbnail, setThumbnail] = useState("")
- 
+
     const handleClick = () => {
         let opportunity = {
             name: name,
@@ -40,17 +40,16 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
 
     const convert = (str) => {
         var date = new Date(str),
-          mnth = ("0" + (date.getMonth() + 1)).slice(-2),
-          day = ("0" + date.getDate()).slice(-2);
+            mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+            day = ("0" + date.getDate()).slice(-2);
         return [date.getFullYear(), mnth, day].join("-");
-      }
+    }
 
-    const upload = (e)=>{
+    const upload = (e) => {
         S3FileUpload.uploadFile(e.target.files[0], config)
-        .then((data)=>{
-            setThumbnail(data.location);
-        })
-        .catch(err => alert(err))
+            .then((data) => data.location)
+            .then(location => setThumbnail(location))
+            .catch(err => alert(err))
     }
     return (
         <div className="container">
@@ -111,7 +110,7 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
                             </label>
                             <label htmlFor="thumbnail">
                                 Upload a thumbnail
-                                <input type="file" name="thumbnail" onChange={upload}/>
+                                <input type="file" name="thumbnail" onChange={upload} />
                             </label>
                         </div>
                         <div className="col-sm form-column">

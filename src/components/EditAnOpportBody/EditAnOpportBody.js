@@ -16,7 +16,7 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
     const [address1, setAddress1] = useState(opportunity.address1)
     const [address2, setAddress2] = useState(opportunity.address2)
     const [city, setCity] = useState(opportunity.location)
-    const [thumbnail, setThumbnail] = useState("")
+    const [thumbnail, setThumbnail] = useState(opportunity.thumbnail)
     const config = {
         bucketName: process.env.REACT_APP_BUCKETNAME,
         dirName: '',
@@ -42,10 +42,8 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
     }
     const upload = (e) => {
         S3FileUpload.uploadFile(e.target.files[0], config)
-            .then((data) => {
-                setThumbnail(data.location);
-                console.log(thumbnail);
-            })
+            .then((data) => data.location)
+            .then(location => {setThumbnail(location)})
             .catch(err => alert(err))
     }
 

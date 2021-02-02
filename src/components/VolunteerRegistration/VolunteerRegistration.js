@@ -15,7 +15,6 @@ function VolunteerRegistration({ id, signupVolunteer }) {
             mobile: mobile,
             groupNum: parseInt(numVolunteers)
         }
-        console.log(volunteer)
         signupVolunteer(volunteer)
         // reset input fields
         setName("")

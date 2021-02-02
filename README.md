@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# MadDay Application - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the front end of a Todo Application, built throughout the [Tech Returners](https://techreturners.com) Your Journey Into Tech course. It integrates with a backend, available [here](https://github.com/BackToTheFutureTech/Back-end).
 
-## Available Scripts
+The hosted version of the application is available here: [Here](https://madday.herokuapp.com/home).
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+This project uses the following technologies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- ReactJS
+- JavaScript (ES2015+)
+- CSS3
+- Bootstrap CSS Framework
+- Webpack
+- Axios
+- ESLint
+- React Router
+- AWS S3 Bucket
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+- AWS account to deploy API to LAMBDA, create S3 Bucket and RDS (You can use [Terraform](https://www.terraform.io/) to build those from our Infrastructure repo [here](https://github.com/BackToTheFutureTech/Infrastructure)).
+- [Auth0](https://auth0.com/) Account to Authorise Users.
+- Local `.env` file similar to [.env.example](https://github.com/BackToTheFutureTech/Front-end/blob/readme/.env.example).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Overview
 
-### `npm run build`
+It has been designed and built with mobile-first responsive principles in mind.
+Below are screenshots to show just that.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Laptop Screen
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Laptop](https://github.com/BackToTheFutureTech/Front-end/blob/readme/Readme_Assets/volunteer_wide.PNG?raw=true)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Mobile Screen
 
-### `npm run eject`
+<p align="center">
+  <img src="https://github.com/BackToTheFutureTech/Front-end/blob/readme/Readme_Assets/volunteer_mobile.PNG?raw=true">
+</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- ![Mobile ><](https://github.com/BackToTheFutureTech/Front-end/blob/readme/Readme_Assets/volunteer_mobile.PNG?raw=true) -->
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running the application locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Assuming that you have all requirements for the backend in place from the backend repo. Use the following steps to get it up and running.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### First
 
-## Learn More
+[Node.js](https://nodejs.org/en/) must be installed if not already.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Second
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Clone the repo locally and install dependencies using:
 
-### Code Splitting
+    npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Third
 
-### Analyzing the Bundle Size
+You need to setup your environment variables in `.env` file in the root folder of the repo. An example is shared in the repo. Your file should contain the following variables.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
 
-### Making a Progressive Web App
+REACT_APP_BUCKETNAME=[AWS S3 BucketName to host uploaded images]
+REACT_APP_REGION=[AWS Bucket Region]
+REACT_APP_ACCESSKEYID=[Access Key ID for your AWS root (it's best to generate a new one)]
+REACT_APP_SECRETACCESSKEY=[AWS Secret to your access key ]
+REACT_APP_APIURL=[Your Lambda function URL/endpoint]
+REACT_APP_AUTH0DOMAIN=[Your Auth0 domain URL]
+REACT_APP_AUTH0CLIENTID=[Your Auth0 Client ID]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
 
-### Advanced Configuration
+### Finally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To start the application:
 
-### Deployment
+    npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The application will then be accessible at:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[http://localhost:3000](http://localhost:3000)

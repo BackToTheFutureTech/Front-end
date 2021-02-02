@@ -21,7 +21,7 @@ const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) =
           <thead>
             <tr>
               <th scope="col">Name</th>
-              <th scope="col">Type</th>
+              <th scope="col">Volunteers</th>
               <th scope="col">When</th>
               <th scope="col">Description</th>
               <th scope="col">Action</th>
@@ -31,7 +31,7 @@ const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) =
             {charityOpportunities.map(item =>
               <tr key={item.id}>
                 <td>{item.name}</td>
-                <td>{item.taskType}</td>
+                <td className="text-center">{item.numRegVolunteers}</td>
                 <td>{new Date(item.date).toDateString()}</td>
                 <td>{item.description}</td>
                 <td>

@@ -99,6 +99,20 @@ function App() {
 
   // ******************************* //
 
+  const signupVolunteer = (volunteer) => {
+    axios
+        .post(`${apiUrl}/opportunities/${volunteer.opportunityId}/volunteers`, volunteer)
+        .then(() => axios.get(`${apiUrl}/opportunities`))
+        .then(response => setAllOpportunities(response.data))
+        .then(() => alert("Thank You! Successful sign up."))
+        .catch((err) => {
+          alert("Oops. Something went wrong. Please try again")
+          console.log(err)
+        })
+  }
+
+  // ******************************* //
+
   return (
     <Router>
       <Header>
@@ -127,7 +141,7 @@ function App() {
             </HowToHelp>
           </Route>
           <Route path="/becomeAVolunteer/:id"
-            children={<OpportunityDetails allTaskImg={taskImg} serverResponse={allOpportunities} />} />
+            children={<OpportunityDetails allTaskImg={taskImg} serverResponse={allOpportunities} signupVolunteer={signupVolunteer} />} />
           <Route path="/contacts">
             <Contact />
           </Route>

@@ -17,7 +17,7 @@ This project uses the following technologies:
 - ESLint
 - React Router
 - AWS S3 Bucket
-## Pre-requisits
+## Prerequisites
 
 - AWS account to deploy API to LAMBDA, create S3 Bucket and RDS (You can use [Terraform](https://www.terraform.io/) to build those from our Infrastructure repo [here](https://github.com/BackToTheFutureTech/Infrastructure)).
 - [Auth0](https://auth0.com/) Account to Authorise Users.
@@ -25,7 +25,7 @@ This project uses the following technologies:
 
 ## Overview
 
-It has been designed and built with mobile-first reponsive principles in mind.
+It has been designed and built with mobile-first responsive principles in mind.
 Below are screenshots to show just that.
 ### Laptop Screen
 

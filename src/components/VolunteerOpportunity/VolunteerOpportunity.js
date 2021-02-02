@@ -1,14 +1,14 @@
 import React from "react";
 import "./VolunteerOpportunity.css";
 import { Link } from "react-router-dom"
-function VolunteerOpportunity({ taskImg, charity, taskType, location, id }) {
+function VolunteerOpportunity({ thumbnail,taskImg, charity, taskType, location, id }) {
 
     return (
         < div className="mx-auto mb-3" >
             <div className="card volunteer-requests__item">
                 <img
                     className="card-img-top"
-                    src={taskImg}
+                    src={thumbnail?thumbnail:taskImg}
                     alt=""
                 />
                 <div className="card-body text-center ">

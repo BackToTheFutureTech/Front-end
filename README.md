@@ -35,7 +35,11 @@ Below are screenshots to show just that.
 
 ### Mobile Screen
 
-![Laptop><](https://github.com/BackToTheFutureTech/Front-end/blob/readme/Readme_Assets/volunteer_mobile.PNG?raw=true)
+<p align="center">
+  <img src="https://github.com/BackToTheFutureTech/Front-end/blob/readme/Readme_Assets/volunteer_mobile.PNG?raw=true">
+</p>
+
+<!-- ![Mobile ><](https://github.com/BackToTheFutureTech/Front-end/blob/readme/Readme_Assets/volunteer_mobile.PNG?raw=true) -->
 
 ## Running the application locally
 

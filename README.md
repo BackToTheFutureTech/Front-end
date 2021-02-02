@@ -1,6 +1,6 @@
 # MadDay Application - Frontend
 
-This is the front end of a Todo Application, built throughout the [Tech Returners](https://techreturners.com) Your Journey Into Tech course. It integrates with a backend, available [here](https://github.com/your-backend-repo).
+This is the front end of a Todo Application, built throughout the [Tech Returners](https://techreturners.com) Your Journey Into Tech course. It integrates with a backend, available [here](https://github.com/BackToTheFutureTech/Back-end).
 
 The hosted version of the application is available here: [Here](https://madday.herokuapp.com/home).
 
@@ -36,6 +36,7 @@ Below are screenshots to show just that.
 
 ## Running the application locally
 
+Assuming that you have all requirements for the backend in place from the backend repo. Use the following steps to get it up and running.
 ### First
 [Node.js](https://nodejs.org/en/) must be installed if not already.
 

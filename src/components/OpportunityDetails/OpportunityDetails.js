@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./OpportunityDetails.css"
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import VolunteerRegistration from "../VolunteerRegistration/VolunteerRegistration"
 
 function OpportunityDetails({ allTaskImg, serverResponse, signupVolunteer }) {
@@ -20,8 +20,12 @@ function OpportunityDetails({ allTaskImg, serverResponse, signupVolunteer }) {
                     </div>
 
                     <div className="col-12 col-lg-5">
+                        <Link
+                            to={`/charities/${opportunity.charity}`}
+                            className="btn opportunity-details__link">
+                            <h3>{opportunity.charity}</h3>
+                        </Link>
                         <h6>{opportunity.taskType}</h6>
-                        <h5>{opportunity.charity}</h5>
                         <h6>Volunteers Needed: <span className="badge badge-danger">{opportunity.numVolunteers}</span></h6>
                         <h6>Volunteers so far: <span className="badge opportunity-details__badge">{opportunity.numRegVolunteers}</span></h6>
                         <hr width="80%" align="left" />
@@ -35,7 +39,7 @@ function OpportunityDetails({ allTaskImg, serverResponse, signupVolunteer }) {
                             <h4 className="text-center">Date : {new Date(opportunity.date).toDateString()}</h4>
                             <div className="container">
                                 <div className="col text-center">
-                                    {isApply ? <VolunteerRegistration id={opportunity.id} signupVolunteer={signupVolunteer}/> :
+                                    {isApply ? <VolunteerRegistration id={opportunity.id} signupVolunteer={signupVolunteer} /> :
                                         <button
                                             type="button"
                                             className="btn btn-lg button-MAD-theme"

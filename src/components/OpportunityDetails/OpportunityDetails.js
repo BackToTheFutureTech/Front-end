@@ -16,7 +16,7 @@ function OpportunityDetails({ allTaskImg, serverResponse, signupVolunteer }) {
             <div className="row">
                 {opportunity ? <>
                     <div className="col-12 col-lg-3">
-                        <img src={opportunity.thumbnail} width="100%" alt="" />
+                        <img src={opportunity.thumbnail ? opportunity.thumbnail : taskImg} width="100%" alt="" />
                     </div>
 
                     <div className="col-12 col-lg-5">

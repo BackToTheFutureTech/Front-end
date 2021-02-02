@@ -13,7 +13,7 @@ function VolunteerRegistration({ id, signupVolunteer }) {
             volunteerName: name,
             email: email,
             mobile: mobile,
-            groupNum: numVolunteers
+            groupNum: parseInt(numVolunteers)
         }
         console.log(volunteer)
         signupVolunteer(volunteer)

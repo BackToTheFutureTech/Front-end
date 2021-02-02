@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./VolunteerRegistration.css";
 
-function VolunteerRegistration({ id }) {
+function VolunteerRegistration({ id, signupVolunteer }) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [mobile, setMobile] = useState('')
@@ -10,17 +10,18 @@ function VolunteerRegistration({ id }) {
     const handleClick = () => {
         const volunteer = {
             opportunityId: id,
-            name: name,
+            volunteerName: name,
             email: email,
             mobile: mobile,
-            numVolunteers: numVolunteers
+            groupNum: numVolunteers
         }
         console.log(volunteer)
+        signupVolunteer(volunteer)
         // reset input fields
         setName("")
         setEmail("")
         setMobile("")
-        setNumVolunteers(0)
+        setNumVolunteers(1)
     }
 
     return (

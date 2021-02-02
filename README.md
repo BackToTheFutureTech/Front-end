@@ -19,9 +19,9 @@ This project uses the following technologies:
 - AWS S3 Bucket
 ## Pre-requisits
 
-- AWS account to deploy API to LAMBDA, create S3 Bucket and RDS (You can use Terraform to build those from our Infrastructure repo [here](https://github.com/BackToTheFutureTech/Infrastructure)).
-- Auth0 Account to Authorise Users.
-- Local .env file similar to [.env.example](https://github.com/BackToTheFutureTech/Front-end/blob/readme/.env.example).
+- AWS account to deploy API to LAMBDA, create S3 Bucket and RDS (You can use [Terraform](https://www.terraform.io/) to build those from our Infrastructure repo [here](https://github.com/BackToTheFutureTech/Infrastructure)).
+- [Auth0](https://auth0.com/) Account to Authorise Users.
+- Local ``.env`` file similar to [.env.example](https://github.com/BackToTheFutureTech/Front-end/blob/readme/.env.example).
 
 ## Overview
 
@@ -36,15 +36,16 @@ Below are screenshots to show just that.
 
 ## Running the application locally
 
+### First
 [Node.js](https://nodejs.org/en/) must be installed if not already.
 
-### First
-Clone the repo locally and install dependencies:
+### Second
+Clone the repo locally and install dependencies using:
 
     npm install
 
-### Second
-You need to setup your environment variables in .env file in the root folder of the repo. An example is shared in the repo. Your file should contain the following variables.
+### Third
+You need to setup your environment variables in ``.env`` file in the root folder of the repo. An example is shared in the repo. Your file should contain the following variables.
 
 ```
 
@@ -57,6 +58,8 @@ REACT_APP_AUTH0DOMAIN=[Your Auth0 domain URL]
 REACT_APP_AUTH0CLIENTID=[Your Auth0 Client ID]
 
 ```
+
+### Finally
 To start the application:
 
     npm start

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, withRouter } from "react-router-dom";
 import "./EditAnOpportBody.css"
 import S3FileUpload from "react-s3";
 
-const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
+const EditAnOpportBody = ({ editOpportunity, allOpportunities, history }) => {
     const { id } = useParams()
     const opportunity = allOpportunities.find(item => item.id === parseInt(id))
 
@@ -39,6 +39,7 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
             thumbnail: thumbnail
         }
         editOpportunity(editedOpportunity)
+        history.push("/adminportal")
     }
     const upload = (e) => {
         S3FileUpload.uploadFile(e.target.files[0], config)
@@ -162,4 +163,4 @@ const EditAnOpportBody = ({ editOpportunity, allOpportunities }) => {
     )
 }
 
-export default EditAnOpportBody
+export default withRouter(EditAnOpportBody)

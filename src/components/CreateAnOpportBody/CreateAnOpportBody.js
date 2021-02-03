@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import "./CreateAnOpportBody.css"
 import S3FileUpload from "react-s3";
+import { withRouter} from "react-router-dom";
 
-const CreateAnOpportBody = ({ createOpportunity }) => {
+const CreateAnOpportBody = ({ createOpportunity,history }) => {
     const config = {
         bucketName: process.env.REACT_APP_BUCKETNAME,
         dirName: '',
@@ -36,6 +37,7 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
         }
 
         createOpportunity(opportunity)
+        history.push("/adminportal")
     }
 
     const upload = (e) => {
@@ -158,4 +160,4 @@ const CreateAnOpportBody = ({ createOpportunity }) => {
     )
 }
 
-export default CreateAnOpportBody
+export default withRouter(CreateAnOpportBody) 

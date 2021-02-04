@@ -15,7 +15,7 @@ function CharityDetails({ charities, opportunities }) {
         axios.get(`${apiUrl}/charities/${charity.charityId}/comments`)
             .then(response => setComments(response.data))
             .catch(err => console.log(err))
-    }, [])
+    }, [apiUrl, charity.charityId])
 
     const VolunteerPhoto = (props) => {
         return (<>

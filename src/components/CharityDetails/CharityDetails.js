@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useParams } from "react-router-dom";
 import "./CharityDetails.css"
 
@@ -6,6 +7,14 @@ function CharityDetails({ charities }) {
 
     const { charityName } = useParams();
     const charity = charities.find(item => item.charityName === charityName);
+    const apiUrl = process.env.REACT_APP_APIURL;
+    const [comments, setComments] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${apiUrl}/charities/${charity.charityId}/comments`)
+            .then(response => setComments(response.data))
+            .catch(err => console.log(err))
+    }, [])
 
     const VolunteerPhoto = (props) => {
         return (<>
@@ -17,11 +26,10 @@ function CharityDetails({ charities }) {
     const VolunteerComment = (comment) => {
         return (<div className="charity-details__volunteer-comment">
             <div className="row">
-                <h3>{comment.name}</h3>
                 <p>{comment.comment}</p>
             </div>
             <div className="row">
-                {comment.imgs.map((photo, ix) =>
+                {comment.imageUrls.map((photo, ix) =>
                     <VolunteerPhoto photo={photo} key={ix} />
                 )}
             </div>
@@ -47,14 +55,14 @@ function CharityDetails({ charities }) {
                     </div>
                 </div>
             </div>
-            {charity.volunteerComments ?
+            {comments ?
                 (<>
                     <div className="row">
                         <h2 className="charity-details__title">Volunteer Comments and Photos</h2>
                     </div>
                     <div className="charity-details">
-                        {charity.volunteerComments.map((comment) => {
-                            return (<VolunteerComment {...comment} key={comment.id} />)
+                        {comments.map((comment, index) => {
+                            return (<VolunteerComment {...comment} key={index} />)
                         })}
                     </div>
                 </>) : null

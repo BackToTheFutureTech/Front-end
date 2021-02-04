@@ -29,15 +29,15 @@ import OpportunityDetails from "./components/OpportunityDetails/OpportunityDetai
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
-// ToDo replace with calls to backend
-import { taskImg, waysToHelp } from "./Assets/moreData"; //data
+
+import { taskImg, waysToHelp } from "./Assets/moreData"; //static data
 
 function App() {
   const apiUrl = process.env.REACT_APP_APIURL
   const [allCharities, setAllCharities] = useState([])
   useEffect(() => {
     axios.get(`${apiUrl}/charities`)
-      .then(response => setAllCharities(response.data))   
+      .then(response => setAllCharities(response.data))
       .catch(err => console.log(err))
   }, [])
   const [allOpportunities, setAllOpportunities] = useState([])
@@ -47,68 +47,64 @@ function App() {
       .catch(err => console.log(err))
   }, [])
 
-  // does this need to use state? will this be updated?
-  const [helpingWays] = useState(waysToHelp)
-
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
-
-  // ToDo select latest opportunities without relying on results order , eg with created date?
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
 
 
   // ********** For Charity Admin ********* //
+
   const { user } = useAuth0();
   let charityId = user ? user.name : ""
   let charityName = allCharities.find(c => c.charityId === charityId) ? allCharities.find(c => c.charityId === charityId).charityName : ""
-  
-  const editOpportunity = (opportunity) => { 
+
+  const editOpportunity = (opportunity) => {
     axios
-        .put(`${apiUrl}/charities/${charityId}/opportunities/${opportunity.id}`, opportunity)
-        .then(() => axios.get(`${apiUrl}/opportunities`))
-        .then(response => setAllOpportunities(response.data))
-        .then(() => alert("Opportunity Updated"))
-        .catch((err) => {
-          alert("Oops. Something went wrong. Please try again")
-          console.log(err)
-        })
+      .put(`${apiUrl}/charities/${charityId}/opportunities/${opportunity.id}`, opportunity)
+      .then(() => axios.get(`${apiUrl}/opportunities`))
+      .then(response => setAllOpportunities(response.data))
+      .then(() => alert("Opportunity Updated"))
+      .catch((err) => {
+        alert("Oops. Something went wrong. Please try again")
+        console.log(err)
+      })
   }
 
   const deleteOpportunity = id => {
     axios
-        .delete(`${apiUrl}/charities/${charityId}/opportunities/${id}`)
-        .then(() => axios.get(`${apiUrl}/opportunities`))
-        .then(response => setAllOpportunities(response.data))
-        .then(() => alert("Opportunity deleted"))
-        .catch((err) => {
-          alert("Oops. Something went wrong. Please try again")
-          console.log(err)
-        })
+      .delete(`${apiUrl}/charities/${charityId}/opportunities/${id}`)
+      .then(() => axios.get(`${apiUrl}/opportunities`))
+      .then(response => setAllOpportunities(response.data))
+      .then(() => alert("Opportunity deleted"))
+      .catch((err) => {
+        alert("Oops. Something went wrong. Please try again")
+        console.log(err)
+      })
   }
 
   const createOpportunity = (opportunity) => {
     axios
-        .post(`${apiUrl}/charities/${charityId}/opportunities`, opportunity)
-        .then(() => axios.get(`${apiUrl}/opportunities`))
-        .then(response => setAllOpportunities(response.data))
-        .then(() => alert("Opportunity Created"))
-        .catch((err) => {
-          alert("Oops. Something went wrong. Please try again")
-          console.log(err)
-        })
+      .post(`${apiUrl}/charities/${charityId}/opportunities`, opportunity)
+      .then(() => axios.get(`${apiUrl}/opportunities`))
+      .then(response => setAllOpportunities(response.data))
+      .then(() => alert("Opportunity Created"))
+      .catch((err) => {
+        alert("Oops. Something went wrong. Please try again")
+        console.log(err)
+      })
   }
 
   // ******************************* //
 
   const signupVolunteer = (volunteer) => {
     axios
-        .post(`${apiUrl}/opportunities/${volunteer.opportunityId}/volunteers`, volunteer)
-        .then(() => axios.get(`${apiUrl}/opportunities`))
-        .then(response => setAllOpportunities(response.data))
-        .then(() => alert("Thank You! Successful sign up."))
-        .catch((err) => {
-          alert("Oops. Something went wrong. Please try again")
-          console.log(err)
-        })
+      .post(`${apiUrl}/opportunities/${volunteer.opportunityId}/volunteers`, volunteer)
+      .then(() => axios.get(`${apiUrl}/opportunities`))
+      .then(response => setAllOpportunities(response.data))
+      .then(() => alert("Thank You! Successful sign up."))
+      .catch((err) => {
+        alert("Oops. Something went wrong. Please try again")
+        console.log(err)
+      })
   }
 
   // ******************************* //
@@ -132,10 +128,9 @@ function App() {
             component={() => <AdminPortalBody allOpportunities={allOpportunities}
               deleteOpportunity={deleteOpportunity} charityName={charityName} />}
           />
-
           <Route path="/howToHelp">
             <HowToHelp>
-              {helpingWays.map((item, index) => {
+              {waysToHelp.map((item, index) => {
                 return <HowToHelpBodyCard key={index} {...item} taskImg={taskImg} />
               })}
             </HowToHelp>

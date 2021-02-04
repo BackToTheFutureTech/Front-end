@@ -8,10 +8,10 @@ function Footer() {
                 <div className="container ml-3 p-3">
                     Connect with us
             <div className="my-3">
-                        <a href="/toDo.html" className="fa fa-facebook"></a>
-                        <a href="/toDo.html" className="fa fa-twitter"></a>
-                        <a href="/toDo.html" className="fa fa-instagram"></a>
-                        <a href="/toDo.html" className="fa fa-youtube"></a>
+                        <i href="/toDo.html" className="fa fa-facebook"></i>
+                        <i href="/toDo.html" className="fa fa-twitter"></i>
+                        <i href="/toDo.html" className="fa fa-instagram"></i>
+                        <i href="/toDo.html" className="fa fa-youtube"></i>
                     </div>
                 </div>
             </div>

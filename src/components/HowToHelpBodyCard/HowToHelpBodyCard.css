@@ -1,6 +1,7 @@
 .custom_card {
   background-color: #46c2b6;
   color: white;
+  height: 18rem;
 }
 .custom_header {
   border-bottom: none;

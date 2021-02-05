@@ -14,7 +14,7 @@ function CharityCard({ imageUrl, charityName }) {
                 />
                 <div className="card-body text-center ">
                     <ul className="list-unstyled mb-4">
-                        <li>{charityName}</li>
+                        <li className="charity__charity">{charityName}</li>
                     </ul>
                     <Link
                         to={`/charities/${charityName}`}

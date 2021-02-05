@@ -9,7 +9,7 @@ const Header = ({ children }) => {
     const { isAuthenticated } = useAuth0();
 
     return (
-        <header className="header">
+        <header >
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <NavLink className="navbar-brand" to="/home"
                 ><img src={Logo} height="50" alt="logo"

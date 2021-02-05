@@ -3,18 +3,19 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import "./CharityDetails.css"
 
-function CharityDetails({ charities }) {
+function CharityDetails({ charities, opportunities }) {
 
     const { charityName } = useParams();
-    const charity = charities.find(item => item.charityName === charityName);
+    const charity = charities.find(item => item.charityName === charityName)
+    const numActiveProjects = opportunities.filter((opportunity) => opportunity.charity === charity.charityName).length
+    // get comments for this charity
     const apiUrl = process.env.REACT_APP_APIURL;
     const [comments, setComments] = useState([]);
-
     useEffect(() => {
         axios.get(`${apiUrl}/charities/${charity.charityId}/comments`)
             .then(response => setComments(response.data))
             .catch(err => console.log(err))
-    }, [])
+    }, [apiUrl, charity.charityId])
 
     const VolunteerPhoto = (props) => {
         return (<>
@@ -47,8 +48,7 @@ function CharityDetails({ charities }) {
                         <img src={charity.imageUrl} width="100%" alt="" />
                     </div>
                     <div className="col-12 col-md-7">
-                        <h4>Active Projects: <span className="badge badge-danger">{charity.numActiveProjects}</span></h4>
-                        <h4>Completed Projects: <span className="badge charity-details__badge">{charity.numCompletedProjects}</span></h4>
+                        <h4>Active Projects: <span className="badge badge-danger">{numActiveProjects}</span></h4>
                         <hr />
                         <h5>Description</h5>
                         <p>{charity.charityDescription}</p>

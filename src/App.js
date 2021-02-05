@@ -30,7 +30,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 import Search from "./components/Search/Search"
 import VolunteerOpportunity from "./components/VolunteerOpportunity/VolunteerOpportunity"
 
-import { taskImg, waysToHelp } from "./Assets/moreData"; //static data
+import { taskImg, waysToHelp } from "./Assets/staticData"; //static data
 
 function App() {
   const apiUrl = process.env.REACT_APP_APIURL
@@ -39,13 +39,13 @@ function App() {
     axios.get(`${apiUrl}/charities`)
       .then(response => setAllCharities(response.data))
       .catch(err => console.log(err))
-  }, [])
+  }, [apiUrl])
   const [allOpportunities, setAllOpportunities] = useState([])
   useEffect(() => {
     axios.get(`${apiUrl}/opportunities`)
       .then(response => setAllOpportunities(response.data))
       .catch(err => console.log(err))
-  }, [])
+  }, [apiUrl])
 
   const [filteredOpportunities, setFillteredOpportunities] = useState([]);
   const latestOpportunities = allOpportunities.filter((item, ix) => ix > (allOpportunities.length - 4))
@@ -150,7 +150,7 @@ function App() {
             </ChooseAnOpportunity>
           </Route>
           <Route path="/charities/:charityName"
-            children={<CharityDetails charities={allCharities} />} />
+            children={<CharityDetails charities={allCharities} opportunities={allOpportunities} />} />
           <Route path="/charities">
             <Charities>
               {allCharities.map(charity => <CharityCard {...charity} key={charity.charityName} />)}

@@ -26,8 +26,8 @@ function CharityDetails({ charities, opportunities }) {
 
     const VolunteerComment = (comment) => {
         return (<div className="charity-details__volunteer-comment">
-            <div className="row">
-                <p>{comment.comment}</p>
+            <div className="row py-3">
+                <p><i>"{comment.comment}"</i></p>
             </div>
             <div className="row">
                 {comment.imageUrls.map((photo, ix) =>

@@ -2,6 +2,7 @@ import WrapPresentsImg from "./WrapPresents.jpg";
 import TidyGardenImg from "./TidyGarden.jpg";
 import ServeFoodImg from "./ServeFood.jpg";
 import SortClothingImg from "./SortClothing.jpg";
+import Logo from "./logo_wide.png";
 
 import SweatShirt from "./SweatShirt.png"
 import Present from "./WrapPresents.png"
@@ -13,6 +14,7 @@ export const taskImg = {
   "Gardening": TidyGardenImg,
   "Wrap Presents": WrapPresentsImg,
   "Serve Food": ServeFoodImg,
+  "Other": Logo,
   "SweatShirt":SweatShirt,
   "Present":Present,
   "Food":Food,

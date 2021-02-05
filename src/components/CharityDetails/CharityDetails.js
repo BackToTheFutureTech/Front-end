@@ -6,7 +6,7 @@ import "./CharityDetails.css"
 function CharityDetails({ charities, opportunities }) {
 
     const { charityName } = useParams();
-    const charity = charities.find(item => item.charityName === charityName)
+    const charity = charities.find(item => item.charityName === charityName) ? charities.find(item => item.charityName === charityName) : ""
     const numActiveProjects = opportunities.filter((opportunity) => opportunity.charity === charity.charityName).length
     // get comments for this charity
     const apiUrl = process.env.REACT_APP_APIURL;

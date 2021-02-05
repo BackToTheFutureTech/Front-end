@@ -6,8 +6,8 @@ import VolunteerRegistration from "../VolunteerRegistration/VolunteerRegistratio
 function OpportunityDetails({ allTaskImg, serverResponse, signupVolunteer }) {
     // state
     const [isApply, setIsApply] = useState(false);
-    let { id } = useParams();
-    let opportunity = serverResponse.find(item => item.id === parseInt(id))
+    const { id } = useParams();
+    const opportunity = serverResponse.find(item => item.id === parseInt(id)) ? serverResponse.find(item => item.id === parseInt(id)) : ""
     let taskImg = allTaskImg[opportunity.taskType]
     const regex = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/
 

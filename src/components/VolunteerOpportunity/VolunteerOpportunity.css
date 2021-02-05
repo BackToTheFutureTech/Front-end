@@ -12,5 +12,12 @@
     font-weight: 500;
     line-height: 2rem;
   }
+
+  .volunteer-requests__charity {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   
   

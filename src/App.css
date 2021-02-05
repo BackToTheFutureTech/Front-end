@@ -91,7 +91,7 @@ hr {
 }
 
 .card-img-top {
-  max-height: 180px;
+  height: 180px;
   object-fit: cover;
 }
 

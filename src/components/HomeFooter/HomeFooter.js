@@ -49,20 +49,15 @@ function HomeFooter() {
                     <div className="row">
                         <div className="col-sm testimonial">
                             <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Eveniet sint quas quaerat vero possimus,qui, nesciunt amet
-                                mollitia odit expedita omnis voluptas vitae exercitationem eius
-                                odio error consectetur repudiandae nisi?
+                                Volunteering with Cheshire Buddies is something that I know I will never regret, every time I volunteer I learn something new about myself and what I can do.
                             </p>
-                            <p className="testimonial__name">A name, charity</p>
+                            <p className="testimonial__name">Jane, CCBS</p>
                         </div>
                         <div className="col-sm testimonial">
                             <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Eveniet sint quas quaerat vero possimus,qui, nesciunt amet
-                                mollitia odit expedita omnis voluptas vitae
+                                What a fabulous experience. It feels fantastic to have been able to make a difference with such a worthwhile charity.
                             </p>
-                            <p className="testimonial__name">A name, charity</p>
+                            <p className="testimonial__name">Jo, St Mary's</p>
                         </div>
                     </div>
                 </div>

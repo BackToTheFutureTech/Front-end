@@ -5,22 +5,11 @@ const HowToHelpBanner = () => {
   return (
     <section className="how-to-help__intro">
       <div className="container pt-3">
-        <h2 className="intro__title">The Importance of Volunteering</h2>
+        <h2 className="intro__title pb-2">Why is Volunteering Important?</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac odio
-          eros. Suspendisse sollicitudin nisl quis erat venenatis, ut sodales
-          nunc dignissim. Nullam ut risus ac nisi mollis vestibulum posuere
-          nec leo. Mauris mattis risus quis lacinia condimentum. Morbi id
-          sagittis erat. Vivamus ullamcorper nulla sit amet ullamcorper
-          mattis. Sed maximus tellus eu nisl aliquet auctor vitae vehicula
-          enim. Integer molestie nunc sed consequat finibus. Aenean posuere
-          malesuada odio, et posuere mi gravida in. Curabitur lacinia, lorem
-          at pretium molestie, neque nibh hendrerit mi, et scelerisque nibh
-          nibh at libero. Etiam nec pellentesque lorem, id pulvinar ipsum. Sed
-          venenatis est ut vehicula laoreet. Cras aliquet erat at semper
-          scelerisque. Praesent id pharetra risus. Vestibulum eu ipsum at ante
-          gravida pretium at a tellus. In porta eget mi a mollis.
+        Volunteering is important as it offers essential help to worthwhile causes, people in need, and the wider community. Indeed, many organisations and charities rely on the generosity of volunteers as often they are only part-funded through government or local councils, and cannot afford to pay salaries for all their staff. In fact, many companies depend almost solely upon teams of volunteers to help them thrive and do their work.
           </p>
+        <p>But did you realise just how important volunteering could be for the person doing it? In fact, volunteering is beneficial to the doer for a whole host or reasons, including stress reduction, combating depression and providing a sense of purpose. It is an opportunity to meet people who you might not normally connect with: people from different age groups, ethnicities or social groups. Mental health is boosted simply because volunteering makes you happier; the so-called 'helper's high'. Human beings are hard-wired to give to others, and by measuring so-called brain activity and happiness hormones, researchers have found that being helpful to others can deliver great pleasure.</p>
       </div>
     </section>
 

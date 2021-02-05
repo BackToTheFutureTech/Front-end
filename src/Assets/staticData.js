@@ -24,25 +24,25 @@ export const waysToHelp = [
       title: "Sort Clothing",
       icon: "SweatShirt",
       desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac odio eros. Suspendisse sollicitudin nisl quis erat venenatis, ut sodales nunc dignissim. Nullam ut risus ac nisi mollis vestibulum posuere nec leo. Mauris mattis risus quis lacinia condimentum. Morbi id sagittis erat. Vivamus ullamcorper nulla sit amet ullamcorper mattis. Sed maximus tellus eu nisl aliquet auctor vitae vehicula enim. Integer molestie nunc sed consequat finibus. Aenean posuere malesuada odio, et posuere mi gravida in.",
+        "Be part of a team of volunteers sorting and pricing up donations.  Organise the display of goods, serve and assist customers.",
     },
     {
       title: "Serve Food",
       icon: "Food",
       desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac odio eros. Suspendisse sollicitudin nisl quis erat venenatis, ut sodales nunc dignissim. Nullam ut risus ac nisi mollis vestibulum posuere nec leo. Mauris mattis risus quis lacinia condimentum. Morbi id sagittis erat. Vivamus ullamcorper nulla sit amet ullamcorper mattis. Sed maximus tellus eu nisl aliquet auctor vitae vehicula enim. Integer molestie nunc sed consequat finibus. Aenean posuere malesuada odio, et posuere mi gravida in.",
+        "Roll your sleeves up, sport a fetching hairnet and join the kitchen team to produce a three-course vegetarian meal using surplus food. You’ll be peeling, chopping, frying, mixing, boiling, serving and washing up. But most of all, you’ll have a lot of fun.",
     },
     {
       title: "Clean out a garden",
       icon: "Garden",
       desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac odio eros. Suspendisse sollicitudin nisl quis erat venenatis, ut sodales nunc dignissim. Nullam ut risus ac nisi mollis vestibulum posuere nec leo. Mauris mattis risus quis lacinia condimentum. Morbi id sagittis erat. Vivamus ullamcorper nulla sit amet ullamcorper mattis. Sed maximus tellus eu nisl aliquet auctor vitae vehicula enim. Integer molestie nunc sed consequat finibus. Aenean posuere malesuada odio, et posuere mi gravida in.",
+        "Volunteers in communities across the UK are bringing people together to engage with horticulture – improving their local environment, tackling local issues and creating spaces that are a source of pride for people of all ages.",
     },
     {
       title: "Wrap presents",
       icon: "Present",
       desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac odio eros. Suspendisse sollicitudin nisl quis erat venenatis, ut sodales nunc dignissim. Nullam ut risus ac nisi mollis vestibulum posuere nec leo. Mauris mattis risus quis lacinia condimentum. Morbi id sagittis erat. Vivamus ullamcorper nulla sit amet ullamcorper mattis. Sed maximus tellus eu nisl aliquet auctor vitae vehicula enim. Integer molestie nunc sed consequat finibus. Aenean posuere malesuada odio, et posuere mi gravida in.",
+        "Volunteers are often needed to help wrap presents in preparation for specific charity events.  With 100's of deserving guests there can be quite a mountain of gift wrapping!",
     },
     
   ];

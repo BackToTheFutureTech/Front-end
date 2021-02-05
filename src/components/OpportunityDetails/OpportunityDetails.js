@@ -9,6 +9,7 @@ function OpportunityDetails({ allTaskImg, serverResponse, signupVolunteer }) {
     let { id } = useParams();
     let opportunity = serverResponse.find(item => item.id === parseInt(id))
     let taskImg = allTaskImg[opportunity.taskType]
+    const regex = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/
 
     return (
         <div className="container opportunity-details__details mt-5 mb-5">
@@ -16,7 +17,7 @@ function OpportunityDetails({ allTaskImg, serverResponse, signupVolunteer }) {
             <div className="row">
                 {opportunity ? <>
                     <div className="col-12 col-lg-3">
-                        <img src={opportunity.thumbnail ? opportunity.thumbnail : taskImg} width="100%" alt="" />
+                        <img src={regex.test(opportunity.thumbnail) ? opportunity.thumbnail : taskImg} width="100%" alt="" />
                     </div>
 
                     <div className="col-12 col-lg-5">

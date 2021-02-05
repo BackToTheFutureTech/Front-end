@@ -31,15 +31,14 @@ Below are screenshots to show just that.
 
 ### Laptop Screen
 
-![Laptop](https://github.com/BackToTheFutureTech/Front-end/blob/readme/Readme_Assets/volunteer_wide.PNG?raw=true)
+![Laptop](https://github.com/BackToTheFutureTech/Front-end/blob/main/Readme_Assets/volunteer_wide.PNG?raw=true)
 
 ### Mobile Screen
 
 <p align="center">
-  <img src="https://github.com/BackToTheFutureTech/Front-end/blob/readme/Readme_Assets/volunteer_mobile.PNG?raw=true">
+  <img src="https://github.com/BackToTheFutureTech/Front-end/blob/main/Readme_Assets/volunteer_mobile.PNG?raw=true">
 </p>
 
-<!-- ![Mobile ><](https://github.com/BackToTheFutureTech/Front-end/blob/readme/Readme_Assets/volunteer_mobile.PNG?raw=true) -->
 
 ## Running the application locally
 

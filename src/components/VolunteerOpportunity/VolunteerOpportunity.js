@@ -2,13 +2,13 @@ import React from "react";
 import "./VolunteerOpportunity.css";
 import { Link } from "react-router-dom"
 function VolunteerOpportunity({ thumbnail,taskImg, charity, taskType, location, id }) {
-
+    const regex = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/
     return (
         < div className="mx-auto mb-3" >
             <div className="card volunteer-requests__item">
                 <img
                     className="card-img-top"
-                    src={thumbnail?thumbnail:taskImg}
+                    src={regex.test(thumbnail)?thumbnail:taskImg}
                     alt=""
                 />
                 <div className="card-body text-center ">

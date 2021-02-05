@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import "./AdminPortalBody.css"
 
 const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) => {
-  
+
   let charityOpportunities = allOpportunities.filter(opportunity => opportunity.charity === charityName)
 
   return (
@@ -40,11 +40,11 @@ const AdminPortalBody = ({ charityName, allOpportunities, deleteOpportunity }) =
                       type="button"
                       className="btn opp-table__action"
                       onClick={() => deleteOpportunity(item.id)}
-                    >delete</button> |
+                    >delete<i style={{ color: "#212529" }} className="fa fa-trash"></i></button>
                     <Link
                       to={`/adminportal/editOpportunity/${item.id}`}
                       className="btn opp-table__action">
-                      edit
+                      edit<i style={{ color: "#212529" }} className="fa fa-edit"></i>
                     </Link>
                   </div>
                 </td>
